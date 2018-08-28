@@ -1,0 +1,1343 @@
+﻿namespace cashew
+{
+    partial class MAIN
+    {
+        /// <summary>
+        /// Required designer variable.
+        /// </summary>
+        private System.ComponentModel.IContainer components = null;
+
+        /// <summary>
+        /// Clean up any resources being used.
+        /// </summary>
+        /// <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        protected override void Dispose(bool disposing)
+        {
+            if (disposing && (components != null))
+            {
+                components.Dispose();
+            }
+            base.Dispose(disposing);
+        }
+
+        #region Windows Form Designer generated code
+
+        /// <summary>
+        /// Required method for Designer support - do not modify
+        /// the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+            this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN));
+            this.metroTabControl1 = new MetroFramework.Controls.MetroTabControl();
+            this.cstab = new MetroFramework.Controls.MetroTabPage();
+            this.cslive = new MetroFramework.Controls.MetroTile();
+            this.csinftc = new MetroFramework.Controls.MetroTabControl();
+            this.csedittp = new MetroFramework.Controls.MetroTabPage();
+            this.cseditsave = new MetroFramework.Controls.MetroTile();
+            this.cseditrun = new MetroFramework.Controls.MetroTile();
+            this.cseditopen = new MetroFramework.Controls.MetroTile();
+            this.cseditcode = new MetroFramework.Controls.MetroTextBox();
+            this.csediterrorpanel = new MetroFramework.Controls.MetroPanel();
+            this.csediterrors = new MetroFramework.Controls.MetroLabel();
+            this.cseditref = new MetroFramework.Controls.MetroTile();
+            this.cslivetp = new MetroFramework.Controls.MetroTabPage();
+            this.csedit = new MetroFramework.Controls.MetroTile();
+            this.htmltab = new MetroFramework.Controls.MetroTabPage();
+            this.htmlSep = new System.Windows.Forms.SplitContainer();
+            this.htmlRefreshTile = new MetroFramework.Controls.MetroTile();
+            this.livehider = new MetroFramework.Controls.MetroPanel();
+            this.htmlUpdateToggle = new MetroFramework.Controls.MetroToggle();
+            this.htmlLiveLabel = new MetroFramework.Controls.MetroLabel();
+            this.htmlLoad = new MetroFramework.Controls.MetroTile();
+            this.htmlSave = new MetroFramework.Controls.MetroTile();
+            this.htmlOptionsTile = new MetroFramework.Controls.MetroTile();
+            this.htmltext = new MetroFramework.Controls.MetroTextBox();
+            this.htmlLoadIndicator = new MetroFramework.Controls.MetroProgressSpinner();
+            this.htmltitle = new MetroFramework.Controls.MetroLabel();
+            this.htmldisplay = new System.Windows.Forms.WebBrowser();
+            this.infotab = new MetroFramework.Controls.MetroTabPage();
+            this.infoPanel = new MetroFramework.Controls.MetroLabel();
+            this.nightmodeToggle = new MetroFramework.Controls.MetroToggle();
+            this.nmtext = new MetroFramework.Controls.MetroLabel();
+            this.csSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.csOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.cseditexecutor = new System.ComponentModel.BackgroundWorker();
+            this.htmlOptionsMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.hTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.hTMLStructureSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.linkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.imageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.headingsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.heading1h1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.heading2h2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.heading3h3ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.heading4h4ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.heading5h5ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.heading6h6ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.boldbToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.underlineuToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.italiciToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.deleteddelToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.subscriptedSubToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.superscriptedsupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableFormatSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.tableHeadingthToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newRowtrToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.newHorizontalItemtdToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listsToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.orderedListSetupolToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.unorderedListSetupulToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.listItemliToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.javaScriptToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.javaStructureSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.functionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.alertBoxToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.timeoutToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.randomNumberToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cSSToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cSSStructureSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cSSCustomizeTagToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.cSSCustomTagPropertiesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundAttachmentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundColorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundImageToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundPositionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.backgroundRepeatToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textToolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.fontToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.sizeToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.weightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.colorToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.directionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lineHeightToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.letterSpacingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.alignToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.decorationToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.indentToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.shadowToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.transformToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.wordspacingToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pHPToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.pHPStructureSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.textToolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
+            this.htmlSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.htmlOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
+            this.nightmodehide = new MetroFramework.Controls.MetroPanel();
+            this.cslivenotyetimplemented = new MetroFramework.Controls.MetroLabel();
+            this.centercenterToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.paragraphpToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.metroTabControl1.SuspendLayout();
+            this.cstab.SuspendLayout();
+            this.csinftc.SuspendLayout();
+            this.csedittp.SuspendLayout();
+            this.csediterrorpanel.SuspendLayout();
+            this.cslivetp.SuspendLayout();
+            this.htmltab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.htmlSep)).BeginInit();
+            this.htmlSep.Panel1.SuspendLayout();
+            this.htmlSep.Panel2.SuspendLayout();
+            this.htmlSep.SuspendLayout();
+            this.infotab.SuspendLayout();
+            this.htmlOptionsMenu.SuspendLayout();
+            this.SuspendLayout();
+            // 
+            // metroTabControl1
+            // 
+            this.metroTabControl1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.metroTabControl1.Controls.Add(this.cstab);
+            this.metroTabControl1.Controls.Add(this.htmltab);
+            this.metroTabControl1.Controls.Add(this.infotab);
+            this.metroTabControl1.Location = new System.Drawing.Point(23, 63);
+            this.metroTabControl1.Name = "metroTabControl1";
+            this.metroTabControl1.SelectedIndex = 0;
+            this.metroTabControl1.Size = new System.Drawing.Size(797, 432);
+            this.metroTabControl1.TabIndex = 0;
+            this.metroTabControl1.UseSelectable = true;
+            // 
+            // cstab
+            // 
+            this.cstab.Controls.Add(this.cslive);
+            this.cstab.Controls.Add(this.csinftc);
+            this.cstab.Controls.Add(this.csedit);
+            this.cstab.HorizontalScrollbarBarColor = true;
+            this.cstab.HorizontalScrollbarHighlightOnWheel = false;
+            this.cstab.HorizontalScrollbarSize = 10;
+            this.cstab.Location = new System.Drawing.Point(4, 38);
+            this.cstab.Name = "cstab";
+            this.cstab.Size = new System.Drawing.Size(789, 390);
+            this.cstab.TabIndex = 0;
+            this.cstab.Text = "C#";
+            this.cstab.VerticalScrollbarBarColor = true;
+            this.cstab.VerticalScrollbarHighlightOnWheel = false;
+            this.cstab.VerticalScrollbarSize = 10;
+            // 
+            // cslive
+            // 
+            this.cslive.ActiveControl = null;
+            this.cslive.Location = new System.Drawing.Point(1, 50);
+            this.cslive.Name = "cslive";
+            this.cslive.Size = new System.Drawing.Size(47, 38);
+            this.cslive.TabIndex = 4;
+            this.cslive.Text = "Live";
+            this.cslive.UseSelectable = true;
+            this.cslive.Click += new System.EventHandler(this.cslive_Click);
+            // 
+            // csinftc
+            // 
+            this.csinftc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.csinftc.Controls.Add(this.csedittp);
+            this.csinftc.Controls.Add(this.cslivetp);
+            this.csinftc.Location = new System.Drawing.Point(54, 6);
+            this.csinftc.Name = "csinftc";
+            this.csinftc.SelectedIndex = 0;
+            this.csinftc.Size = new System.Drawing.Size(735, 388);
+            this.csinftc.TabIndex = 9;
+            this.csinftc.UseSelectable = true;
+            // 
+            // csedittp
+            // 
+            this.csedittp.Controls.Add(this.cseditsave);
+            this.csedittp.Controls.Add(this.cseditrun);
+            this.csedittp.Controls.Add(this.cseditopen);
+            this.csedittp.Controls.Add(this.cseditcode);
+            this.csedittp.Controls.Add(this.csediterrorpanel);
+            this.csedittp.Controls.Add(this.cseditref);
+            this.csedittp.HorizontalScrollbarBarColor = true;
+            this.csedittp.HorizontalScrollbarHighlightOnWheel = false;
+            this.csedittp.HorizontalScrollbarSize = 10;
+            this.csedittp.Location = new System.Drawing.Point(4, 38);
+            this.csedittp.Name = "csedittp";
+            this.csedittp.Size = new System.Drawing.Size(727, 346);
+            this.csedittp.TabIndex = 0;
+            this.csedittp.Text = "CSEdit";
+            this.csedittp.VerticalScrollbarBarColor = true;
+            this.csedittp.VerticalScrollbarHighlightOnWheel = false;
+            this.csedittp.VerticalScrollbarSize = 10;
+            // 
+            // cseditsave
+            // 
+            this.cseditsave.ActiveControl = null;
+            this.cseditsave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cseditsave.Location = new System.Drawing.Point(568, 3);
+            this.cseditsave.Name = "cseditsave";
+            this.cseditsave.Size = new System.Drawing.Size(75, 38);
+            this.cseditsave.TabIndex = 4;
+            this.cseditsave.Text = "Save";
+            this.cseditsave.UseSelectable = true;
+            this.cseditsave.Click += new System.EventHandler(this.cseditsave_Click);
+            // 
+            // cseditrun
+            // 
+            this.cseditrun.ActiveControl = null;
+            this.cseditrun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cseditrun.Location = new System.Drawing.Point(649, 3);
+            this.cseditrun.Name = "cseditrun";
+            this.cseditrun.Size = new System.Drawing.Size(75, 38);
+            this.cseditrun.TabIndex = 3;
+            this.cseditrun.Text = "Run";
+            this.cseditrun.UseSelectable = true;
+            this.cseditrun.Click += new System.EventHandler(this.cseditrun_Click);
+            // 
+            // cseditopen
+            // 
+            this.cseditopen.ActiveControl = null;
+            this.cseditopen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cseditopen.Location = new System.Drawing.Point(487, 3);
+            this.cseditopen.Name = "cseditopen";
+            this.cseditopen.Size = new System.Drawing.Size(75, 38);
+            this.cseditopen.TabIndex = 5;
+            this.cseditopen.Text = "Open";
+            this.cseditopen.UseSelectable = true;
+            this.cseditopen.Click += new System.EventHandler(this.cseditopen_Click);
+            // 
+            // cseditcode
+            // 
+            this.cseditcode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.cseditcode.CustomButton.Image = null;
+            this.cseditcode.CustomButton.Location = new System.Drawing.Point(472, 2);
+            this.cseditcode.CustomButton.Name = "";
+            this.cseditcode.CustomButton.Size = new System.Drawing.Size(249, 249);
+            this.cseditcode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.cseditcode.CustomButton.TabIndex = 1;
+            this.cseditcode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.cseditcode.CustomButton.UseSelectable = true;
+            this.cseditcode.CustomButton.Visible = false;
+            this.cseditcode.Lines = new string[] {
+        "using System;",
+        "using System.Windows.Forms;",
+        "",
+        "namespace Project",
+        "{",
+        "    public class Program",
+        "    {",
+        "        public static void Main()",
+        "        {",
+        "            MessageBox.Show(\"Hello, world!\");",
+        "        }",
+        "    }",
+        "}"};
+            this.cseditcode.Location = new System.Drawing.Point(0, 44);
+            this.cseditcode.MaxLength = 32767;
+            this.cseditcode.Multiline = true;
+            this.cseditcode.Name = "cseditcode";
+            this.cseditcode.PasswordChar = '\0';
+            this.cseditcode.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.cseditcode.SelectedText = "";
+            this.cseditcode.SelectionLength = 0;
+            this.cseditcode.SelectionStart = 0;
+            this.cseditcode.ShortcutsEnabled = true;
+            this.cseditcode.Size = new System.Drawing.Size(724, 254);
+            this.cseditcode.TabIndex = 2;
+            this.cseditcode.Text = resources.GetString("cseditcode.Text");
+            this.cseditcode.UseSelectable = true;
+            this.cseditcode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.cseditcode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // csediterrorpanel
+            // 
+            this.csediterrorpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.csediterrorpanel.AutoScroll = true;
+            this.csediterrorpanel.Controls.Add(this.csediterrors);
+            this.csediterrorpanel.HorizontalScrollbar = true;
+            this.csediterrorpanel.HorizontalScrollbarBarColor = true;
+            this.csediterrorpanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.csediterrorpanel.HorizontalScrollbarSize = 10;
+            this.csediterrorpanel.Location = new System.Drawing.Point(0, 304);
+            this.csediterrorpanel.Name = "csediterrorpanel";
+            this.csediterrorpanel.Size = new System.Drawing.Size(724, 44);
+            this.csediterrorpanel.TabIndex = 7;
+            this.csediterrorpanel.VerticalScrollbar = true;
+            this.csediterrorpanel.VerticalScrollbarBarColor = true;
+            this.csediterrorpanel.VerticalScrollbarHighlightOnWheel = false;
+            this.csediterrorpanel.VerticalScrollbarSize = 10;
+            this.csediterrorpanel.Click += new System.EventHandler(this.metroPanel1_Click);
+            // 
+            // csediterrors
+            // 
+            this.csediterrors.AutoSize = true;
+            this.csediterrors.Location = new System.Drawing.Point(3, 5);
+            this.csediterrors.Name = "csediterrors";
+            this.csediterrors.Size = new System.Drawing.Size(45, 19);
+            this.csediterrors.TabIndex = 6;
+            this.csediterrors.Text = "Ready";
+            this.csediterrors.Click += new System.EventHandler(this.metroLabel2_Click);
+            // 
+            // cseditref
+            // 
+            this.cseditref.ActiveControl = null;
+            this.cseditref.Location = new System.Drawing.Point(0, 3);
+            this.cseditref.Name = "cseditref";
+            this.cseditref.Size = new System.Drawing.Size(89, 38);
+            this.cseditref.TabIndex = 8;
+            this.cseditref.Text = "References";
+            this.cseditref.UseSelectable = true;
+            this.cseditref.Click += new System.EventHandler(this.cseditref_Click);
+            // 
+            // cslivetp
+            // 
+            this.cslivetp.Controls.Add(this.cslivenotyetimplemented);
+            this.cslivetp.HorizontalScrollbarBarColor = true;
+            this.cslivetp.HorizontalScrollbarHighlightOnWheel = false;
+            this.cslivetp.HorizontalScrollbarSize = 10;
+            this.cslivetp.Location = new System.Drawing.Point(4, 38);
+            this.cslivetp.Name = "cslivetp";
+            this.cslivetp.Size = new System.Drawing.Size(727, 346);
+            this.cslivetp.TabIndex = 1;
+            this.cslivetp.Text = "CSLive";
+            this.cslivetp.VerticalScrollbarBarColor = true;
+            this.cslivetp.VerticalScrollbarHighlightOnWheel = false;
+            this.cslivetp.VerticalScrollbarSize = 10;
+            // 
+            // csedit
+            // 
+            this.csedit.ActiveControl = null;
+            this.csedit.Location = new System.Drawing.Point(1, 6);
+            this.csedit.Name = "csedit";
+            this.csedit.Size = new System.Drawing.Size(47, 38);
+            this.csedit.TabIndex = 3;
+            this.csedit.Text = "Edit";
+            this.csedit.UseSelectable = true;
+            this.csedit.Click += new System.EventHandler(this.csedit_Click);
+            // 
+            // htmltab
+            // 
+            this.htmltab.Controls.Add(this.htmlSep);
+            this.htmltab.HorizontalScrollbarBarColor = true;
+            this.htmltab.HorizontalScrollbarHighlightOnWheel = false;
+            this.htmltab.HorizontalScrollbarSize = 10;
+            this.htmltab.Location = new System.Drawing.Point(4, 38);
+            this.htmltab.Name = "htmltab";
+            this.htmltab.Size = new System.Drawing.Size(789, 390);
+            this.htmltab.TabIndex = 2;
+            this.htmltab.Text = "HTML";
+            this.htmltab.VerticalScrollbarBarColor = true;
+            this.htmltab.VerticalScrollbarHighlightOnWheel = false;
+            this.htmltab.VerticalScrollbarSize = 10;
+            // 
+            // htmlSep
+            // 
+            this.htmlSep.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.htmlSep.BackColor = System.Drawing.Color.White;
+            this.htmlSep.ForeColor = System.Drawing.Color.White;
+            this.htmlSep.Location = new System.Drawing.Point(3, 3);
+            this.htmlSep.Name = "htmlSep";
+            // 
+            // htmlSep.Panel1
+            // 
+            this.htmlSep.Panel1.Controls.Add(this.htmlRefreshTile);
+            this.htmlSep.Panel1.Controls.Add(this.htmlLiveLabel);
+            this.htmlSep.Panel1.Controls.Add(this.htmlLoad);
+            this.htmlSep.Panel1.Controls.Add(this.htmlSave);
+            this.htmlSep.Panel1.Controls.Add(this.htmlOptionsTile);
+            this.htmlSep.Panel1.Controls.Add(this.htmltext);
+            this.htmlSep.Panel1.Controls.Add(this.livehider);
+            this.htmlSep.Panel1.Controls.Add(this.htmlUpdateToggle);
+            // 
+            // htmlSep.Panel2
+            // 
+            this.htmlSep.Panel2.Controls.Add(this.htmlLoadIndicator);
+            this.htmlSep.Panel2.Controls.Add(this.htmltitle);
+            this.htmlSep.Panel2.Controls.Add(this.htmldisplay);
+            this.htmlSep.Size = new System.Drawing.Size(783, 384);
+            this.htmlSep.SplitterDistance = 338;
+            this.htmlSep.TabIndex = 3;
+            // 
+            // htmlRefreshTile
+            // 
+            this.htmlRefreshTile.ActiveControl = null;
+            this.htmlRefreshTile.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.htmlRefreshTile.Location = new System.Drawing.Point(215, 3);
+            this.htmlRefreshTile.Name = "htmlRefreshTile";
+            this.htmlRefreshTile.Size = new System.Drawing.Size(65, 38);
+            this.htmlRefreshTile.TabIndex = 6;
+            this.htmlRefreshTile.Text = "Refresh";
+            this.htmlRefreshTile.UseSelectable = true;
+            this.htmlRefreshTile.Click += new System.EventHandler(this.htmlRefreshTile_Click);
+            // 
+            // livehider
+            // 
+            this.livehider.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.livehider.HorizontalScrollbarBarColor = true;
+            this.livehider.HorizontalScrollbarHighlightOnWheel = false;
+            this.livehider.HorizontalScrollbarSize = 10;
+            this.livehider.Location = new System.Drawing.Point(238, 3);
+            this.livehider.Name = "livehider";
+            this.livehider.Size = new System.Drawing.Size(45, 17);
+            this.livehider.TabIndex = 4;
+            this.livehider.VerticalScrollbarBarColor = true;
+            this.livehider.VerticalScrollbarHighlightOnWheel = false;
+            this.livehider.VerticalScrollbarSize = 10;
+            // 
+            // htmlUpdateToggle
+            // 
+            this.htmlUpdateToggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.htmlUpdateToggle.AutoSize = true;
+            this.htmlUpdateToggle.Checked = true;
+            this.htmlUpdateToggle.CheckState = System.Windows.Forms.CheckState.Checked;
+            this.htmlUpdateToggle.Location = new System.Drawing.Point(255, 3);
+            this.htmlUpdateToggle.Name = "htmlUpdateToggle";
+            this.htmlUpdateToggle.Size = new System.Drawing.Size(80, 17);
+            this.htmlUpdateToggle.TabIndex = 4;
+            this.htmlUpdateToggle.Text = "An";
+            this.htmlUpdateToggle.UseSelectable = true;
+            this.htmlUpdateToggle.CheckedChanged += new System.EventHandler(this.metroToggle2_CheckedChanged);
+            // 
+            // htmlLiveLabel
+            // 
+            this.htmlLiveLabel.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.htmlLiveLabel.AutoSize = true;
+            this.htmlLiveLabel.Location = new System.Drawing.Point(304, 22);
+            this.htmlLiveLabel.Name = "htmlLiveLabel";
+            this.htmlLiveLabel.Size = new System.Drawing.Size(31, 19);
+            this.htmlLiveLabel.TabIndex = 3;
+            this.htmlLiveLabel.Text = "Live";
+            // 
+            // htmlLoad
+            // 
+            this.htmlLoad.ActiveControl = null;
+            this.htmlLoad.Location = new System.Drawing.Point(145, 3);
+            this.htmlLoad.Name = "htmlLoad";
+            this.htmlLoad.Size = new System.Drawing.Size(64, 38);
+            this.htmlLoad.TabIndex = 8;
+            this.htmlLoad.Text = "Load";
+            this.htmlLoad.UseSelectable = true;
+            this.htmlLoad.Click += new System.EventHandler(this.htmlLoad_Click);
+            // 
+            // htmlSave
+            // 
+            this.htmlSave.ActiveControl = null;
+            this.htmlSave.Location = new System.Drawing.Point(75, 3);
+            this.htmlSave.Name = "htmlSave";
+            this.htmlSave.Size = new System.Drawing.Size(64, 38);
+            this.htmlSave.TabIndex = 7;
+            this.htmlSave.Text = "Save";
+            this.htmlSave.UseSelectable = true;
+            this.htmlSave.Click += new System.EventHandler(this.htmlSave_Click);
+            // 
+            // htmlOptionsTile
+            // 
+            this.htmlOptionsTile.ActiveControl = null;
+            this.htmlOptionsTile.Location = new System.Drawing.Point(3, 3);
+            this.htmlOptionsTile.Name = "htmlOptionsTile";
+            this.htmlOptionsTile.Size = new System.Drawing.Size(66, 38);
+            this.htmlOptionsTile.TabIndex = 5;
+            this.htmlOptionsTile.TabStop = false;
+            this.htmlOptionsTile.Text = "Options";
+            this.htmlOptionsTile.UseSelectable = true;
+            this.htmlOptionsTile.Click += new System.EventHandler(this.htmlOptionsTile_Click);
+            this.htmlOptionsTile.MouseEnter += new System.EventHandler(this.htmlOptionsTile_MouseEnter);
+            // 
+            // htmltext
+            // 
+            this.htmltext.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.htmltext.CustomButton.Image = null;
+            this.htmltext.CustomButton.Location = new System.Drawing.Point(0, 2);
+            this.htmltext.CustomButton.Name = "";
+            this.htmltext.CustomButton.Size = new System.Drawing.Size(329, 329);
+            this.htmltext.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.htmltext.CustomButton.TabIndex = 1;
+            this.htmltext.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.htmltext.CustomButton.UseSelectable = true;
+            this.htmltext.CustomButton.Visible = false;
+            this.htmltext.Lines = new string[] {
+        "<!DOCTYPE html>",
+        "<head>",
+        "<title>Title</title>",
+        "</head>",
+        "<body>",
+        "Example Text",
+        "</body>",
+        "</html>"};
+            this.htmltext.Location = new System.Drawing.Point(3, 47);
+            this.htmltext.MaxLength = 32767;
+            this.htmltext.Multiline = true;
+            this.htmltext.Name = "htmltext";
+            this.htmltext.PasswordChar = '\0';
+            this.htmltext.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.htmltext.SelectedText = "";
+            this.htmltext.SelectionLength = 0;
+            this.htmltext.SelectionStart = 0;
+            this.htmltext.ShortcutsEnabled = true;
+            this.htmltext.Size = new System.Drawing.Size(332, 334);
+            this.htmltext.TabIndex = 4;
+            this.htmltext.Text = "<!DOCTYPE html>\r\n<head>\r\n<title>Title</title>\r\n</head>\r\n<body>\r\nExample Text\r\n</b" +
+    "ody>\r\n</html>";
+            this.htmltext.UseSelectable = true;
+            this.htmltext.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.htmltext.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            this.htmltext.TextChanged += new System.EventHandler(this.htmltext_TextChanged);
+            // 
+            // htmlLoadIndicator
+            // 
+            this.htmlLoadIndicator.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.htmlLoadIndicator.Location = new System.Drawing.Point(422, 3);
+            this.htmlLoadIndicator.Maximum = 100;
+            this.htmlLoadIndicator.Name = "htmlLoadIndicator";
+            this.htmlLoadIndicator.Size = new System.Drawing.Size(16, 16);
+            this.htmlLoadIndicator.TabIndex = 3;
+            this.htmlLoadIndicator.UseSelectable = true;
+            this.htmlLoadIndicator.Visible = false;
+            // 
+            // htmltitle
+            // 
+            this.htmltitle.AutoSize = true;
+            this.htmltitle.Location = new System.Drawing.Point(3, 3);
+            this.htmltitle.Name = "htmltitle";
+            this.htmltitle.Size = new System.Drawing.Size(33, 19);
+            this.htmltitle.TabIndex = 3;
+            this.htmltitle.Text = "Title";
+            // 
+            // htmldisplay
+            // 
+            this.htmldisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.htmldisplay.Location = new System.Drawing.Point(3, 25);
+            this.htmldisplay.MinimumSize = new System.Drawing.Size(20, 20);
+            this.htmldisplay.Name = "htmldisplay";
+            this.htmldisplay.Size = new System.Drawing.Size(435, 356);
+            this.htmldisplay.TabIndex = 2;
+            this.htmldisplay.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.htmldisplay_DocumentCompleted);
+            this.htmldisplay.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.htmldisplay_Navigating);
+            // 
+            // infotab
+            // 
+            this.infotab.Controls.Add(this.infoPanel);
+            this.infotab.HorizontalScrollbarBarColor = true;
+            this.infotab.HorizontalScrollbarHighlightOnWheel = false;
+            this.infotab.HorizontalScrollbarSize = 10;
+            this.infotab.Location = new System.Drawing.Point(4, 38);
+            this.infotab.Name = "infotab";
+            this.infotab.Size = new System.Drawing.Size(789, 390);
+            this.infotab.TabIndex = 1;
+            this.infotab.Text = "Info";
+            this.infotab.VerticalScrollbarBarColor = true;
+            this.infotab.VerticalScrollbarHighlightOnWheel = false;
+            this.infotab.VerticalScrollbarSize = 10;
+            // 
+            // infoPanel
+            // 
+            this.infoPanel.AutoSize = true;
+            this.infoPanel.Location = new System.Drawing.Point(3, 0);
+            this.infoPanel.Name = "infoPanel";
+            this.infoPanel.Size = new System.Drawing.Size(473, 95);
+            this.infoPanel.TabIndex = 2;
+            this.infoPanel.Text = "This Program uses MetroModernUI by Dennis Magno.\r\nFunctionality:\r\n- Select a cate" +
+    "gory (Top bar) and use the provided functions to write programs.\r\n\r\nIF YOU WANT " +
+    "A PROFESSIONAL PROGRAM, DON\'T USE THIS!";
+            // 
+            // nightmodeToggle
+            // 
+            this.nightmodeToggle.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nightmodeToggle.AutoSize = true;
+            this.nightmodeToggle.Location = new System.Drawing.Point(740, 40);
+            this.nightmodeToggle.Name = "nightmodeToggle";
+            this.nightmodeToggle.Size = new System.Drawing.Size(80, 17);
+            this.nightmodeToggle.TabIndex = 1;
+            this.nightmodeToggle.TabStop = false;
+            this.nightmodeToggle.Text = "Aus";
+            this.nightmodeToggle.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.nightmodeToggle.UseSelectable = true;
+            this.nightmodeToggle.CheckedChanged += new System.EventHandler(this.metroToggle1_CheckedChanged);
+            // 
+            // nmtext
+            // 
+            this.nmtext.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nmtext.AutoSize = true;
+            this.nmtext.Location = new System.Drawing.Point(740, 60);
+            this.nmtext.Name = "nmtext";
+            this.nmtext.Size = new System.Drawing.Size(80, 19);
+            this.nmtext.TabIndex = 2;
+            this.nmtext.Text = "Night Mode";
+            // 
+            // csSaveFileDialog
+            // 
+            this.csSaveFileDialog.DefaultExt = "dat";
+            this.csSaveFileDialog.FileName = "Project.dat";
+            this.csSaveFileDialog.Filter = "Data File | *.dat";
+            // 
+            // csOpenFileDialog
+            // 
+            this.csOpenFileDialog.DefaultExt = "dat";
+            this.csOpenFileDialog.Filter = "Data File | *.dat";
+            // 
+            // cseditexecutor
+            // 
+            this.cseditexecutor.DoWork += new System.ComponentModel.DoWorkEventHandler(this.cseditexecutor_DoWork);
+            this.cseditexecutor.RunWorkerCompleted += new System.ComponentModel.RunWorkerCompletedEventHandler(this.cseditexecutor_RunWorkerCompleted);
+            // 
+            // htmlOptionsMenu
+            // 
+            this.htmlOptionsMenu.DropShadowEnabled = false;
+            this.htmlOptionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hTMLToolStripMenuItem,
+            this.javaScriptToolStripMenuItem,
+            this.cSSToolStripMenuItem,
+            this.pHPToolStripMenuItem});
+            this.htmlOptionsMenu.Name = "metroContextMenu1";
+            this.htmlOptionsMenu.Size = new System.Drawing.Size(127, 92);
+            // 
+            // hTMLToolStripMenuItem
+            // 
+            this.hTMLToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.hTMLStructureSetupToolStripMenuItem,
+            this.linkToolStripMenuItem,
+            this.imageToolStripMenuItem,
+            this.centercenterToolStripMenuItem,
+            this.textToolStripMenuItem,
+            this.tableToolStripMenuItem,
+            this.listsToolStripMenuItem});
+            this.hTMLToolStripMenuItem.Name = "hTMLToolStripMenuItem";
+            this.hTMLToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.hTMLToolStripMenuItem.Text = "HTML";
+            // 
+            // hTMLStructureSetupToolStripMenuItem
+            // 
+            this.hTMLStructureSetupToolStripMenuItem.Name = "hTMLStructureSetupToolStripMenuItem";
+            this.hTMLStructureSetupToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.hTMLStructureSetupToolStripMenuItem.Text = "HTML Structure Setup";
+            this.hTMLStructureSetupToolStripMenuItem.Click += new System.EventHandler(this.hTMLStructureSetupToolStripMenuItem_Click);
+            // 
+            // linkToolStripMenuItem
+            // 
+            this.linkToolStripMenuItem.Name = "linkToolStripMenuItem";
+            this.linkToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.linkToolStripMenuItem.Text = "Link";
+            this.linkToolStripMenuItem.Click += new System.EventHandler(this.linkToolStripMenuItem_Click);
+            // 
+            // imageToolStripMenuItem
+            // 
+            this.imageToolStripMenuItem.Name = "imageToolStripMenuItem";
+            this.imageToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.imageToolStripMenuItem.Text = "Image";
+            this.imageToolStripMenuItem.Click += new System.EventHandler(this.imageToolStripMenuItem_Click);
+            // 
+            // textToolStripMenuItem
+            // 
+            this.textToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.headingsToolStripMenuItem,
+            this.paragraphpToolStripMenuItem,
+            this.boldbToolStripMenuItem,
+            this.underlineuToolStripMenuItem,
+            this.italiciToolStripMenuItem,
+            this.deleteddelToolStripMenuItem,
+            this.subscriptedSubToolStripMenuItem,
+            this.superscriptedsupToolStripMenuItem});
+            this.textToolStripMenuItem.Name = "textToolStripMenuItem";
+            this.textToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.textToolStripMenuItem.Text = "Text";
+            // 
+            // headingsToolStripMenuItem
+            // 
+            this.headingsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.heading1h1ToolStripMenuItem,
+            this.heading2h2ToolStripMenuItem,
+            this.heading3h3ToolStripMenuItem,
+            this.heading4h4ToolStripMenuItem,
+            this.heading5h5ToolStripMenuItem,
+            this.heading6h6ToolStripMenuItem});
+            this.headingsToolStripMenuItem.Name = "headingsToolStripMenuItem";
+            this.headingsToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.headingsToolStripMenuItem.Text = "Headings";
+            // 
+            // heading1h1ToolStripMenuItem
+            // 
+            this.heading1h1ToolStripMenuItem.Name = "heading1h1ToolStripMenuItem";
+            this.heading1h1ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.heading1h1ToolStripMenuItem.Text = "Heading 1 <h1>";
+            this.heading1h1ToolStripMenuItem.Click += new System.EventHandler(this.heading1h1ToolStripMenuItem_Click);
+            // 
+            // heading2h2ToolStripMenuItem
+            // 
+            this.heading2h2ToolStripMenuItem.Name = "heading2h2ToolStripMenuItem";
+            this.heading2h2ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.heading2h2ToolStripMenuItem.Text = "Heading 2 <h2>";
+            this.heading2h2ToolStripMenuItem.Click += new System.EventHandler(this.heading2h2ToolStripMenuItem_Click);
+            // 
+            // heading3h3ToolStripMenuItem
+            // 
+            this.heading3h3ToolStripMenuItem.Name = "heading3h3ToolStripMenuItem";
+            this.heading3h3ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.heading3h3ToolStripMenuItem.Text = "Heading 3 <h3>";
+            this.heading3h3ToolStripMenuItem.Click += new System.EventHandler(this.heading3h3ToolStripMenuItem_Click);
+            // 
+            // heading4h4ToolStripMenuItem
+            // 
+            this.heading4h4ToolStripMenuItem.Name = "heading4h4ToolStripMenuItem";
+            this.heading4h4ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.heading4h4ToolStripMenuItem.Text = "Heading 4 <h4>";
+            this.heading4h4ToolStripMenuItem.Click += new System.EventHandler(this.heading4h4ToolStripMenuItem_Click);
+            // 
+            // heading5h5ToolStripMenuItem
+            // 
+            this.heading5h5ToolStripMenuItem.Name = "heading5h5ToolStripMenuItem";
+            this.heading5h5ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.heading5h5ToolStripMenuItem.Text = "Heading 5 <h5>";
+            this.heading5h5ToolStripMenuItem.Click += new System.EventHandler(this.heading5h5ToolStripMenuItem_Click);
+            // 
+            // heading6h6ToolStripMenuItem
+            // 
+            this.heading6h6ToolStripMenuItem.Name = "heading6h6ToolStripMenuItem";
+            this.heading6h6ToolStripMenuItem.Size = new System.Drawing.Size(160, 22);
+            this.heading6h6ToolStripMenuItem.Text = "Heading 6 <h6>";
+            this.heading6h6ToolStripMenuItem.Click += new System.EventHandler(this.heading6h6ToolStripMenuItem_Click);
+            // 
+            // boldbToolStripMenuItem
+            // 
+            this.boldbToolStripMenuItem.Name = "boldbToolStripMenuItem";
+            this.boldbToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.boldbToolStripMenuItem.Text = "Bold <b>";
+            this.boldbToolStripMenuItem.Click += new System.EventHandler(this.boldbToolStripMenuItem_Click);
+            // 
+            // underlineuToolStripMenuItem
+            // 
+            this.underlineuToolStripMenuItem.Name = "underlineuToolStripMenuItem";
+            this.underlineuToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.underlineuToolStripMenuItem.Text = "Underline <u>";
+            this.underlineuToolStripMenuItem.Click += new System.EventHandler(this.underlineuToolStripMenuItem_Click);
+            // 
+            // italiciToolStripMenuItem
+            // 
+            this.italiciToolStripMenuItem.Name = "italiciToolStripMenuItem";
+            this.italiciToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.italiciToolStripMenuItem.Text = "Italic <i>";
+            this.italiciToolStripMenuItem.Click += new System.EventHandler(this.italiciToolStripMenuItem_Click);
+            // 
+            // deleteddelToolStripMenuItem
+            // 
+            this.deleteddelToolStripMenuItem.Name = "deleteddelToolStripMenuItem";
+            this.deleteddelToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.deleteddelToolStripMenuItem.Text = "Deleted <del>";
+            this.deleteddelToolStripMenuItem.Click += new System.EventHandler(this.deleteddelToolStripMenuItem_Click);
+            // 
+            // subscriptedSubToolStripMenuItem
+            // 
+            this.subscriptedSubToolStripMenuItem.Name = "subscriptedSubToolStripMenuItem";
+            this.subscriptedSubToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.subscriptedSubToolStripMenuItem.Text = "subscripted <sub>";
+            this.subscriptedSubToolStripMenuItem.Click += new System.EventHandler(this.subscriptedSubToolStripMenuItem_Click);
+            // 
+            // superscriptedsupToolStripMenuItem
+            // 
+            this.superscriptedsupToolStripMenuItem.Name = "superscriptedsupToolStripMenuItem";
+            this.superscriptedsupToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.superscriptedsupToolStripMenuItem.Text = "superscripted <sup>";
+            this.superscriptedsupToolStripMenuItem.Click += new System.EventHandler(this.superscriptedsupToolStripMenuItem_Click);
+            // 
+            // tableToolStripMenuItem
+            // 
+            this.tableToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.tableFormatSetupToolStripMenuItem,
+            this.tableHeadingthToolStripMenuItem,
+            this.newRowtrToolStripMenuItem,
+            this.newHorizontalItemtdToolStripMenuItem});
+            this.tableToolStripMenuItem.Name = "tableToolStripMenuItem";
+            this.tableToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.tableToolStripMenuItem.Text = "Table";
+            // 
+            // tableFormatSetupToolStripMenuItem
+            // 
+            this.tableFormatSetupToolStripMenuItem.Name = "tableFormatSetupToolStripMenuItem";
+            this.tableFormatSetupToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.tableFormatSetupToolStripMenuItem.Text = "Table Format Setup";
+            this.tableFormatSetupToolStripMenuItem.Click += new System.EventHandler(this.tableFormatSetupToolStripMenuItem_Click);
+            // 
+            // tableHeadingthToolStripMenuItem
+            // 
+            this.tableHeadingthToolStripMenuItem.Name = "tableHeadingthToolStripMenuItem";
+            this.tableHeadingthToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.tableHeadingthToolStripMenuItem.Text = "Table Heading <th>";
+            this.tableHeadingthToolStripMenuItem.Click += new System.EventHandler(this.tableHeadingthToolStripMenuItem_Click);
+            // 
+            // newRowtrToolStripMenuItem
+            // 
+            this.newRowtrToolStripMenuItem.Name = "newRowtrToolStripMenuItem";
+            this.newRowtrToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.newRowtrToolStripMenuItem.Text = "New Row <tr>";
+            this.newRowtrToolStripMenuItem.Click += new System.EventHandler(this.newRowtrToolStripMenuItem_Click);
+            // 
+            // newHorizontalItemtdToolStripMenuItem
+            // 
+            this.newHorizontalItemtdToolStripMenuItem.Name = "newHorizontalItemtdToolStripMenuItem";
+            this.newHorizontalItemtdToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.newHorizontalItemtdToolStripMenuItem.Text = "New Horizontal Item <td>";
+            this.newHorizontalItemtdToolStripMenuItem.Click += new System.EventHandler(this.newHorizontalItemtdToolStripMenuItem_Click);
+            // 
+            // listsToolStripMenuItem
+            // 
+            this.listsToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.orderedListSetupolToolStripMenuItem,
+            this.unorderedListSetupulToolStripMenuItem,
+            this.listItemliToolStripMenuItem});
+            this.listsToolStripMenuItem.Name = "listsToolStripMenuItem";
+            this.listsToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.listsToolStripMenuItem.Text = "Lists";
+            // 
+            // orderedListSetupolToolStripMenuItem
+            // 
+            this.orderedListSetupolToolStripMenuItem.Name = "orderedListSetupolToolStripMenuItem";
+            this.orderedListSetupolToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.orderedListSetupolToolStripMenuItem.Text = "Ordered List Setup <ol>";
+            this.orderedListSetupolToolStripMenuItem.Click += new System.EventHandler(this.orderedListSetupolToolStripMenuItem_Click);
+            // 
+            // unorderedListSetupulToolStripMenuItem
+            // 
+            this.unorderedListSetupulToolStripMenuItem.Name = "unorderedListSetupulToolStripMenuItem";
+            this.unorderedListSetupulToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.unorderedListSetupulToolStripMenuItem.Text = "Unordered List Setup <ul>";
+            this.unorderedListSetupulToolStripMenuItem.Click += new System.EventHandler(this.unorderedListSetupulToolStripMenuItem_Click);
+            // 
+            // listItemliToolStripMenuItem
+            // 
+            this.listItemliToolStripMenuItem.Name = "listItemliToolStripMenuItem";
+            this.listItemliToolStripMenuItem.Size = new System.Drawing.Size(213, 22);
+            this.listItemliToolStripMenuItem.Text = "List Item <li>";
+            this.listItemliToolStripMenuItem.Click += new System.EventHandler(this.listItemliToolStripMenuItem_Click);
+            // 
+            // javaScriptToolStripMenuItem
+            // 
+            this.javaScriptToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.javaStructureSetupToolStripMenuItem,
+            this.functionToolStripMenuItem,
+            this.textToolStripMenuItem1,
+            this.alertBoxToolStripMenuItem,
+            this.timeoutToolStripMenuItem,
+            this.randomNumberToolStripMenuItem});
+            this.javaScriptToolStripMenuItem.Name = "javaScriptToolStripMenuItem";
+            this.javaScriptToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.javaScriptToolStripMenuItem.Text = "JavaScript";
+            // 
+            // javaStructureSetupToolStripMenuItem
+            // 
+            this.javaStructureSetupToolStripMenuItem.Name = "javaStructureSetupToolStripMenuItem";
+            this.javaStructureSetupToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.javaStructureSetupToolStripMenuItem.Text = "Java Structure Setup";
+            this.javaStructureSetupToolStripMenuItem.Click += new System.EventHandler(this.javaStructureSetupToolStripMenuItem_Click);
+            // 
+            // functionToolStripMenuItem
+            // 
+            this.functionToolStripMenuItem.Name = "functionToolStripMenuItem";
+            this.functionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.functionToolStripMenuItem.Text = "Function";
+            this.functionToolStripMenuItem.Click += new System.EventHandler(this.functionToolStripMenuItem_Click);
+            // 
+            // textToolStripMenuItem1
+            // 
+            this.textToolStripMenuItem1.Name = "textToolStripMenuItem1";
+            this.textToolStripMenuItem1.Size = new System.Drawing.Size(180, 22);
+            this.textToolStripMenuItem1.Text = "Text";
+            this.textToolStripMenuItem1.Click += new System.EventHandler(this.textToolStripMenuItem1_Click);
+            // 
+            // alertBoxToolStripMenuItem
+            // 
+            this.alertBoxToolStripMenuItem.Name = "alertBoxToolStripMenuItem";
+            this.alertBoxToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.alertBoxToolStripMenuItem.Text = "Alert Box";
+            this.alertBoxToolStripMenuItem.Click += new System.EventHandler(this.alertBoxToolStripMenuItem_Click);
+            // 
+            // timeoutToolStripMenuItem
+            // 
+            this.timeoutToolStripMenuItem.Name = "timeoutToolStripMenuItem";
+            this.timeoutToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.timeoutToolStripMenuItem.Text = "Timeout";
+            this.timeoutToolStripMenuItem.Click += new System.EventHandler(this.timeoutToolStripMenuItem_Click);
+            // 
+            // randomNumberToolStripMenuItem
+            // 
+            this.randomNumberToolStripMenuItem.Name = "randomNumberToolStripMenuItem";
+            this.randomNumberToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.randomNumberToolStripMenuItem.Text = "Random Number";
+            this.randomNumberToolStripMenuItem.Click += new System.EventHandler(this.randomNumberToolStripMenuItem_Click);
+            // 
+            // cSSToolStripMenuItem
+            // 
+            this.cSSToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.cSSStructureSetupToolStripMenuItem,
+            this.cSSCustomizeTagToolStripMenuItem,
+            this.cSSCustomTagPropertiesToolStripMenuItem});
+            this.cSSToolStripMenuItem.Name = "cSSToolStripMenuItem";
+            this.cSSToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.cSSToolStripMenuItem.Text = "CSS";
+            // 
+            // cSSStructureSetupToolStripMenuItem
+            // 
+            this.cSSStructureSetupToolStripMenuItem.Name = "cSSStructureSetupToolStripMenuItem";
+            this.cSSStructureSetupToolStripMenuItem.Size = new System.Drawing.Size(286, 22);
+            this.cSSStructureSetupToolStripMenuItem.Text = "CSS Structure Setup (use inside <head>)";
+            this.cSSStructureSetupToolStripMenuItem.Click += new System.EventHandler(this.cSSStructureSetupToolStripMenuItem_Click);
+            // 
+            // cSSCustomizeTagToolStripMenuItem
+            // 
+            this.cSSCustomizeTagToolStripMenuItem.Name = "cSSCustomizeTagToolStripMenuItem";
+            this.cSSCustomizeTagToolStripMenuItem.Size = new System.Drawing.Size(286, 22);
+            this.cSSCustomizeTagToolStripMenuItem.Text = "CSS Customize Tag";
+            this.cSSCustomizeTagToolStripMenuItem.Click += new System.EventHandler(this.cSSCustomizeTagToolStripMenuItem_Click);
+            // 
+            // cSSCustomTagPropertiesToolStripMenuItem
+            // 
+            this.cSSCustomTagPropertiesToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backgroundToolStripMenuItem,
+            this.textToolStripMenuItem2});
+            this.cSSCustomTagPropertiesToolStripMenuItem.Name = "cSSCustomTagPropertiesToolStripMenuItem";
+            this.cSSCustomTagPropertiesToolStripMenuItem.Size = new System.Drawing.Size(286, 22);
+            this.cSSCustomTagPropertiesToolStripMenuItem.Text = "CSS Custom Tag Properties";
+            // 
+            // backgroundToolStripMenuItem
+            // 
+            this.backgroundToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.backgroundAttachmentToolStripMenuItem,
+            this.backgroundColorToolStripMenuItem,
+            this.backgroundImageToolStripMenuItem,
+            this.backgroundPositionToolStripMenuItem,
+            this.backgroundRepeatToolStripMenuItem});
+            this.backgroundToolStripMenuItem.Name = "backgroundToolStripMenuItem";
+            this.backgroundToolStripMenuItem.Size = new System.Drawing.Size(138, 22);
+            this.backgroundToolStripMenuItem.Text = "Background";
+            // 
+            // backgroundAttachmentToolStripMenuItem
+            // 
+            this.backgroundAttachmentToolStripMenuItem.Name = "backgroundAttachmentToolStripMenuItem";
+            this.backgroundAttachmentToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
+            this.backgroundAttachmentToolStripMenuItem.Text = "Background Attachment (Fixed or Scroll)";
+            this.backgroundAttachmentToolStripMenuItem.Click += new System.EventHandler(this.backgroundAttachmentToolStripMenuItem_Click);
+            // 
+            // backgroundColorToolStripMenuItem
+            // 
+            this.backgroundColorToolStripMenuItem.Name = "backgroundColorToolStripMenuItem";
+            this.backgroundColorToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
+            this.backgroundColorToolStripMenuItem.Text = "Background Color";
+            this.backgroundColorToolStripMenuItem.Click += new System.EventHandler(this.backgroundColorToolStripMenuItem_Click);
+            // 
+            // backgroundImageToolStripMenuItem
+            // 
+            this.backgroundImageToolStripMenuItem.Name = "backgroundImageToolStripMenuItem";
+            this.backgroundImageToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
+            this.backgroundImageToolStripMenuItem.Text = "Background Image";
+            this.backgroundImageToolStripMenuItem.Click += new System.EventHandler(this.backgroundImageToolStripMenuItem_Click);
+            // 
+            // backgroundPositionToolStripMenuItem
+            // 
+            this.backgroundPositionToolStripMenuItem.Name = "backgroundPositionToolStripMenuItem";
+            this.backgroundPositionToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
+            this.backgroundPositionToolStripMenuItem.Text = "Background Position";
+            this.backgroundPositionToolStripMenuItem.Click += new System.EventHandler(this.backgroundPositionToolStripMenuItem_Click);
+            // 
+            // backgroundRepeatToolStripMenuItem
+            // 
+            this.backgroundRepeatToolStripMenuItem.Name = "backgroundRepeatToolStripMenuItem";
+            this.backgroundRepeatToolStripMenuItem.Size = new System.Drawing.Size(288, 22);
+            this.backgroundRepeatToolStripMenuItem.Text = "Background Repeat ((no-)repeat)";
+            this.backgroundRepeatToolStripMenuItem.Click += new System.EventHandler(this.backgroundRepeatToolStripMenuItem_Click);
+            // 
+            // textToolStripMenuItem2
+            // 
+            this.textToolStripMenuItem2.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.fontToolStripMenuItem,
+            this.sizeToolStripMenuItem,
+            this.weightToolStripMenuItem,
+            this.colorToolStripMenuItem,
+            this.directionToolStripMenuItem,
+            this.lineHeightToolStripMenuItem,
+            this.letterSpacingToolStripMenuItem,
+            this.alignToolStripMenuItem,
+            this.decorationToolStripMenuItem,
+            this.indentToolStripMenuItem,
+            this.shadowToolStripMenuItem,
+            this.transformToolStripMenuItem,
+            this.wordspacingToolStripMenuItem});
+            this.textToolStripMenuItem2.Name = "textToolStripMenuItem2";
+            this.textToolStripMenuItem2.Size = new System.Drawing.Size(138, 22);
+            this.textToolStripMenuItem2.Text = "Text";
+            // 
+            // fontToolStripMenuItem
+            // 
+            this.fontToolStripMenuItem.Name = "fontToolStripMenuItem";
+            this.fontToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.fontToolStripMenuItem.Text = "Font";
+            this.fontToolStripMenuItem.Click += new System.EventHandler(this.fontToolStripMenuItem_Click);
+            // 
+            // sizeToolStripMenuItem
+            // 
+            this.sizeToolStripMenuItem.Name = "sizeToolStripMenuItem";
+            this.sizeToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.sizeToolStripMenuItem.Text = "Size";
+            this.sizeToolStripMenuItem.Click += new System.EventHandler(this.sizeToolStripMenuItem_Click);
+            // 
+            // weightToolStripMenuItem
+            // 
+            this.weightToolStripMenuItem.Name = "weightToolStripMenuItem";
+            this.weightToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.weightToolStripMenuItem.Text = "Weight";
+            this.weightToolStripMenuItem.Click += new System.EventHandler(this.weightToolStripMenuItem_Click);
+            // 
+            // colorToolStripMenuItem
+            // 
+            this.colorToolStripMenuItem.Name = "colorToolStripMenuItem";
+            this.colorToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.colorToolStripMenuItem.Text = "Color";
+            this.colorToolStripMenuItem.Click += new System.EventHandler(this.colorToolStripMenuItem_Click);
+            // 
+            // directionToolStripMenuItem
+            // 
+            this.directionToolStripMenuItem.Name = "directionToolStripMenuItem";
+            this.directionToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.directionToolStripMenuItem.Text = " Direction (ltr/rtl)";
+            this.directionToolStripMenuItem.Click += new System.EventHandler(this.directionToolStripMenuItem_Click);
+            // 
+            // lineHeightToolStripMenuItem
+            // 
+            this.lineHeightToolStripMenuItem.Name = "lineHeightToolStripMenuItem";
+            this.lineHeightToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.lineHeightToolStripMenuItem.Text = "Line Height";
+            this.lineHeightToolStripMenuItem.Click += new System.EventHandler(this.lineHeightToolStripMenuItem_Click);
+            // 
+            // letterSpacingToolStripMenuItem
+            // 
+            this.letterSpacingToolStripMenuItem.Name = "letterSpacingToolStripMenuItem";
+            this.letterSpacingToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.letterSpacingToolStripMenuItem.Text = "Letter Spacing (eg.: 50px)";
+            this.letterSpacingToolStripMenuItem.Click += new System.EventHandler(this.letterSpacingToolStripMenuItem_Click);
+            // 
+            // alignToolStripMenuItem
+            // 
+            this.alignToolStripMenuItem.Name = "alignToolStripMenuItem";
+            this.alignToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.alignToolStripMenuItem.Text = "Align";
+            this.alignToolStripMenuItem.Click += new System.EventHandler(this.alignToolStripMenuItem_Click);
+            // 
+            // decorationToolStripMenuItem
+            // 
+            this.decorationToolStripMenuItem.Name = "decorationToolStripMenuItem";
+            this.decorationToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.decorationToolStripMenuItem.Text = "Decoration";
+            this.decorationToolStripMenuItem.Click += new System.EventHandler(this.decorationToolStripMenuItem_Click);
+            // 
+            // indentToolStripMenuItem
+            // 
+            this.indentToolStripMenuItem.Name = "indentToolStripMenuItem";
+            this.indentToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.indentToolStripMenuItem.Text = "Indent (eg.: 15px)";
+            this.indentToolStripMenuItem.Click += new System.EventHandler(this.indentToolStripMenuItem_Click);
+            // 
+            // shadowToolStripMenuItem
+            // 
+            this.shadowToolStripMenuItem.Name = "shadowToolStripMenuItem";
+            this.shadowToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.shadowToolStripMenuItem.Text = "Shadow";
+            this.shadowToolStripMenuItem.Click += new System.EventHandler(this.shadowToolStripMenuItem_Click);
+            // 
+            // transformToolStripMenuItem
+            // 
+            this.transformToolStripMenuItem.Name = "transformToolStripMenuItem";
+            this.transformToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.transformToolStripMenuItem.Text = "Transform";
+            this.transformToolStripMenuItem.Click += new System.EventHandler(this.transformToolStripMenuItem_Click);
+            // 
+            // wordspacingToolStripMenuItem
+            // 
+            this.wordspacingToolStripMenuItem.Name = "wordspacingToolStripMenuItem";
+            this.wordspacingToolStripMenuItem.Size = new System.Drawing.Size(206, 22);
+            this.wordspacingToolStripMenuItem.Text = "Wordspacing (eg: 2px)";
+            this.wordspacingToolStripMenuItem.Click += new System.EventHandler(this.wordspacingToolStripMenuItem_Click);
+            // 
+            // pHPToolStripMenuItem
+            // 
+            this.pHPToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.pHPStructureSetupToolStripMenuItem,
+            this.textToolStripMenuItem3});
+            this.pHPToolStripMenuItem.Name = "pHPToolStripMenuItem";
+            this.pHPToolStripMenuItem.Size = new System.Drawing.Size(126, 22);
+            this.pHPToolStripMenuItem.Text = "PHP";
+            // 
+            // pHPStructureSetupToolStripMenuItem
+            // 
+            this.pHPStructureSetupToolStripMenuItem.Name = "pHPStructureSetupToolStripMenuItem";
+            this.pHPStructureSetupToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.pHPStructureSetupToolStripMenuItem.Text = "PHP Structure Setup";
+            this.pHPStructureSetupToolStripMenuItem.Click += new System.EventHandler(this.pHPStructureSetupToolStripMenuItem_Click);
+            // 
+            // textToolStripMenuItem3
+            // 
+            this.textToolStripMenuItem3.Name = "textToolStripMenuItem3";
+            this.textToolStripMenuItem3.Size = new System.Drawing.Size(181, 22);
+            this.textToolStripMenuItem3.Text = "Text";
+            this.textToolStripMenuItem3.Click += new System.EventHandler(this.textToolStripMenuItem3_Click);
+            // 
+            // htmlSaveFileDialog
+            // 
+            this.htmlSaveFileDialog.FileName = "Unnamed.html";
+            this.htmlSaveFileDialog.Filter = "HTML files (*.html)|*html|htm file (*.htm)|*.htm";
+            // 
+            // htmlOpenFileDialog
+            // 
+            this.htmlOpenFileDialog.DefaultExt = "html";
+            this.htmlOpenFileDialog.Filter = "HTML files (*.html)|*html|htm file (*.htm)|*.htm";
+            // 
+            // nightmodehide
+            // 
+            this.nightmodehide.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.nightmodehide.HorizontalScrollbarBarColor = true;
+            this.nightmodehide.HorizontalScrollbarHighlightOnWheel = false;
+            this.nightmodehide.HorizontalScrollbarSize = 10;
+            this.nightmodehide.Location = new System.Drawing.Point(723, 40);
+            this.nightmodehide.Name = "nightmodehide";
+            this.nightmodehide.Size = new System.Drawing.Size(45, 17);
+            this.nightmodehide.TabIndex = 3;
+            this.nightmodehide.VerticalScrollbarBarColor = true;
+            this.nightmodehide.VerticalScrollbarHighlightOnWheel = false;
+            this.nightmodehide.VerticalScrollbarSize = 10;
+            // 
+            // cslivenotyetimplemented
+            // 
+            this.cslivenotyetimplemented.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.cslivenotyetimplemented.AutoSize = true;
+            this.cslivenotyetimplemented.FontSize = MetroFramework.MetroLabelSize.Tall;
+            this.cslivenotyetimplemented.FontWeight = MetroFramework.MetroLabelWeight.Bold;
+            this.cslivenotyetimplemented.Location = new System.Drawing.Point(240, 143);
+            this.cslivenotyetimplemented.Name = "cslivenotyetimplemented";
+            this.cslivenotyetimplemented.Size = new System.Drawing.Size(220, 25);
+            this.cslivenotyetimplemented.TabIndex = 2;
+            this.cslivenotyetimplemented.Text = "NOT YET IMPLEMENTED";
+            // 
+            // centercenterToolStripMenuItem
+            // 
+            this.centercenterToolStripMenuItem.Name = "centercenterToolStripMenuItem";
+            this.centercenterToolStripMenuItem.Size = new System.Drawing.Size(191, 22);
+            this.centercenterToolStripMenuItem.Text = "Center <center>";
+            this.centercenterToolStripMenuItem.Click += new System.EventHandler(this.centercenterToolStripMenuItem_Click);
+            // 
+            // paragraphpToolStripMenuItem
+            // 
+            this.paragraphpToolStripMenuItem.Name = "paragraphpToolStripMenuItem";
+            this.paragraphpToolStripMenuItem.Size = new System.Drawing.Size(183, 22);
+            this.paragraphpToolStripMenuItem.Text = "Paragraph <p>";
+            this.paragraphpToolStripMenuItem.Click += new System.EventHandler(this.paragraphpToolStripMenuItem_Click);
+            // 
+            // MAIN
+            // 
+            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.ClientSize = new System.Drawing.Size(843, 518);
+            this.Controls.Add(this.nmtext);
+            this.Controls.Add(this.metroTabControl1);
+            this.Controls.Add(this.nightmodehide);
+            this.Controls.Add(this.nightmodeToggle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MinimumSize = new System.Drawing.Size(843, 518);
+            this.Name = "MAIN";
+            this.Text = "The Cashew Project";
+            this.metroTabControl1.ResumeLayout(false);
+            this.cstab.ResumeLayout(false);
+            this.csinftc.ResumeLayout(false);
+            this.csedittp.ResumeLayout(false);
+            this.csediterrorpanel.ResumeLayout(false);
+            this.csediterrorpanel.PerformLayout();
+            this.cslivetp.ResumeLayout(false);
+            this.cslivetp.PerformLayout();
+            this.htmltab.ResumeLayout(false);
+            this.htmlSep.Panel1.ResumeLayout(false);
+            this.htmlSep.Panel1.PerformLayout();
+            this.htmlSep.Panel2.ResumeLayout(false);
+            this.htmlSep.Panel2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.htmlSep)).EndInit();
+            this.htmlSep.ResumeLayout(false);
+            this.infotab.ResumeLayout(false);
+            this.infotab.PerformLayout();
+            this.htmlOptionsMenu.ResumeLayout(false);
+            this.ResumeLayout(false);
+            this.PerformLayout();
+
+        }
+
+        #endregion
+
+        private MetroFramework.Controls.MetroTabControl metroTabControl1;
+        private MetroFramework.Controls.MetroTabPage cstab;
+        private MetroFramework.Controls.MetroTabPage infotab;
+        private MetroFramework.Controls.MetroToggle nightmodeToggle;
+        private MetroFramework.Controls.MetroLabel nmtext;
+        private MetroFramework.Controls.MetroTextBox cseditcode;
+        private MetroFramework.Controls.MetroTile cslive;
+        private MetroFramework.Controls.MetroTile csedit;
+        private MetroFramework.Controls.MetroTile cseditsave;
+        private MetroFramework.Controls.MetroTile cseditrun;
+        private System.Windows.Forms.SaveFileDialog csSaveFileDialog;
+        private System.Windows.Forms.OpenFileDialog csOpenFileDialog;
+        private MetroFramework.Controls.MetroTile cseditopen;
+        private MetroFramework.Controls.MetroLabel csediterrors;
+        private MetroFramework.Controls.MetroPanel csediterrorpanel;
+        private MetroFramework.Controls.MetroTile cseditref;
+        private MetroFramework.Controls.MetroTabPage htmltab;
+        private MetroFramework.Controls.MetroLabel infoPanel;
+        private MetroFramework.Controls.MetroTabControl csinftc;
+        private MetroFramework.Controls.MetroTabPage csedittp;
+        private MetroFramework.Controls.MetroTabPage cslivetp;
+        private System.ComponentModel.BackgroundWorker cseditexecutor;
+        private System.Windows.Forms.SplitContainer htmlSep;
+        private MetroFramework.Controls.MetroTextBox htmltext;
+        private System.Windows.Forms.WebBrowser htmldisplay;
+        private MetroFramework.Controls.MetroLabel htmltitle;
+        private MetroFramework.Controls.MetroContextMenu htmlOptionsMenu;
+        private System.Windows.Forms.ToolStripMenuItem hTMLToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem hTMLStructureSetupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem linkToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem javaScriptToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cSSToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pHPToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem headingsToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem heading1h1ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem heading2h2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem heading3h3ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem heading4h4ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem heading5h5ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem heading6h6ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem boldbToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem underlineuToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem italiciToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem deleteddelToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem subscriptedSubToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem superscriptedsupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableFormatSetupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem tableHeadingthToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newRowtrToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem newHorizontalItemtdToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem orderedListSetupolToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem unorderedListSetupulToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem listItemliToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem javaStructureSetupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem functionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem alertBoxToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem timeoutToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem randomNumberToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cSSStructureSetupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cSSCustomizeTagToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem cSSCustomTagPropertiesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backgroundToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backgroundAttachmentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backgroundImageToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backgroundPositionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem backgroundRepeatToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem sizeToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem weightToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem directionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem lineHeightToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem letterSpacingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem alignToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem decorationToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem indentToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem shadowToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem transformToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem wordspacingToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem pHPStructureSetupToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem3;
+        private MetroFramework.Controls.MetroTile htmlOptionsTile;
+        private MetroFramework.Controls.MetroTile htmlRefreshTile;
+        private System.Windows.Forms.SaveFileDialog htmlSaveFileDialog;
+        private System.Windows.Forms.OpenFileDialog htmlOpenFileDialog;
+        private MetroFramework.Controls.MetroTile htmlLoad;
+        private MetroFramework.Controls.MetroTile htmlSave;
+        private MetroFramework.Controls.MetroProgressSpinner htmlLoadIndicator;
+        private MetroFramework.Controls.MetroToggle htmlUpdateToggle;
+        private MetroFramework.Controls.MetroLabel htmlLiveLabel;
+        private MetroFramework.Controls.MetroPanel livehider;
+        private MetroFramework.Controls.MetroPanel nightmodehide;
+        private MetroFramework.Controls.MetroLabel cslivenotyetimplemented;
+        private System.Windows.Forms.ToolStripMenuItem centercenterToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem paragraphpToolStripMenuItem;
+    }
+}
+
