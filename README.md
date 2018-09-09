@@ -1,8 +1,6 @@
 # cashew
 A basic GUI for multiple common programming languages including c# and HTML
 
-
-
 # How to use
 Build:
 - Open the solution in visual studio
