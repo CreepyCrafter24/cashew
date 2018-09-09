@@ -7,6 +7,7 @@ using System.IO;
 using CCFunctions;
 using System.Drawing;
 using System.Runtime.Serialization.Formatters.Binary;
+using System.Diagnostics;
 #pragma warning disable IDE1006
 namespace cashew {
     public partial class MAIN : MetroForm {
@@ -18,8 +19,8 @@ namespace cashew {
         string[] cseditrefl;
         public MAIN() {
             InitializeComponent();
-            metroControls = new MetroFramework.Interfaces.IMetroControl[] { nmtext, metroTabControl1, cstab, infotab, nightmodeToggle, cseditopen, cseditrun, cseditsave, cseditcode, csedit, cslive, csediterrorpanel, csediterrors, cseditref, infoPanel, htmltab, csinftc, csedittp, cslivetp, htmltext, htmltitle, htmlOptionsTile, htmlOptionsMenu, htmlRefreshTile, htmlLoad, htmlSave,
-                htmlLoadIndicator, htmlUpdateToggle, htmlLiveLabel, livehider, nightmodehide, cslivenotyetimplemented};
+            metroControls = new MetroFramework.Interfaces.IMetroControl[] { nmtext, languageTabControl, cstab, infotab, nightmodeToggle, cseditopen, cseditrun, cseditsave, cseditcode, csedit, cslive, csediterrorpanel, csediterrors, cseditref, infoPanel, htmltab, csinftc, csedittp, cslivetp, htmltext, htmltitle, htmlOptionsTile, htmlOptionsMenu, htmlRefreshTile, htmlLoad, htmlSave,
+                htmlLoadIndicator, htmlUpdateToggle, htmlLiveLabel, livehider, nightmodehide, cslivenotyetimplemented, pythontab, pythonSave, pythonRun, pythonOpen, pythonCode, pythonExtract};
             normalControls = new Control[] { htmlSep, htmldisplay };
             menuItems = new ToolStripMenuItem[] { hTMLToolStripMenuItem, javaScriptToolStripMenuItem, cSSToolStripMenuItem, pHPToolStripMenuItem, hTMLStructureSetupToolStripMenuItem, javaStructureSetupToolStripMenuItem, cSSStructureSetupToolStripMenuItem, pHPStructureSetupToolStripMenuItem, linkToolStripMenuItem, imageToolStripMenuItem, textToolStripMenuItem, tableToolStripMenuItem,
                 listsToolStripMenuItem, functionToolStripMenuItem, textToolStripMenuItem1, alertBoxToolStripMenuItem, timeoutToolStripMenuItem, randomNumberToolStripMenuItem, cSSCustomizeTagToolStripMenuItem, cSSCustomTagPropertiesToolStripMenuItem, textToolStripMenuItem3, headingsToolStripMenuItem, boldbToolStripMenuItem, underlineuToolStripMenuItem, italiciToolStripMenuItem,
@@ -34,7 +35,7 @@ namespace cashew {
             csinftc.SizeMode = TabSizeMode.Fixed;
             htmldisplay.DocumentText = htmltext.Text;
             metroToggle1_CheckedChanged(this, new EventArgs());
-            metroTabControl1.SelectedTab = infotab;
+            languageTabControl.SelectedTab = infotab;
             csinftc.SelectedTab = csedittp;
         }
 
@@ -72,6 +73,7 @@ namespace cashew {
             Refresh();
         }
         #endregion
+
         #region CS
         System.Reflection.MethodInfo script;
         private void metroLabel2_Click(object sender, EventArgs e) => MessageBox.Show(csediterrors.Text, "Errors");
@@ -278,8 +280,41 @@ namespace cashew {
         #endregion
 
         #region Python
+        private void pythonOpen_Click(object sender, EventArgs e) {
+            if (pythonOpenFileDialog.ShowDialog() == DialogResult.OK) {
+                try {
+                    pythonCode.Lines = File.ReadAllLines(pythonOpenFileDialog.FileName);
+                } catch (Exception e1) {
+                    MessageBox.Show(e1.Message, "Loading Failed");
+                }
+            }
+        }
+
+        private void pythonSave_Click(object sender, EventArgs e) {
+            if (pythonSaveFileDialog.ShowDialog() == DialogResult.OK) {
+                try {
+                    File.WriteAllLines(pythonSaveFileDialog.FileName, pythonCode.Lines);
+                }
+                catch (Exception e1) {
+                    MessageBox.Show(e1.Message, "Saving Failed");
+                }
+            }
+        }
+
+        private void pythonRun_Click(object sender, EventArgs e) {
+            File.WriteAllLines(Path.GetTempPath() + @"Python\tmp.py",pythonCode.Lines);
+            Process process = Process.Start(new ProcessStartInfo { FileName = Path.GetTempPath() + @"Python\python.exe", Arguments = Path.GetTempPath() + @"Python\tmp.py", UseShellExecute = true });
+        }
+
+        private void metroTile1_Click(object sender, EventArgs e) {
+            if (Directory.Exists(Path.GetTempPath() + "Python")) {
+                Directory.Delete(Path.GetTempPath() + "Python");
+            }
+            try { Directory.CreateDirectory(Path.GetTempPath() + "Python"); } catch { }
+            File.WriteAllBytes(Path.GetTempPath() + "Python.zip", Resources.Python);
+            System.IO.Compression.ZipFile.ExtractToDirectory(Path.GetTempPath() + "Python.zip", Path.GetTempPath() + "Python");
+        }
         #endregion
     }
 }
-//CPP?
 #endregion
