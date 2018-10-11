@@ -32,19 +32,6 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(MAIN));
             this.languageTabControl = new MetroFramework.Controls.MetroTabControl();
             this.cstab = new MetroFramework.Controls.MetroTabPage();
-            this.cslive = new MetroFramework.Controls.MetroTile();
-            this.csinftc = new MetroFramework.Controls.MetroTabControl();
-            this.csedittp = new MetroFramework.Controls.MetroTabPage();
-            this.cseditsave = new MetroFramework.Controls.MetroTile();
-            this.cseditrun = new MetroFramework.Controls.MetroTile();
-            this.cseditopen = new MetroFramework.Controls.MetroTile();
-            this.cseditcode = new MetroFramework.Controls.MetroTextBox();
-            this.csediterrorpanel = new MetroFramework.Controls.MetroPanel();
-            this.csediterrors = new MetroFramework.Controls.MetroLabel();
-            this.cseditref = new MetroFramework.Controls.MetroTile();
-            this.cslivetp = new MetroFramework.Controls.MetroTabPage();
-            this.cslivenotyetimplemented = new MetroFramework.Controls.MetroLabel();
-            this.csedit = new MetroFramework.Controls.MetroTile();
             this.htmltab = new MetroFramework.Controls.MetroTabPage();
             this.htmlSep = new System.Windows.Forms.SplitContainer();
             this.htmlRefreshTile = new MetroFramework.Controls.MetroTile();
@@ -58,6 +45,12 @@
             this.htmlLoadIndicator = new MetroFramework.Controls.MetroProgressSpinner();
             this.htmltitle = new MetroFramework.Controls.MetroLabel();
             this.htmldisplay = new System.Windows.Forms.WebBrowser();
+            this.pythontab = new MetroFramework.Controls.MetroTabPage();
+            this.pythonExtract = new MetroFramework.Controls.MetroTile();
+            this.pythonSave = new MetroFramework.Controls.MetroTile();
+            this.pythonRun = new MetroFramework.Controls.MetroTile();
+            this.pythonOpen = new MetroFramework.Controls.MetroTile();
+            this.pythonCode = new MetroFramework.Controls.MetroTextBox();
             this.infotab = new MetroFramework.Controls.MetroTabPage();
             this.infoPanel = new MetroFramework.Controls.MetroLabel();
             this.nightmodeToggle = new MetroFramework.Controls.MetroToggle();
@@ -132,28 +125,26 @@
             this.htmlSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.htmlOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.nightmodehide = new MetroFramework.Controls.MetroPanel();
-            this.pythontab = new MetroFramework.Controls.MetroTabPage();
-            this.pythonSave = new MetroFramework.Controls.MetroTile();
-            this.pythonRun = new MetroFramework.Controls.MetroTile();
-            this.pythonOpen = new MetroFramework.Controls.MetroTile();
-            this.pythonCode = new MetroFramework.Controls.MetroTextBox();
-            this.pythonExtract = new MetroFramework.Controls.MetroTile();
             this.pythonOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.pythonSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.cseditref = new MetroFramework.Controls.MetroTile();
+            this.csediterrorpanel = new MetroFramework.Controls.MetroPanel();
+            this.csediterrors = new MetroFramework.Controls.MetroLabel();
+            this.cseditcode = new MetroFramework.Controls.MetroTextBox();
+            this.cseditopen = new MetroFramework.Controls.MetroTile();
+            this.cseditrun = new MetroFramework.Controls.MetroTile();
+            this.cseditsave = new MetroFramework.Controls.MetroTile();
             this.languageTabControl.SuspendLayout();
             this.cstab.SuspendLayout();
-            this.csinftc.SuspendLayout();
-            this.csedittp.SuspendLayout();
-            this.csediterrorpanel.SuspendLayout();
-            this.cslivetp.SuspendLayout();
             this.htmltab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.htmlSep)).BeginInit();
             this.htmlSep.Panel1.SuspendLayout();
             this.htmlSep.Panel2.SuspendLayout();
             this.htmlSep.SuspendLayout();
+            this.pythontab.SuspendLayout();
             this.infotab.SuspendLayout();
             this.htmlOptionsMenu.SuspendLayout();
-            this.pythontab.SuspendLayout();
+            this.csediterrorpanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // languageTabControl
@@ -167,237 +158,30 @@
             this.languageTabControl.Controls.Add(this.infotab);
             this.languageTabControl.Location = new System.Drawing.Point(23, 63);
             this.languageTabControl.Name = "languageTabControl";
-            this.languageTabControl.SelectedIndex = 2;
-            this.languageTabControl.Size = new System.Drawing.Size(797, 432);
+            this.languageTabControl.SelectedIndex = 0;
+            this.languageTabControl.Size = new System.Drawing.Size(797, 433);
             this.languageTabControl.TabIndex = 0;
             this.languageTabControl.UseSelectable = true;
             // 
             // cstab
             // 
-            this.cstab.Controls.Add(this.cslive);
-            this.cstab.Controls.Add(this.csinftc);
-            this.cstab.Controls.Add(this.csedit);
+            this.cstab.Controls.Add(this.cseditrun);
+            this.cstab.Controls.Add(this.cseditsave);
+            this.cstab.Controls.Add(this.cseditref);
+            this.cstab.Controls.Add(this.cseditopen);
+            this.cstab.Controls.Add(this.csediterrorpanel);
+            this.cstab.Controls.Add(this.cseditcode);
             this.cstab.HorizontalScrollbarBarColor = true;
             this.cstab.HorizontalScrollbarHighlightOnWheel = false;
             this.cstab.HorizontalScrollbarSize = 10;
             this.cstab.Location = new System.Drawing.Point(4, 38);
             this.cstab.Name = "cstab";
-            this.cstab.Size = new System.Drawing.Size(789, 390);
+            this.cstab.Size = new System.Drawing.Size(789, 391);
             this.cstab.TabIndex = 0;
             this.cstab.Text = "C#";
             this.cstab.VerticalScrollbarBarColor = true;
             this.cstab.VerticalScrollbarHighlightOnWheel = false;
             this.cstab.VerticalScrollbarSize = 10;
-            // 
-            // cslive
-            // 
-            this.cslive.ActiveControl = null;
-            this.cslive.Location = new System.Drawing.Point(1, 50);
-            this.cslive.Name = "cslive";
-            this.cslive.Size = new System.Drawing.Size(47, 38);
-            this.cslive.TabIndex = 4;
-            this.cslive.Text = "Live";
-            this.cslive.UseSelectable = true;
-            this.cslive.Click += new System.EventHandler(this.cslive_Click);
-            // 
-            // csinftc
-            // 
-            this.csinftc.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.csinftc.Controls.Add(this.csedittp);
-            this.csinftc.Controls.Add(this.cslivetp);
-            this.csinftc.Location = new System.Drawing.Point(54, 6);
-            this.csinftc.Name = "csinftc";
-            this.csinftc.SelectedIndex = 0;
-            this.csinftc.Size = new System.Drawing.Size(735, 388);
-            this.csinftc.TabIndex = 9;
-            this.csinftc.UseSelectable = true;
-            // 
-            // csedittp
-            // 
-            this.csedittp.Controls.Add(this.cseditsave);
-            this.csedittp.Controls.Add(this.cseditrun);
-            this.csedittp.Controls.Add(this.cseditopen);
-            this.csedittp.Controls.Add(this.cseditcode);
-            this.csedittp.Controls.Add(this.csediterrorpanel);
-            this.csedittp.Controls.Add(this.cseditref);
-            this.csedittp.HorizontalScrollbarBarColor = true;
-            this.csedittp.HorizontalScrollbarHighlightOnWheel = false;
-            this.csedittp.HorizontalScrollbarSize = 10;
-            this.csedittp.Location = new System.Drawing.Point(4, 38);
-            this.csedittp.Name = "csedittp";
-            this.csedittp.Size = new System.Drawing.Size(727, 346);
-            this.csedittp.TabIndex = 0;
-            this.csedittp.Text = "CSEdit";
-            this.csedittp.VerticalScrollbarBarColor = true;
-            this.csedittp.VerticalScrollbarHighlightOnWheel = false;
-            this.csedittp.VerticalScrollbarSize = 10;
-            // 
-            // cseditsave
-            // 
-            this.cseditsave.ActiveControl = null;
-            this.cseditsave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cseditsave.Location = new System.Drawing.Point(568, 3);
-            this.cseditsave.Name = "cseditsave";
-            this.cseditsave.Size = new System.Drawing.Size(75, 38);
-            this.cseditsave.TabIndex = 4;
-            this.cseditsave.Text = "Save";
-            this.cseditsave.UseSelectable = true;
-            this.cseditsave.Click += new System.EventHandler(this.cseditsave_Click);
-            // 
-            // cseditrun
-            // 
-            this.cseditrun.ActiveControl = null;
-            this.cseditrun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cseditrun.Location = new System.Drawing.Point(649, 3);
-            this.cseditrun.Name = "cseditrun";
-            this.cseditrun.Size = new System.Drawing.Size(75, 38);
-            this.cseditrun.TabIndex = 3;
-            this.cseditrun.Text = "Run";
-            this.cseditrun.UseSelectable = true;
-            this.cseditrun.Click += new System.EventHandler(this.cseditrun_Click);
-            // 
-            // cseditopen
-            // 
-            this.cseditopen.ActiveControl = null;
-            this.cseditopen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.cseditopen.Location = new System.Drawing.Point(487, 3);
-            this.cseditopen.Name = "cseditopen";
-            this.cseditopen.Size = new System.Drawing.Size(75, 38);
-            this.cseditopen.TabIndex = 5;
-            this.cseditopen.Text = "Open";
-            this.cseditopen.UseSelectable = true;
-            this.cseditopen.Click += new System.EventHandler(this.cseditopen_Click);
-            // 
-            // cseditcode
-            // 
-            this.cseditcode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.cseditcode.CustomButton.Image = null;
-            this.cseditcode.CustomButton.Location = new System.Drawing.Point(472, 2);
-            this.cseditcode.CustomButton.Name = "";
-            this.cseditcode.CustomButton.Size = new System.Drawing.Size(249, 249);
-            this.cseditcode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.cseditcode.CustomButton.TabIndex = 1;
-            this.cseditcode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.cseditcode.CustomButton.UseSelectable = true;
-            this.cseditcode.CustomButton.Visible = false;
-            this.cseditcode.Lines = new string[] {
-        "using System;",
-        "using System.Windows.Forms;",
-        "",
-        "namespace Project",
-        "{",
-        "    public class Program",
-        "    {",
-        "        public static void Main()",
-        "        {",
-        "            MessageBox.Show(\"Hello, world!\");",
-        "        }",
-        "    }",
-        "}"};
-            this.cseditcode.Location = new System.Drawing.Point(0, 44);
-            this.cseditcode.MaxLength = 32767;
-            this.cseditcode.Multiline = true;
-            this.cseditcode.Name = "cseditcode";
-            this.cseditcode.PasswordChar = '\0';
-            this.cseditcode.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.cseditcode.SelectedText = "";
-            this.cseditcode.SelectionLength = 0;
-            this.cseditcode.SelectionStart = 0;
-            this.cseditcode.ShortcutsEnabled = true;
-            this.cseditcode.Size = new System.Drawing.Size(724, 254);
-            this.cseditcode.TabIndex = 2;
-            this.cseditcode.Text = resources.GetString("cseditcode.Text");
-            this.cseditcode.UseSelectable = true;
-            this.cseditcode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.cseditcode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // csediterrorpanel
-            // 
-            this.csediterrorpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.csediterrorpanel.AutoScroll = true;
-            this.csediterrorpanel.Controls.Add(this.csediterrors);
-            this.csediterrorpanel.HorizontalScrollbar = true;
-            this.csediterrorpanel.HorizontalScrollbarBarColor = true;
-            this.csediterrorpanel.HorizontalScrollbarHighlightOnWheel = false;
-            this.csediterrorpanel.HorizontalScrollbarSize = 10;
-            this.csediterrorpanel.Location = new System.Drawing.Point(0, 304);
-            this.csediterrorpanel.Name = "csediterrorpanel";
-            this.csediterrorpanel.Size = new System.Drawing.Size(724, 44);
-            this.csediterrorpanel.TabIndex = 7;
-            this.csediterrorpanel.VerticalScrollbar = true;
-            this.csediterrorpanel.VerticalScrollbarBarColor = true;
-            this.csediterrorpanel.VerticalScrollbarHighlightOnWheel = false;
-            this.csediterrorpanel.VerticalScrollbarSize = 10;
-            this.csediterrorpanel.Click += new System.EventHandler(this.metroPanel1_Click);
-            // 
-            // csediterrors
-            // 
-            this.csediterrors.AutoSize = true;
-            this.csediterrors.Location = new System.Drawing.Point(3, 5);
-            this.csediterrors.Name = "csediterrors";
-            this.csediterrors.Size = new System.Drawing.Size(45, 19);
-            this.csediterrors.TabIndex = 6;
-            this.csediterrors.Text = "Ready";
-            this.csediterrors.Click += new System.EventHandler(this.metroLabel2_Click);
-            // 
-            // cseditref
-            // 
-            this.cseditref.ActiveControl = null;
-            this.cseditref.Location = new System.Drawing.Point(0, 3);
-            this.cseditref.Name = "cseditref";
-            this.cseditref.Size = new System.Drawing.Size(89, 38);
-            this.cseditref.TabIndex = 8;
-            this.cseditref.Text = "References";
-            this.cseditref.UseSelectable = true;
-            this.cseditref.Click += new System.EventHandler(this.cseditref_Click);
-            // 
-            // cslivetp
-            // 
-            this.cslivetp.Controls.Add(this.cslivenotyetimplemented);
-            this.cslivetp.HorizontalScrollbarBarColor = true;
-            this.cslivetp.HorizontalScrollbarHighlightOnWheel = false;
-            this.cslivetp.HorizontalScrollbarSize = 10;
-            this.cslivetp.Location = new System.Drawing.Point(4, 38);
-            this.cslivetp.Name = "cslivetp";
-            this.cslivetp.Size = new System.Drawing.Size(727, 346);
-            this.cslivetp.TabIndex = 1;
-            this.cslivetp.Text = "CSLive";
-            this.cslivetp.VerticalScrollbarBarColor = true;
-            this.cslivetp.VerticalScrollbarHighlightOnWheel = false;
-            this.cslivetp.VerticalScrollbarSize = 10;
-            // 
-            // cslivenotyetimplemented
-            // 
-            this.cslivenotyetimplemented.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.cslivenotyetimplemented.AutoSize = true;
-            this.cslivenotyetimplemented.FontSize = MetroFramework.MetroLabelSize.Tall;
-            this.cslivenotyetimplemented.FontWeight = MetroFramework.MetroLabelWeight.Bold;
-            this.cslivenotyetimplemented.Location = new System.Drawing.Point(240, 143);
-            this.cslivenotyetimplemented.Name = "cslivenotyetimplemented";
-            this.cslivenotyetimplemented.Size = new System.Drawing.Size(220, 25);
-            this.cslivenotyetimplemented.TabIndex = 2;
-            this.cslivenotyetimplemented.Text = "NOT YET IMPLEMENTED";
-            // 
-            // csedit
-            // 
-            this.csedit.ActiveControl = null;
-            this.csedit.Location = new System.Drawing.Point(1, 6);
-            this.csedit.Name = "csedit";
-            this.csedit.Size = new System.Drawing.Size(47, 38);
-            this.csedit.TabIndex = 3;
-            this.csedit.Text = "Edit";
-            this.csedit.UseSelectable = true;
-            this.csedit.Click += new System.EventHandler(this.csedit_Click);
             // 
             // htmltab
             // 
@@ -407,7 +191,7 @@
             this.htmltab.HorizontalScrollbarSize = 10;
             this.htmltab.Location = new System.Drawing.Point(4, 38);
             this.htmltab.Name = "htmltab";
-            this.htmltab.Size = new System.Drawing.Size(789, 390);
+            this.htmltab.Size = new System.Drawing.Size(789, 391);
             this.htmltab.TabIndex = 2;
             this.htmltab.Text = "HTML";
             this.htmltab.VerticalScrollbarBarColor = true;
@@ -440,7 +224,7 @@
             this.htmlSep.Panel2.Controls.Add(this.htmlLoadIndicator);
             this.htmlSep.Panel2.Controls.Add(this.htmltitle);
             this.htmlSep.Panel2.Controls.Add(this.htmldisplay);
-            this.htmlSep.Size = new System.Drawing.Size(783, 384);
+            this.htmlSep.Size = new System.Drawing.Size(783, 385);
             this.htmlSep.SplitterDistance = 338;
             this.htmlSep.TabIndex = 3;
             // 
@@ -510,9 +294,9 @@
             // 
             // 
             this.htmltext.CustomButton.Image = null;
-            this.htmltext.CustomButton.Location = new System.Drawing.Point(0, 2);
+            this.htmltext.CustomButton.Location = new System.Drawing.Point(-2, 1);
             this.htmltext.CustomButton.Name = "";
-            this.htmltext.CustomButton.Size = new System.Drawing.Size(329, 329);
+            this.htmltext.CustomButton.Size = new System.Drawing.Size(333, 333);
             this.htmltext.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
             this.htmltext.CustomButton.TabIndex = 1;
             this.htmltext.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
@@ -537,7 +321,7 @@
             this.htmltext.SelectionLength = 0;
             this.htmltext.SelectionStart = 0;
             this.htmltext.ShortcutsEnabled = true;
-            this.htmltext.Size = new System.Drawing.Size(332, 334);
+            this.htmltext.Size = new System.Drawing.Size(332, 335);
             this.htmltext.TabIndex = 4;
             this.htmltext.Text = "<!DOCTYPE html>\r\n<head>\r\n<title>Title</title>\r\n</head>\r\n<body>\r\nExample Text\r\n</b" +
     "ody>\r\n</html>";
@@ -602,10 +386,112 @@
             this.htmldisplay.Location = new System.Drawing.Point(3, 25);
             this.htmldisplay.MinimumSize = new System.Drawing.Size(20, 20);
             this.htmldisplay.Name = "htmldisplay";
-            this.htmldisplay.Size = new System.Drawing.Size(435, 356);
+            this.htmldisplay.Size = new System.Drawing.Size(435, 357);
             this.htmldisplay.TabIndex = 2;
             this.htmldisplay.DocumentCompleted += new System.Windows.Forms.WebBrowserDocumentCompletedEventHandler(this.htmldisplay_DocumentCompleted);
             this.htmldisplay.Navigating += new System.Windows.Forms.WebBrowserNavigatingEventHandler(this.htmldisplay_Navigating);
+            // 
+            // pythontab
+            // 
+            this.pythontab.Controls.Add(this.pythonExtract);
+            this.pythontab.Controls.Add(this.pythonSave);
+            this.pythontab.Controls.Add(this.pythonRun);
+            this.pythontab.Controls.Add(this.pythonOpen);
+            this.pythontab.Controls.Add(this.pythonCode);
+            this.pythontab.HorizontalScrollbarBarColor = true;
+            this.pythontab.HorizontalScrollbarHighlightOnWheel = false;
+            this.pythontab.HorizontalScrollbarSize = 10;
+            this.pythontab.Location = new System.Drawing.Point(4, 38);
+            this.pythontab.Name = "pythontab";
+            this.pythontab.Size = new System.Drawing.Size(789, 390);
+            this.pythontab.TabIndex = 3;
+            this.pythontab.Text = "Python";
+            this.pythontab.VerticalScrollbarBarColor = true;
+            this.pythontab.VerticalScrollbarHighlightOnWheel = false;
+            this.pythontab.VerticalScrollbarSize = 10;
+            // 
+            // pythonExtract
+            // 
+            this.pythonExtract.ActiveControl = null;
+            this.pythonExtract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pythonExtract.Location = new System.Drawing.Point(684, 3);
+            this.pythonExtract.Name = "pythonExtract";
+            this.pythonExtract.Size = new System.Drawing.Size(102, 38);
+            this.pythonExtract.TabIndex = 10;
+            this.pythonExtract.Text = "Extract Python";
+            this.pythonExtract.UseSelectable = true;
+            this.pythonExtract.Click += new System.EventHandler(this.metroTile1_Click);
+            // 
+            // pythonSave
+            // 
+            this.pythonSave.ActiveControl = null;
+            this.pythonSave.Location = new System.Drawing.Point(84, 3);
+            this.pythonSave.Name = "pythonSave";
+            this.pythonSave.Size = new System.Drawing.Size(75, 38);
+            this.pythonSave.TabIndex = 8;
+            this.pythonSave.Text = "Save";
+            this.pythonSave.UseSelectable = true;
+            this.pythonSave.Click += new System.EventHandler(this.pythonSave_Click);
+            // 
+            // pythonRun
+            // 
+            this.pythonRun.ActiveControl = null;
+            this.pythonRun.Location = new System.Drawing.Point(165, 3);
+            this.pythonRun.Name = "pythonRun";
+            this.pythonRun.Size = new System.Drawing.Size(75, 38);
+            this.pythonRun.TabIndex = 7;
+            this.pythonRun.Text = "Run";
+            this.pythonRun.UseSelectable = true;
+            this.pythonRun.Click += new System.EventHandler(this.pythonRun_Click);
+            // 
+            // pythonOpen
+            // 
+            this.pythonOpen.ActiveControl = null;
+            this.pythonOpen.Location = new System.Drawing.Point(3, 3);
+            this.pythonOpen.Name = "pythonOpen";
+            this.pythonOpen.Size = new System.Drawing.Size(75, 38);
+            this.pythonOpen.TabIndex = 9;
+            this.pythonOpen.Text = "Open";
+            this.pythonOpen.UseSelectable = true;
+            this.pythonOpen.Click += new System.EventHandler(this.pythonOpen_Click);
+            // 
+            // pythonCode
+            // 
+            this.pythonCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.pythonCode.CustomButton.Image = null;
+            this.pythonCode.CustomButton.Location = new System.Drawing.Point(445, 2);
+            this.pythonCode.CustomButton.Name = "";
+            this.pythonCode.CustomButton.Size = new System.Drawing.Size(335, 335);
+            this.pythonCode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.pythonCode.CustomButton.TabIndex = 1;
+            this.pythonCode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.pythonCode.CustomButton.UseSelectable = true;
+            this.pythonCode.CustomButton.Visible = false;
+            this.pythonCode.Lines = new string[] {
+        "import time",
+        "print(\"Hello World!\")",
+        "time.sleep(3)"};
+            this.pythonCode.Location = new System.Drawing.Point(3, 47);
+            this.pythonCode.MaxLength = 32767;
+            this.pythonCode.Multiline = true;
+            this.pythonCode.Name = "pythonCode";
+            this.pythonCode.PasswordChar = '\0';
+            this.pythonCode.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.pythonCode.SelectedText = "";
+            this.pythonCode.SelectionLength = 0;
+            this.pythonCode.SelectionStart = 0;
+            this.pythonCode.ShortcutsEnabled = true;
+            this.pythonCode.Size = new System.Drawing.Size(783, 340);
+            this.pythonCode.TabIndex = 6;
+            this.pythonCode.Text = "import time\r\nprint(\"Hello World!\")\r\ntime.sleep(3)";
+            this.pythonCode.UseSelectable = true;
+            this.pythonCode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.pythonCode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
             // 
             // infotab
             // 
@@ -1206,117 +1092,144 @@
             this.nightmodehide.VerticalScrollbarHighlightOnWheel = false;
             this.nightmodehide.VerticalScrollbarSize = 10;
             // 
-            // pythontab
+            // pythonOpenFileDialog
             // 
-            this.pythontab.Controls.Add(this.pythonExtract);
-            this.pythontab.Controls.Add(this.pythonSave);
-            this.pythontab.Controls.Add(this.pythonRun);
-            this.pythontab.Controls.Add(this.pythonOpen);
-            this.pythontab.Controls.Add(this.pythonCode);
-            this.pythontab.HorizontalScrollbarBarColor = true;
-            this.pythontab.HorizontalScrollbarHighlightOnWheel = false;
-            this.pythontab.HorizontalScrollbarSize = 10;
-            this.pythontab.Location = new System.Drawing.Point(4, 38);
-            this.pythontab.Name = "pythontab";
-            this.pythontab.Size = new System.Drawing.Size(789, 390);
-            this.pythontab.TabIndex = 3;
-            this.pythontab.Text = "Python";
-            this.pythontab.VerticalScrollbarBarColor = true;
-            this.pythontab.VerticalScrollbarHighlightOnWheel = false;
-            this.pythontab.VerticalScrollbarSize = 10;
-            // 
-            // pythonSave
-            // 
-            this.pythonSave.ActiveControl = null;
-            this.pythonSave.Location = new System.Drawing.Point(84, 3);
-            this.pythonSave.Name = "pythonSave";
-            this.pythonSave.Size = new System.Drawing.Size(75, 38);
-            this.pythonSave.TabIndex = 8;
-            this.pythonSave.Text = "Save";
-            this.pythonSave.UseSelectable = true;
-            this.pythonSave.Click += new System.EventHandler(this.pythonSave_Click);
-            // 
-            // pythonRun
-            // 
-            this.pythonRun.ActiveControl = null;
-            this.pythonRun.Location = new System.Drawing.Point(165, 3);
-            this.pythonRun.Name = "pythonRun";
-            this.pythonRun.Size = new System.Drawing.Size(75, 38);
-            this.pythonRun.TabIndex = 7;
-            this.pythonRun.Text = "Run";
-            this.pythonRun.UseSelectable = true;
-            this.pythonRun.Click += new System.EventHandler(this.pythonRun_Click);
-            // 
-            // pythonOpen
-            // 
-            this.pythonOpen.ActiveControl = null;
-            this.pythonOpen.Location = new System.Drawing.Point(3, 3);
-            this.pythonOpen.Name = "pythonOpen";
-            this.pythonOpen.Size = new System.Drawing.Size(75, 38);
-            this.pythonOpen.TabIndex = 9;
-            this.pythonOpen.Text = "Open";
-            this.pythonOpen.UseSelectable = true;
-            this.pythonOpen.Click += new System.EventHandler(this.pythonOpen_Click);
-            // 
-            // pythonCode
-            // 
-            this.pythonCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            // 
-            // 
-            // 
-            this.pythonCode.CustomButton.Image = null;
-            this.pythonCode.CustomButton.Location = new System.Drawing.Point(445, 2);
-            this.pythonCode.CustomButton.Name = "";
-            this.pythonCode.CustomButton.Size = new System.Drawing.Size(335, 335);
-            this.pythonCode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
-            this.pythonCode.CustomButton.TabIndex = 1;
-            this.pythonCode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
-            this.pythonCode.CustomButton.UseSelectable = true;
-            this.pythonCode.CustomButton.Visible = false;
-            this.pythonCode.Lines = new string[] {
-        "import time",
-        "print(\"Hello World!\")",
-        "time.sleep(3)"};
-            this.pythonCode.Location = new System.Drawing.Point(3, 47);
-            this.pythonCode.MaxLength = 32767;
-            this.pythonCode.Multiline = true;
-            this.pythonCode.Name = "pythonCode";
-            this.pythonCode.PasswordChar = '\0';
-            this.pythonCode.ScrollBars = System.Windows.Forms.ScrollBars.None;
-            this.pythonCode.SelectedText = "";
-            this.pythonCode.SelectionLength = 0;
-            this.pythonCode.SelectionStart = 0;
-            this.pythonCode.ShortcutsEnabled = true;
-            this.pythonCode.Size = new System.Drawing.Size(783, 340);
-            this.pythonCode.TabIndex = 6;
-            this.pythonCode.Text = "import time\r\nprint(\"Hello World!\")\r\ntime.sleep(3)";
-            this.pythonCode.UseSelectable = true;
-            this.pythonCode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
-            this.pythonCode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
-            // 
-            // pythonExtract
-            // 
-            this.pythonExtract.ActiveControl = null;
-            this.pythonExtract.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
-            this.pythonExtract.Location = new System.Drawing.Point(684, 3);
-            this.pythonExtract.Name = "pythonExtract";
-            this.pythonExtract.Size = new System.Drawing.Size(102, 38);
-            this.pythonExtract.TabIndex = 10;
-            this.pythonExtract.Text = "Extract Python";
-            this.pythonExtract.UseSelectable = true;
-            this.pythonExtract.Click += new System.EventHandler(this.metroTile1_Click);
+            this.pythonOpenFileDialog.Filter = "Python Files|*.py";
             // 
             // pythonSaveFileDialog
             // 
             this.pythonSaveFileDialog.Filter = "Python Files|*.py";
             // 
+            // cseditref
+            // 
+            this.cseditref.ActiveControl = null;
+            this.cseditref.Location = new System.Drawing.Point(3, 3);
+            this.cseditref.Name = "cseditref";
+            this.cseditref.Size = new System.Drawing.Size(89, 38);
+            this.cseditref.TabIndex = 8;
+            this.cseditref.Text = "References";
+            this.cseditref.UseSelectable = true;
+            this.cseditref.Click += new System.EventHandler(this.cseditref_Click);
+            // 
+            // csediterrorpanel
+            // 
+            this.csediterrorpanel.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.csediterrorpanel.AutoScroll = true;
+            this.csediterrorpanel.Controls.Add(this.csediterrors);
+            this.csediterrorpanel.HorizontalScrollbar = true;
+            this.csediterrorpanel.HorizontalScrollbarBarColor = true;
+            this.csediterrorpanel.HorizontalScrollbarHighlightOnWheel = false;
+            this.csediterrorpanel.HorizontalScrollbarSize = 10;
+            this.csediterrorpanel.Location = new System.Drawing.Point(3, 344);
+            this.csediterrorpanel.Name = "csediterrorpanel";
+            this.csediterrorpanel.Size = new System.Drawing.Size(783, 44);
+            this.csediterrorpanel.TabIndex = 7;
+            this.csediterrorpanel.VerticalScrollbar = true;
+            this.csediterrorpanel.VerticalScrollbarBarColor = true;
+            this.csediterrorpanel.VerticalScrollbarHighlightOnWheel = false;
+            this.csediterrorpanel.VerticalScrollbarSize = 10;
+            this.csediterrorpanel.Click += new System.EventHandler(this.metroPanel1_Click);
+            // 
+            // csediterrors
+            // 
+            this.csediterrors.AutoSize = true;
+            this.csediterrors.Location = new System.Drawing.Point(3, 5);
+            this.csediterrors.Name = "csediterrors";
+            this.csediterrors.Size = new System.Drawing.Size(45, 19);
+            this.csediterrors.TabIndex = 6;
+            this.csediterrors.Text = "Ready";
+            this.csediterrors.Click += new System.EventHandler(this.metroLabel2_Click);
+            // 
+            // cseditcode
+            // 
+            this.cseditcode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            // 
+            // 
+            // 
+            this.cseditcode.CustomButton.Image = null;
+            this.cseditcode.CustomButton.Location = new System.Drawing.Point(491, 2);
+            this.cseditcode.CustomButton.Name = "";
+            this.cseditcode.CustomButton.Size = new System.Drawing.Size(289, 289);
+            this.cseditcode.CustomButton.Style = MetroFramework.MetroColorStyle.Blue;
+            this.cseditcode.CustomButton.TabIndex = 1;
+            this.cseditcode.CustomButton.Theme = MetroFramework.MetroThemeStyle.Light;
+            this.cseditcode.CustomButton.UseSelectable = true;
+            this.cseditcode.CustomButton.Visible = false;
+            this.cseditcode.Lines = new string[] {
+        "using System;",
+        "using System.Windows.Forms;",
+        "",
+        "namespace Project",
+        "{",
+        "    public class Program",
+        "    {",
+        "        public static void Main()",
+        "        {",
+        "            MessageBox.Show(\"Hello, world!\");",
+        "        }",
+        "    }",
+        "}"};
+            this.cseditcode.Location = new System.Drawing.Point(3, 44);
+            this.cseditcode.MaxLength = 32767;
+            this.cseditcode.Multiline = true;
+            this.cseditcode.Name = "cseditcode";
+            this.cseditcode.PasswordChar = '\0';
+            this.cseditcode.ScrollBars = System.Windows.Forms.ScrollBars.None;
+            this.cseditcode.SelectedText = "";
+            this.cseditcode.SelectionLength = 0;
+            this.cseditcode.SelectionStart = 0;
+            this.cseditcode.ShortcutsEnabled = true;
+            this.cseditcode.Size = new System.Drawing.Size(783, 294);
+            this.cseditcode.TabIndex = 2;
+            this.cseditcode.Text = resources.GetString("cseditcode.Text");
+            this.cseditcode.UseSelectable = true;
+            this.cseditcode.WaterMarkColor = System.Drawing.Color.FromArgb(((int)(((byte)(109)))), ((int)(((byte)(109)))), ((int)(((byte)(109)))));
+            this.cseditcode.WaterMarkFont = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Pixel);
+            // 
+            // cseditopen
+            // 
+            this.cseditopen.ActiveControl = null;
+            this.cseditopen.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cseditopen.Location = new System.Drawing.Point(549, 3);
+            this.cseditopen.Name = "cseditopen";
+            this.cseditopen.Size = new System.Drawing.Size(75, 38);
+            this.cseditopen.TabIndex = 5;
+            this.cseditopen.Text = "Open";
+            this.cseditopen.UseSelectable = true;
+            this.cseditopen.Click += new System.EventHandler(this.cseditopen_Click);
+            // 
+            // cseditrun
+            // 
+            this.cseditrun.ActiveControl = null;
+            this.cseditrun.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cseditrun.Location = new System.Drawing.Point(711, 3);
+            this.cseditrun.Name = "cseditrun";
+            this.cseditrun.Size = new System.Drawing.Size(75, 38);
+            this.cseditrun.TabIndex = 3;
+            this.cseditrun.Text = "Run";
+            this.cseditrun.UseSelectable = true;
+            this.cseditrun.Click += new System.EventHandler(this.cseditrun_Click);
+            // 
+            // cseditsave
+            // 
+            this.cseditsave.ActiveControl = null;
+            this.cseditsave.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.cseditsave.Location = new System.Drawing.Point(630, 3);
+            this.cseditsave.Name = "cseditsave";
+            this.cseditsave.Size = new System.Drawing.Size(75, 38);
+            this.cseditsave.TabIndex = 4;
+            this.cseditsave.Text = "Save";
+            this.cseditsave.UseSelectable = true;
+            this.cseditsave.Click += new System.EventHandler(this.cseditsave_Click);
+            // 
             // MAIN
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(843, 518);
+            this.ClientSize = new System.Drawing.Size(843, 519);
             this.Controls.Add(this.nmtext);
             this.Controls.Add(this.languageTabControl);
             this.Controls.Add(this.nightmodehide);
@@ -1327,12 +1240,6 @@
             this.Text = "The Cashew Project";
             this.languageTabControl.ResumeLayout(false);
             this.cstab.ResumeLayout(false);
-            this.csinftc.ResumeLayout(false);
-            this.csedittp.ResumeLayout(false);
-            this.csediterrorpanel.ResumeLayout(false);
-            this.csediterrorpanel.PerformLayout();
-            this.cslivetp.ResumeLayout(false);
-            this.cslivetp.PerformLayout();
             this.htmltab.ResumeLayout(false);
             this.htmlSep.Panel1.ResumeLayout(false);
             this.htmlSep.Panel1.PerformLayout();
@@ -1340,10 +1247,12 @@
             this.htmlSep.Panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.htmlSep)).EndInit();
             this.htmlSep.ResumeLayout(false);
+            this.pythontab.ResumeLayout(false);
             this.infotab.ResumeLayout(false);
             this.infotab.PerformLayout();
             this.htmlOptionsMenu.ResumeLayout(false);
-            this.pythontab.ResumeLayout(false);
+            this.csediterrorpanel.ResumeLayout(false);
+            this.csediterrorpanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -1356,22 +1265,10 @@
         private MetroFramework.Controls.MetroTabPage infotab;
         private MetroFramework.Controls.MetroToggle nightmodeToggle;
         private MetroFramework.Controls.MetroLabel nmtext;
-        private MetroFramework.Controls.MetroTextBox cseditcode;
-        private MetroFramework.Controls.MetroTile cslive;
-        private MetroFramework.Controls.MetroTile csedit;
-        private MetroFramework.Controls.MetroTile cseditsave;
-        private MetroFramework.Controls.MetroTile cseditrun;
         private System.Windows.Forms.SaveFileDialog csSaveFileDialog;
         private System.Windows.Forms.OpenFileDialog csOpenFileDialog;
-        private MetroFramework.Controls.MetroTile cseditopen;
-        private MetroFramework.Controls.MetroLabel csediterrors;
-        private MetroFramework.Controls.MetroPanel csediterrorpanel;
-        private MetroFramework.Controls.MetroTile cseditref;
         private MetroFramework.Controls.MetroTabPage htmltab;
         private MetroFramework.Controls.MetroLabel infoPanel;
-        private MetroFramework.Controls.MetroTabControl csinftc;
-        private MetroFramework.Controls.MetroTabPage csedittp;
-        private MetroFramework.Controls.MetroTabPage cslivetp;
         private System.ComponentModel.BackgroundWorker cseditexecutor;
         private System.Windows.Forms.SplitContainer htmlSep;
         private MetroFramework.Controls.MetroTextBox htmltext;
@@ -1450,7 +1347,6 @@
         private MetroFramework.Controls.MetroLabel htmlLiveLabel;
         private MetroFramework.Controls.MetroPanel livehider;
         private MetroFramework.Controls.MetroPanel nightmodehide;
-        private MetroFramework.Controls.MetroLabel cslivenotyetimplemented;
         private System.Windows.Forms.ToolStripMenuItem centercenterToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem paragraphpToolStripMenuItem;
         private MetroFramework.Controls.MetroTabPage pythontab;
@@ -1461,6 +1357,13 @@
         private MetroFramework.Controls.MetroTile pythonExtract;
         private System.Windows.Forms.OpenFileDialog pythonOpenFileDialog;
         private System.Windows.Forms.SaveFileDialog pythonSaveFileDialog;
+        private MetroFramework.Controls.MetroTile cseditrun;
+        private MetroFramework.Controls.MetroTile cseditsave;
+        private MetroFramework.Controls.MetroTile cseditref;
+        private MetroFramework.Controls.MetroTile cseditopen;
+        private MetroFramework.Controls.MetroPanel csediterrorpanel;
+        private MetroFramework.Controls.MetroLabel csediterrors;
+        private MetroFramework.Controls.MetroTextBox cseditcode;
     }
 }
 

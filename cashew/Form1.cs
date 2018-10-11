@@ -6,7 +6,6 @@ using MetroFramework.Forms;
 using System.IO;
 using CCFunctions;
 using System.Drawing;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Diagnostics;
 #pragma warning disable IDE1006
 namespace cashew {
@@ -19,8 +18,8 @@ namespace cashew {
         string[] cseditrefl;
         public MAIN() {
             InitializeComponent();
-            metroControls = new MetroFramework.Interfaces.IMetroControl[] { nmtext, languageTabControl, cstab, infotab, nightmodeToggle, cseditopen, cseditrun, cseditsave, cseditcode, csedit, cslive, csediterrorpanel, csediterrors, cseditref, infoPanel, htmltab, csinftc, csedittp, cslivetp, htmltext, htmltitle, htmlOptionsTile, htmlOptionsMenu, htmlRefreshTile, htmlLoad, htmlSave,
-                htmlLoadIndicator, htmlUpdateToggle, htmlLiveLabel, livehider, nightmodehide, cslivenotyetimplemented, pythontab, pythonSave, pythonRun, pythonOpen, pythonCode, pythonExtract};
+            metroControls = new MetroFramework.Interfaces.IMetroControl[] { nmtext, languageTabControl, cstab, infotab, nightmodeToggle, cseditopen, cseditrun, cseditsave, cseditcode, csediterrorpanel, csediterrors, cseditref, infoPanel, htmltab, htmltext, htmltitle, htmlOptionsTile, htmlOptionsMenu, htmlRefreshTile, htmlLoad, htmlSave, htmlLoadIndicator, htmlUpdateToggle,
+                htmlLiveLabel, livehider, nightmodehide, pythontab, pythonSave, pythonRun, pythonOpen, pythonCode, pythonExtract};
             normalControls = new Control[] { htmlSep, htmldisplay };
             menuItems = new ToolStripMenuItem[] { hTMLToolStripMenuItem, javaScriptToolStripMenuItem, cSSToolStripMenuItem, pHPToolStripMenuItem, hTMLStructureSetupToolStripMenuItem, javaStructureSetupToolStripMenuItem, cSSStructureSetupToolStripMenuItem, pHPStructureSetupToolStripMenuItem, linkToolStripMenuItem, imageToolStripMenuItem, textToolStripMenuItem, tableToolStripMenuItem,
                 listsToolStripMenuItem, functionToolStripMenuItem, textToolStripMenuItem1, alertBoxToolStripMenuItem, timeoutToolStripMenuItem, randomNumberToolStripMenuItem, cSSCustomizeTagToolStripMenuItem, cSSCustomTagPropertiesToolStripMenuItem, textToolStripMenuItem3, headingsToolStripMenuItem, boldbToolStripMenuItem, underlineuToolStripMenuItem, italiciToolStripMenuItem,
@@ -29,14 +28,9 @@ namespace cashew {
                 fontToolStripMenuItem, sizeToolStripMenuItem, weightToolStripMenuItem, colorToolStripMenuItem, directionToolStripMenuItem, lineHeightToolStripMenuItem, alignToolStripMenuItem, letterSpacingToolStripMenuItem, decorationToolStripMenuItem, indentToolStripMenuItem, shadowToolStripMenuItem, transformToolStripMenuItem, wordspacingToolStripMenuItem, centercenterToolStripMenuItem,
                 paragraphpToolStripMenuItem};
             cseditrefl = new string[1] { "System.Windows.Forms.dll" };
-            csinftc.Appearance = TabAppearance.Buttons;
-            csinftc.ItemSize = new Size(0, 1);
-            csinftc.Multiline = true;
-            csinftc.SizeMode = TabSizeMode.Fixed;
             htmldisplay.DocumentText = htmltext.Text;
             metroToggle1_CheckedChanged(this, new EventArgs());
             languageTabControl.SelectedTab = infotab;
-            csinftc.SelectedTab = csedittp;
         }
 
         private void metroToggle1_CheckedChanged(object sender, EventArgs e) {
@@ -78,21 +72,15 @@ namespace cashew {
         System.Reflection.MethodInfo script;
         private void metroLabel2_Click(object sender, EventArgs e) => MessageBox.Show(csediterrors.Text, "Errors");
         private void metroPanel1_Click(object sender, EventArgs e) => MessageBox.Show(csediterrors.Text, "Errors");
-        private void csedit_Click(object sender, EventArgs e) => csinftc.SelectedTab = csedittp;
-        private void cslive_Click(object sender, EventArgs e) => csinftc.SelectedTab = cslivetp;
         private void cseditsave_Click(object sender, EventArgs e) {
             if (csSaveFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
                     if (cseditref.Text == "Code") {
                         cseditrefl = cseditcode.Lines;
-                    }
-                    else {
+                    } else {
                         cseditcodel = cseditcode.Lines;
                     }
-                    BinaryFormatter bf = new BinaryFormatter();
-                    FileStream file = File.Create(csSaveFileDialog.FileName);
-                    bf.Serialize(file, new string[][] { cseditcodel, cseditrefl });
-                    file.Close();
+                    Misc.SaveObjectToFile(new string[][] { cseditcodel, cseditrefl }, csSaveFileDialog.FileName);
                 } catch (Exception e1) {
                     MessageBox.Show(e1.Message, "Failed to Save");
                 }
@@ -123,12 +111,9 @@ namespace cashew {
         private void cseditopen_Click(object sender, EventArgs e) {
             if (csOpenFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
-                    BinaryFormatter bf = new BinaryFormatter();
-                    FileStream file = File.Open(csOpenFileDialog.FileName, FileMode.Open);
-                    string[][] tmp = (string[][])bf.Deserialize(file);
+                    string[][] tmp = (string[][])Misc.LoadObjectFromFile(csOpenFileDialog.FileName);
                     cseditcodel = tmp[0];
                     cseditrefl = tmp[1];
-                    file.Close();
                     if (cseditref.Text == "References") {
                         cseditcode.Lines = cseditcodel;
                     } else {
