@@ -117,6 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="cseditcode.Text" xml:space="preserve">
+    <value>using System;
+using System.Windows.Forms;
+
+namespace Project
+{
+    public class Program
+    {
+        public static void Main()
+        {
+            MessageBox.Show("Hello, world!");
+        }
+    }
+}
+</value>
+  </data>
   <data name="infoPanel.Text" xml:space="preserve">
     <value>This Program uses MetroModernUI by Dennis Magno and Costura.Fody by Simon Cropp.
 Functionality:
@@ -148,21 +164,6 @@ IF YOU WANT A PROFESSIONAL PROGRAM, DON'T USE THIS!</value>
   <metadata name="pythonSaveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>1064, 17</value>
   </metadata>
-  <data name="cseditcode.Text" xml:space="preserve">
-    <value>using System;
-using System.Windows.Forms;
-
-namespace Project
-{
-    public class Program
-    {
-        public static void Main()
-        {
-            MessageBox.Show("Hello, world!");
-        }
-    }
-}</value>
-  </data>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="$this.Icon" type="System.Drawing.Icon, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>

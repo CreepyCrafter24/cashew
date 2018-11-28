@@ -1,5 +1,4 @@
-﻿#region MakeApp()
-using System;
+﻿using System;
 using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
@@ -7,20 +6,35 @@ using System.IO;
 using CCFunctions;
 using System.Drawing;
 using System.Diagnostics;
+using ICSharpCode.TextEditor.Document;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading;
+using ICSharpCode.Decompiler;
+using ICSharpCode.Decompiler.CSharp;
+using ICSharpCode.Decompiler.TypeSystem;
+using System.Reflection;
+using System.IO.Compression;
+using MetroFramework.Interfaces;
 #pragma warning disable IDE1006
+
 namespace cashew {
     public partial class MAIN : MetroForm {
         #region General
-        MetroFramework.Interfaces.IMetroControl[] metroControls;
+        IMetroControl[] metroControls;
         Control[] normalControls;
         ToolStripMenuItem[] menuItems;
         string[] cseditcodel;
         string[] cseditrefl;
+        string TempPath = Path.GetTempPath() + "cashew";
+        static void Splash() => Application.Run(new Splash());
         public MAIN() {
+            Thread splash = new Thread(new ThreadStart(Splash));
+            splash.Start();
             InitializeComponent();
-            metroControls = new MetroFramework.Interfaces.IMetroControl[] { nmtext, languageTabControl, cstab, infotab, nightmodeToggle, cseditopen, cseditrun, cseditsave, cseditcode, csediterrorpanel, csediterrors, cseditref, infoPanel, htmltab, htmltext, htmltitle, htmlOptionsTile, htmlOptionsMenu, htmlRefreshTile, htmlLoad, htmlSave, htmlLoadIndicator, htmlUpdateToggle,
-                htmlLiveLabel, livehider, nightmodehide, pythontab, pythonSave, pythonRun, pythonOpen, pythonCode, pythonExtract};
-            normalControls = new Control[] { htmlSep, htmldisplay };
+            metroControls = new IMetroControl[] { nmtext, languageTabControl, cstab, infotab, nightmodeToggle, cseditopen, cseditrun, cseditsave, csediterrorpanel, csediterrors, cseditref, infoPanel, htmltab, htmltitle, htmlOptionsTile, htmlOptionsMenu, htmlRefreshTile, htmlLoad, htmlSave, htmlLoadIndicator, htmlUpdateToggle, htmlLiveLabel, livehider, nightmodehide, pythontab,
+                pythonSave, pythonRun, pythonOpen};
+            normalControls = new Control[] { htmlSep, htmldisplay, cseditcode, pythonCode, htmlText };
             menuItems = new ToolStripMenuItem[] { hTMLToolStripMenuItem, javaScriptToolStripMenuItem, cSSToolStripMenuItem, pHPToolStripMenuItem, hTMLStructureSetupToolStripMenuItem, javaStructureSetupToolStripMenuItem, cSSStructureSetupToolStripMenuItem, pHPStructureSetupToolStripMenuItem, linkToolStripMenuItem, imageToolStripMenuItem, textToolStripMenuItem, tableToolStripMenuItem,
                 listsToolStripMenuItem, functionToolStripMenuItem, textToolStripMenuItem1, alertBoxToolStripMenuItem, timeoutToolStripMenuItem, randomNumberToolStripMenuItem, cSSCustomizeTagToolStripMenuItem, cSSCustomTagPropertiesToolStripMenuItem, textToolStripMenuItem3, headingsToolStripMenuItem, boldbToolStripMenuItem, underlineuToolStripMenuItem, italiciToolStripMenuItem,
                 deleteddelToolStripMenuItem, subscriptedSubToolStripMenuItem, superscriptedsupToolStripMenuItem, tableFormatSetupToolStripMenuItem, tableHeadingthToolStripMenuItem, newHorizontalItemtdToolStripMenuItem, newRowtrToolStripMenuItem, orderedListSetupolToolStripMenuItem, unorderedListSetupulToolStripMenuItem, listItemliToolStripMenuItem, heading1h1ToolStripMenuItem,
@@ -28,9 +42,24 @@ namespace cashew {
                 fontToolStripMenuItem, sizeToolStripMenuItem, weightToolStripMenuItem, colorToolStripMenuItem, directionToolStripMenuItem, lineHeightToolStripMenuItem, alignToolStripMenuItem, letterSpacingToolStripMenuItem, decorationToolStripMenuItem, indentToolStripMenuItem, shadowToolStripMenuItem, transformToolStripMenuItem, wordspacingToolStripMenuItem, centercenterToolStripMenuItem,
                 paragraphpToolStripMenuItem};
             cseditrefl = new string[1] { "System.Windows.Forms.dll" };
-            htmldisplay.DocumentText = htmltext.Text;
+            htmldisplay.DocumentText = htmlText.Text;
             metroToggle1_CheckedChanged(this, new EventArgs());
             languageTabControl.SelectedTab = infotab;
+            if (Directory.Exists(TempPath)) { Directory.Delete(TempPath, true); }
+            Directory.CreateDirectory(TempPath + @"\xshd");
+            File.WriteAllBytes(TempPath + @"\tmp.zip", Resources.xshd);
+            ZipFile.ExtractToDirectory(TempPath + @"\tmp.zip", TempPath + @"\xshd");
+            File.Delete(TempPath + @"\tmp.zip");
+            HighlightingManager.Manager.AddSyntaxModeFileProvider(new FileSyntaxModeProvider(TempPath + @"\xshd"));
+            try {
+                if (Directory.Exists(TempPath + @"\Python\")) {
+                    Directory.Delete(TempPath + @"\Python\");
+                }
+                try { Directory.CreateDirectory(TempPath + @"\Python\"); } catch { }
+                File.WriteAllBytes(TempPath + @"\Python.zip", Resources.Python);
+                ZipFile.ExtractToDirectory(TempPath + @"\Python.zip", TempPath + @"\Python");
+            } catch (Exception e) { MessageBox.Show(e.ToString()); }
+            splash.Abort();
         }
 
         private void metroToggle1_CheckedChanged(object sender, EventArgs e) {
@@ -76,9 +105,9 @@ namespace cashew {
             if (csSaveFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
                     if (cseditref.Text == "Code") {
-                        cseditrefl = cseditcode.Lines;
+                        cseditrefl = Misc.StringToArray(cseditcode.Text);
                     } else {
-                        cseditcodel = cseditcode.Lines;
+                        cseditcodel = Misc.StringToArray(cseditcode.Text);
                     }
                     Misc.SaveObjectToFile(new string[][] { cseditcodel, cseditrefl }, csSaveFileDialog.FileName);
                 } catch (Exception e1) {
@@ -92,9 +121,9 @@ namespace cashew {
                 try {
                     csediterrors.Text = "";
                     if (cseditref.Text == "Code") {
-                        cseditrefl = cseditcode.Lines;
+                        cseditrefl = Misc.StringToArray(cseditcode.Text);
                     } else {
-                        cseditcodel = cseditcode.Lines;
+                        cseditcodel = Misc.StringToArray(cseditcode.Text);
                     }
                     script = Compiling.CScriptToMethod(Misc.ArrayToString(cseditcodel, true), "Project", "Program", "Main", cseditrefl, new Microsoft.CSharp.CSharpCodeProvider(), new System.CodeDom.Compiler.CompilerParameters(), true, true);
                     cseditrun.Text = "Stop";
@@ -107,39 +136,50 @@ namespace cashew {
                 cseditexecutor.CancelAsync();
             }
         }
-
+        
         private void cseditopen_Click(object sender, EventArgs e) {
             if (csOpenFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
-                    string[][] tmp = (string[][])Misc.LoadObjectFromFile(csOpenFileDialog.FileName);
-                    cseditcodel = tmp[0];
-                    cseditrefl = tmp[1];
-                    if (cseditref.Text == "References") {
-                        cseditcode.Lines = cseditcodel;
+                    if (csOpenFileDialog.FilterIndex == 1) {
+                        string[][] tmp = (string[][])Misc.LoadObjectFromFile(csOpenFileDialog.FileName);
+                        cseditcodel = tmp[0];
+                        cseditrefl = tmp[1];
+                        if (cseditref.Text == "References")
+                            cseditcode.Text = Misc.ArrayToString(cseditcodel, true);
+                        else
+                            cseditcode.Text = Misc.ArrayToString(cseditrefl, true);
                     } else {
-                        cseditcode.Lines = cseditrefl;
+                        CSharpDecompiler decompiler = new CSharpDecompiler(csOpenFileDialog.FileName, new DecompilerSettings());
+                        cseditcodel = Misc.StringToArray(decompiler.DecompileWholeModuleAsString().Replace("\r", ""));
+                        cseditrefl = new string[]{};
+                        if (cseditref.Text == "References")
+                            cseditcode.Text = Misc.ArrayToString(cseditcodel, true);
+                        else
+                            cseditcode.Text = Misc.ArrayToString(cseditrefl, true);
                     }
                 } catch (Exception e1) {
-                    MessageBox.Show(e1.Message, "Failed to Load");
+                    MessageBox.Show(e1.ToString(), "Failed to Load");
                 }
             }
         }
 
         private void cseditref_Click(object sender, EventArgs e) {
             if (cseditref.Text == "References") {
-                cseditcodel = cseditcode.Lines;
-                cseditcode.Lines = cseditrefl;
+                cseditcodel = Misc.StringToArray(cseditcode.Text.Replace("\r", ""));
+                cseditcode.Text = Misc.ArrayToString(cseditrefl, true);
+                cseditcode.Refresh();
                 cseditref.Text = "Code";
             } else {
-                cseditrefl = cseditcode.Lines;
-                cseditcode.Lines = cseditcodel;
+                cseditrefl = Misc.StringToArray(cseditcode.Text.Replace("\r", ""));
+                cseditcode.Text = Misc.ArrayToString(cseditcodel, true);
+                cseditcode.Refresh();
                 cseditref.Text = "References";
             }
         }
 
         private void cseditexecutor_DoWork(object sender, System.ComponentModel.DoWorkEventArgs e) {
             while (cseditexecutor.CancellationPending == false) {
-                System.Reflection.MethodInfo q = script;
+                MethodInfo q = script;
                 object o = q.Invoke(null, null);
                 return;
             }
@@ -161,31 +201,37 @@ namespace cashew {
         private void htmldisplay_Navigating(object sender, WebBrowserNavigatingEventArgs e) => htmlLoadIndicator.Visible = true;
         private void htmltext_TextChanged(object sender, EventArgs e) {
             if (UpdateHTML) {
-                htmldisplay.DocumentText = htmltext.Text;
+                htmldisplay.DocumentText = htmlText.Text;
                 htmltitle.Text = htmldisplay.DocumentTitle;
             }
         }
 
         private void htmlRefreshTile_Click(object sender, EventArgs e) {
-            htmldisplay.DocumentText = htmltext.Text;
+            htmldisplay.DocumentText = htmlText.Text;
             htmltitle.Text = htmldisplay.DocumentTitle;
         }
 
         private void htmlOptionsTile_Click(object sender, EventArgs e) => htmlOptionsMenu.Show(htmlOptionsTile.Location);
         private void htmlOptionsTile_MouseEnter(object sender, EventArgs e) {
-            sels = htmltext.SelectionStart;
-            sele = htmltext.SelectionLength;
+            if (htmlText.ActiveTextAreaControl.TextArea.SelectionManager.HasSomethingSelected) {
+                ISelection sel = htmlText.ActiveTextAreaControl.SelectionManager.SelectionCollection[0];
+                List<string> tmp = Misc.StringToArray(htmlText.Text).OfType<string>().ToList();
+                //Not working: sele not working
+                tmp.RemoveRange(sel.EndPosition.Line - 1, tmp.Count - sel.EndPosition.Line); //Determins line
+                sels = Misc.ArrayToString(tmp.ToArray(), true).ToCharArray().Length + sel.StartPosition.Column; //Line + Column
+                sele = sels + sel.Length;
+            } else { sels = 0; sele = htmlText.Text.Length; }
         }
 
         private void addToHTMLBox(string inFront, string atEnd) {
-            htmltext.Text = htmltext.Text.Insert(sels + sele, atEnd);
-            htmltext.Text = htmltext.Text.Insert(sels, inFront);
+            htmlText.Text = htmlText.Text.Insert(sele, atEnd);
+            htmlText.Text = htmlText.Text.Insert(sels, inFront);
         }
 
         private void htmlSave_Click(object sender, EventArgs e) {
             if (htmlSaveFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
-                    File.WriteAllLines(htmlSaveFileDialog.FileName, htmltext.Lines);
+                    File.WriteAllLines(htmlSaveFileDialog.FileName, Misc.StringToArray(htmlText.Text));
                 } catch (Exception e1) {
                     MessageBox.Show(e1.Message, "Saving Failed");
                 }
@@ -195,7 +241,7 @@ namespace cashew {
         private void htmlLoad_Click(object sender, EventArgs e) {
             if (htmlOpenFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
-                    htmltext.Lines = File.ReadAllLines(htmlOpenFileDialog.FileName);
+                    htmlText.Text = Misc.ArrayToString(File.ReadAllLines(htmlOpenFileDialog.FileName), true);
                 } catch (Exception e1) {
                     MessageBox.Show(e1.Message, "Loading Failed");
                 }
@@ -268,7 +314,7 @@ namespace cashew {
         private void pythonOpen_Click(object sender, EventArgs e) {
             if (pythonOpenFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
-                    pythonCode.Lines = File.ReadAllLines(pythonOpenFileDialog.FileName);
+                    pythonCode.Text = Misc.ArrayToString(File.ReadAllLines(pythonOpenFileDialog.FileName), true);
                 } catch (Exception e1) {
                     MessageBox.Show(e1.Message, "Loading Failed");
                 }
@@ -278,7 +324,7 @@ namespace cashew {
         private void pythonSave_Click(object sender, EventArgs e) {
             if (pythonSaveFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
-                    File.WriteAllLines(pythonSaveFileDialog.FileName, pythonCode.Lines);
+                    File.WriteAllLines(pythonSaveFileDialog.FileName, Misc.StringToArray(pythonCode.Text));
                 }
                 catch (Exception e1) {
                     MessageBox.Show(e1.Message, "Saving Failed");
@@ -287,19 +333,11 @@ namespace cashew {
         }
 
         private void pythonRun_Click(object sender, EventArgs e) {
-            File.WriteAllLines(Path.GetTempPath() + @"Python\tmp.py",pythonCode.Lines);
-            Process process = Process.Start(new ProcessStartInfo { FileName = Path.GetTempPath() + @"Python\python.exe", Arguments = Path.GetTempPath() + @"Python\tmp.py", UseShellExecute = true });
-        }
-
-        private void metroTile1_Click(object sender, EventArgs e) {
-            if (Directory.Exists(Path.GetTempPath() + "Python")) {
-                Directory.Delete(Path.GetTempPath() + "Python");
-            }
-            try { Directory.CreateDirectory(Path.GetTempPath() + "Python"); } catch { }
-            File.WriteAllBytes(Path.GetTempPath() + "Python.zip", Resources.Python);
-            System.IO.Compression.ZipFile.ExtractToDirectory(Path.GetTempPath() + "Python.zip", Path.GetTempPath() + "Python");
+            File.WriteAllLines(TempPath + @"\Python\tmp.py", Misc.StringToArray(pythonCode.Text));
+            Process process = Process.Start(new ProcessStartInfo { FileName = TempPath + @"\Python\python.exe", Arguments = TempPath + @"\Python\tmp.py", UseShellExecute = true });
         }
         #endregion
     }
 }
-#endregion
+
+//Fix HTML Tab; Add syntax tree to cs?

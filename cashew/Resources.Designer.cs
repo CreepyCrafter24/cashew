@@ -69,5 +69,15 @@ namespace cashew {
                 return ((byte[])(obj));
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] xshd {
+            get {
+                object obj = ResourceManager.GetObject("xshd", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
     }
 }
