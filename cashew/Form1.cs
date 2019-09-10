@@ -3,7 +3,6 @@ using System.Windows.Forms;
 using MetroFramework;
 using MetroFramework.Forms;
 using System.IO;
-using CCFunctions;
 using System.Drawing;
 using System.Diagnostics;
 using ICSharpCode.TextEditor.Document;
@@ -16,6 +15,11 @@ using ICSharpCode.Decompiler.TypeSystem;
 using System.Reflection;
 using System.IO.Compression;
 using MetroFramework.Interfaces;
+using CC_Functions.Misc;
+using System.CodeDom.Compiler;
+using Microsoft.CSharp;
+using System.Text;
+using System.Runtime.Serialization.Formatters.Binary;
 #pragma warning disable IDE1006
 
 namespace cashew {
@@ -27,10 +31,9 @@ namespace cashew {
         string[] cseditcodel;
         string[] cseditrefl;
         string TempPath = Path.GetTempPath() + "cashew";
-        static void Splash() => Application.Run(new Splash());
         public MAIN() {
-            Thread splash = new Thread(new ThreadStart(Splash));
-            splash.Start();
+            Splash splash = new Splash();
+            splash.Show();
             InitializeComponent();
             metroControls = new IMetroControl[] { nmtext, languageTabControl, cstab, infotab, nightmodeToggle, cseditopen, cseditrun, cseditsave, csediterrorpanel, csediterrors, cseditref, infoPanel, htmltab, htmltitle, htmlOptionsTile, htmlOptionsMenu, htmlRefreshTile, htmlLoad, htmlSave, htmlLoadIndicator, htmlUpdateToggle, htmlLiveLabel, livehider, nightmodehide, pythontab,
                 pythonSave, pythonRun, pythonOpen};
@@ -59,8 +62,10 @@ namespace cashew {
                 File.WriteAllBytes(TempPath + @"\Python.zip", Resources.Python);
                 ZipFile.ExtractToDirectory(TempPath + @"\Python.zip", TempPath + @"\Python");
             } catch (Exception e) { MessageBox.Show(e.ToString()); }
-            splash.Abort();
+            splash.Hide();
         }
+
+        private void MAIN_Load(object sender, EventArgs e) => BringToFront();
 
         private void metroToggle1_CheckedChanged(object sender, EventArgs e) {
             if (nightmodeToggle.Checked) {
@@ -98,18 +103,20 @@ namespace cashew {
         #endregion
 
         #region CS
-        System.Reflection.MethodInfo script;
+        MethodInfo script;
         private void metroLabel2_Click(object sender, EventArgs e) => MessageBox.Show(csediterrors.Text, "Errors");
         private void metroPanel1_Click(object sender, EventArgs e) => MessageBox.Show(csediterrors.Text, "Errors");
         private void cseditsave_Click(object sender, EventArgs e) {
             if (csSaveFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
                     if (cseditref.Text == "Code") {
-                        cseditrefl = Misc.StringToArray(cseditcode.Text);
+                        cseditrefl = cseditcode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
                     } else {
-                        cseditcodel = Misc.StringToArray(cseditcode.Text);
+                        cseditcodel = cseditcode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
                     }
-                    Misc.SaveObjectToFile(new string[][] { cseditcodel, cseditrefl }, csSaveFileDialog.FileName);
+                    Stream s = File.OpenWrite(csSaveFileDialog.FileName);
+                    new BinaryFormatter().Serialize(s, new string[][] { cseditcodel, cseditrefl });
+                    s.Dispose();
                 } catch (Exception e1) {
                     MessageBox.Show(e1.Message, "Failed to Save");
                 }
@@ -121,11 +128,31 @@ namespace cashew {
                 try {
                     csediterrors.Text = "";
                     if (cseditref.Text == "Code") {
-                        cseditrefl = Misc.StringToArray(cseditcode.Text);
+                        cseditrefl = cseditcode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
                     } else {
-                        cseditcodel = Misc.StringToArray(cseditcode.Text);
+                        cseditcodel = cseditcode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
                     }
-                    script = Compiling.CScriptToMethod(Misc.ArrayToString(cseditcodel, true), "Project", "Program", "Main", cseditrefl, new Microsoft.CSharp.CSharpCodeProvider(), new System.CodeDom.Compiler.CompilerParameters(), true, true);
+                    CSharpCodeProvider provider = new CSharpCodeProvider();
+                    CompilerParameters parameters = new CompilerParameters
+                    {
+                        GenerateInMemory = true,
+                        GenerateExecutable = true
+                    };
+                    for (int i = 0; i < cseditrefl.Length; i++)
+                        parameters.ReferencedAssemblies.Add(cseditrefl[i]);
+                    CompilerResults results = provider.CompileAssemblyFromSource(parameters, ArrayFormatter.ArrayToString(cseditcodel));
+                    if (results.Errors.HasErrors)
+                    {
+                        StringBuilder sb = new StringBuilder();
+                        foreach (CompilerError error in results.Errors)
+                        {
+                            sb.AppendLine(string.Format("Error ({0}): {1}", error.ErrorNumber, error.ErrorText));
+                        }
+                        throw new InvalidOperationException(sb.ToString());
+                    }
+                    Assembly assembly = results.CompiledAssembly;
+                    Type program = assembly.GetType("Project.Program");
+                    script = program.GetMethod("Main");
                     cseditrun.Text = "Stop";
                     cseditexecutor.RunWorkerAsync();
                     csediterrors.Text = "Ready";
@@ -141,21 +168,23 @@ namespace cashew {
             if (csOpenFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
                     if (csOpenFileDialog.FilterIndex == 1) {
-                        string[][] tmp = (string[][])Misc.LoadObjectFromFile(csOpenFileDialog.FileName);
+                        Stream s = File.OpenRead(csOpenFileDialog.FileName);
+                        string[][] tmp = (string[][])new BinaryFormatter().Deserialize(s);
+                        s.Dispose();
                         cseditcodel = tmp[0];
                         cseditrefl = tmp[1];
                         if (cseditref.Text == "References")
-                            cseditcode.Text = Misc.ArrayToString(cseditcodel, true);
+                            cseditcode.Text = ArrayFormatter.ArrayToString(cseditcodel);
                         else
-                            cseditcode.Text = Misc.ArrayToString(cseditrefl, true);
+                            cseditcode.Text = ArrayFormatter.ArrayToString(cseditrefl);
                     } else {
                         CSharpDecompiler decompiler = new CSharpDecompiler(csOpenFileDialog.FileName, new DecompilerSettings());
-                        cseditcodel = Misc.StringToArray(decompiler.DecompileWholeModuleAsString().Replace("\r", ""));
+                        cseditcodel = decompiler.DecompileWholeModuleAsString().Split(new string[] { "\r\n" }, StringSplitOptions.None);
                         cseditrefl = new string[]{};
                         if (cseditref.Text == "References")
-                            cseditcode.Text = Misc.ArrayToString(cseditcodel, true);
+                            cseditcode.Text = ArrayFormatter.ArrayToString(cseditcodel);
                         else
-                            cseditcode.Text = Misc.ArrayToString(cseditrefl, true);
+                            cseditcode.Text = ArrayFormatter.ArrayToString(cseditrefl);
                     }
                 } catch (Exception e1) {
                     MessageBox.Show(e1.ToString(), "Failed to Load");
@@ -165,13 +194,13 @@ namespace cashew {
 
         private void cseditref_Click(object sender, EventArgs e) {
             if (cseditref.Text == "References") {
-                cseditcodel = Misc.StringToArray(cseditcode.Text.Replace("\r", ""));
-                cseditcode.Text = Misc.ArrayToString(cseditrefl, true);
+                cseditcodel = cseditcode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                cseditcode.Text = ArrayFormatter.ArrayToString(cseditrefl);
                 cseditcode.Refresh();
                 cseditref.Text = "Code";
             } else {
-                cseditrefl = Misc.StringToArray(cseditcode.Text.Replace("\r", ""));
-                cseditcode.Text = Misc.ArrayToString(cseditcodel, true);
+                cseditrefl = cseditcode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                cseditcode.Text = ArrayFormatter.ArrayToString(cseditcodel);
                 cseditcode.Refresh();
                 cseditref.Text = "References";
             }
@@ -199,8 +228,11 @@ namespace cashew {
 
         private void metroToggle2_CheckedChanged(object sender, EventArgs e) => UpdateHTML = htmlUpdateToggle.Checked;
         private void htmldisplay_Navigating(object sender, WebBrowserNavigatingEventArgs e) => htmlLoadIndicator.Visible = true;
-        private void htmltext_TextChanged(object sender, EventArgs e) {
-            if (UpdateHTML) {
+
+        private void HtmlText_TextChanged_1(object sender, EventArgs e)
+        {
+            if (UpdateHTML)
+            {
                 htmldisplay.DocumentText = htmlText.Text;
                 htmltitle.Text = htmldisplay.DocumentTitle;
             }
@@ -215,10 +247,10 @@ namespace cashew {
         private void htmlOptionsTile_MouseEnter(object sender, EventArgs e) {
             if (htmlText.ActiveTextAreaControl.TextArea.SelectionManager.HasSomethingSelected) {
                 ISelection sel = htmlText.ActiveTextAreaControl.SelectionManager.SelectionCollection[0];
-                List<string> tmp = Misc.StringToArray(htmlText.Text).OfType<string>().ToList();
+                List<string> tmp = htmlText.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
                 //Not working: sele not working
                 tmp.RemoveRange(sel.EndPosition.Line - 1, tmp.Count - sel.EndPosition.Line); //Determins line
-                sels = Misc.ArrayToString(tmp.ToArray(), true).ToCharArray().Length + sel.StartPosition.Column; //Line + Column
+                sels = ArrayFormatter.ArrayToString(tmp.ToArray()).ToCharArray().Length + sel.StartPosition.Column; //Line + Column
                 sele = sels + sel.Length;
             } else { sels = 0; sele = htmlText.Text.Length; }
         }
@@ -231,7 +263,7 @@ namespace cashew {
         private void htmlSave_Click(object sender, EventArgs e) {
             if (htmlSaveFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
-                    File.WriteAllLines(htmlSaveFileDialog.FileName, Misc.StringToArray(htmlText.Text));
+                    File.WriteAllText(htmlSaveFileDialog.FileName, htmlText.Text);
                 } catch (Exception e1) {
                     MessageBox.Show(e1.Message, "Saving Failed");
                 }
@@ -241,7 +273,7 @@ namespace cashew {
         private void htmlLoad_Click(object sender, EventArgs e) {
             if (htmlOpenFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
-                    htmlText.Text = Misc.ArrayToString(File.ReadAllLines(htmlOpenFileDialog.FileName), true);
+                    htmlText.Text = File.ReadAllText(htmlOpenFileDialog.FileName);
                 } catch (Exception e1) {
                     MessageBox.Show(e1.Message, "Loading Failed");
                 }
@@ -314,7 +346,7 @@ namespace cashew {
         private void pythonOpen_Click(object sender, EventArgs e) {
             if (pythonOpenFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
-                    pythonCode.Text = Misc.ArrayToString(File.ReadAllLines(pythonOpenFileDialog.FileName), true);
+                    pythonCode.Text = File.ReadAllText(pythonOpenFileDialog.FileName);
                 } catch (Exception e1) {
                     MessageBox.Show(e1.Message, "Loading Failed");
                 }
@@ -324,7 +356,7 @@ namespace cashew {
         private void pythonSave_Click(object sender, EventArgs e) {
             if (pythonSaveFileDialog.ShowDialog() == DialogResult.OK) {
                 try {
-                    File.WriteAllLines(pythonSaveFileDialog.FileName, Misc.StringToArray(pythonCode.Text));
+                    File.WriteAllText(pythonSaveFileDialog.FileName, pythonCode.Text);
                 }
                 catch (Exception e1) {
                     MessageBox.Show(e1.Message, "Saving Failed");
@@ -333,7 +365,7 @@ namespace cashew {
         }
 
         private void pythonRun_Click(object sender, EventArgs e) {
-            File.WriteAllLines(TempPath + @"\Python\tmp.py", Misc.StringToArray(pythonCode.Text));
+            File.WriteAllText(TempPath + @"\Python\tmp.py", pythonCode.Text);
             Process process = Process.Start(new ProcessStartInfo { FileName = TempPath + @"\Python\python.exe", Arguments = TempPath + @"\Python\tmp.py", UseShellExecute = true });
         }
         #endregion
