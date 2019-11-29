@@ -132,6 +132,7 @@
             this.nightmodehide = new MetroFramework.Controls.MetroPanel();
             this.pythonOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.pythonSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
+            this.buttonFix = new System.Windows.Forms.Timer(this.components);
             this.languageTabControl.SuspendLayout();
             this.cstab.SuspendLayout();
             this.csediterrorpanel.SuspendLayout();
@@ -156,7 +157,7 @@
             this.languageTabControl.Controls.Add(this.infotab);
             this.languageTabControl.Location = new System.Drawing.Point(23, 63);
             this.languageTabControl.Name = "languageTabControl";
-            this.languageTabControl.SelectedIndex = 0;
+            this.languageTabControl.SelectedIndex = 2;
             this.languageTabControl.Size = new System.Drawing.Size(797, 433);
             this.languageTabControl.TabIndex = 0;
             this.languageTabControl.UseSelectable = true;
@@ -258,22 +259,23 @@
             this.csediterrors.Text = "Ready";
             this.csediterrors.Click += new System.EventHandler(this.metroLabel2_Click);
             // 
-            // cseditcode
+            // cseditCode
             // 
             this.cseditCode.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.cseditCode.BackColor = System.Drawing.Color.White;
             this.cseditCode.ConvertTabsToSpaces = true;
+            this.cseditCode.Highlighting = null;
             this.cseditCode.IsIconBarVisible = true;
             this.cseditCode.LineViewerStyle = ICSharpCode.TextEditor.Document.LineViewerStyle.FullRow;
             this.cseditCode.Location = new System.Drawing.Point(6, 47);
-            this.cseditCode.Name = "cseditcode";
+            this.cseditCode.Name = "cseditCode";
             this.cseditCode.RightToLeft = System.Windows.Forms.RightToLeft.No;
             this.cseditCode.Size = new System.Drawing.Size(780, 291);
             this.cseditCode.TabIndex = 9;
             this.cseditCode.TabStop = false;
-            this.cseditCode.Text = resources.GetString("cseditcode.Text");
+            this.cseditCode.Text = resources.GetString("cseditCode.Text");
             // 
             // htmltab
             // 
@@ -486,7 +488,7 @@
             this.pythonCode.Name = "pythonCode";
             this.pythonCode.Size = new System.Drawing.Size(783, 341);
             this.pythonCode.TabIndex = 11;
-            this.pythonCode.Text = "print(\"Hello world!\")";
+            this.pythonCode.Text = "import time\r\nprint(\"Hello world!\")\r\ntime.sleep(1)";
             // 
             // pythonSave
             // 
@@ -1124,6 +1126,11 @@
             // 
             this.pythonSaveFileDialog.Filter = "Python Files|*.py";
             // 
+            // buttonFix
+            // 
+            this.buttonFix.Enabled = true;
+            this.buttonFix.Tick += new System.EventHandler(this.buttonFix_Tick);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1261,6 +1268,7 @@
         private ICSharpCode.TextEditor.TextEditorControl cseditCode;
         private ICSharpCode.TextEditor.TextEditorControl htmlText;
         private ICSharpCode.TextEditor.TextEditorControl pythonCode;
+        private System.Windows.Forms.Timer buttonFix;
     }
 }
 

@@ -21,6 +21,7 @@ using System.Runtime.Serialization.Formatters.Binary;
 using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using ThreadState = System.Threading.ThreadState;
 
 #pragma warning disable IDE1006
 
@@ -29,7 +30,7 @@ namespace cashew
     public partial class MainForm : MetroForm
     {
         #region General
-
+        ThreadState[] runningStates = new ThreadState[] { ThreadState.Background, ThreadState.Running, ThreadState.StopRequested, ThreadState.WaitSleepJoin };
         private IMetroControl[] metroControls;
         private Control[] normalControls;
         private ToolStripMenuItem[] menuItems;
@@ -108,11 +109,17 @@ namespace cashew
             Refresh();
         }
 
+        private void buttonFix_Tick(object sender, EventArgs e)
+        {
+            pythonRun.Text = pythonScript != null && runningStates.Contains(pythonScript.ThreadState) ? "Stop" : "Run";
+            cseditrun.Text = csScript != null && runningStates.Contains(csScript.ThreadState) ? "Stop" : "Run";
+        }
+
         #endregion General
 
         #region CS
 
-        Thread script;
+        Thread csScript;
         private void metroLabel2_Click(object sender, EventArgs e) => MetroMessageBox.Show(this, csediterrors.Text, "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
         private void metroPanel1_Click(object sender, EventArgs e) => MetroMessageBox.Show(this, csediterrors.Text, "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -177,9 +184,9 @@ namespace cashew
 
         private void cseditrun_Click(object sender, EventArgs e)
         {
-            if ((script != null) && script.ThreadState == System.Threading.ThreadState.Running)
+            if ((csScript != null) && runningStates.Contains(csScript.ThreadState))
             {
-                script.Abort();
+                csScript.Abort();
             }
             else
             {
@@ -204,21 +211,22 @@ namespace cashew
                     if (results.Errors.HasErrors)
                         throw new InvalidOperationException(string.Join("\r\n\r\n", results.Errors.OfType<CompilerError>().Select(s => "Error in line " + s.Line.ToString() + ": " + s.ErrorNumber + " - " + s.ErrorText).ToArray()));
                     cseditrun.Text = "Stop";
-                    script = new Thread(() =>
+                    csScript = new Thread(() =>
                     {
                         try
                         {
                             _ = results.CompiledAssembly.EntryPoint.Invoke(null, null);
                         }
-                        finally
+                        catch (Exception e1)
                         {
-                            Invoke((MethodInvoker)delegate ()
-                            {
-                                cseditrun.Text = "Run";
-                            });
+                            if (!e1.tryCast(out ThreadAbortException ex))
+                                Invoke((MethodInvoker)delegate ()
+                                {
+                                    MetroMessageBox.Show(this, e1.Message, "Execution Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                });
                         }
                     });
-                    script.Start();
+                    csScript.Start();
                     csediterrors.Text = "Ready";
                 }
                 catch (Exception e1)
@@ -226,7 +234,7 @@ namespace cashew
                     csediterrors.Text = e1.Message;
                 }
             }
-            cseditrun.Text = script.ThreadState == System.Threading.ThreadState.Running ? "Stop" : "Run";
+            cseditrun.Text = csScript.ThreadState == System.Threading.ThreadState.Running ? "Stop" : "Run";
         }
 
         private void cseditopen_Click(object sender, EventArgs e)
@@ -491,7 +499,7 @@ namespace cashew
         #endregion HTML
 
         #region Python
-
+        Thread pythonScript;
         private void pythonOpen_Click(object sender, EventArgs e)
         {
             if (pythonOpenFileDialog.ShowDialog() == DialogResult.OK)
@@ -524,21 +532,30 @@ namespace cashew
 
         private void pythonRun_Click(object sender, EventArgs e)
         {
-            new Thread(() =>
+            if ((pythonScript != null) && runningStates.Contains(pythonScript.ThreadState))
             {
-                ScriptEngine engine = Python.CreateEngine();
-                try
+                pythonScript.Abort();
+            }
+            else
+            {
+                pythonScript = new Thread(() =>
                 {
-                    engine.Execute(pythonCode.Text);
-                }
-                catch (Exception e1)
-                {
-                    Invoke((MethodInvoker)delegate ()
+                    ScriptEngine engine = Python.CreateEngine();
+                    try
                     {
-                        MetroMessageBox.Show(this, e1.Message, "Execution Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    });
-                }
-            }).Start();
+                        engine.Execute(pythonCode.Text);
+                    }
+                    catch (Exception e1)
+                    {
+                        if (!e1.tryCast(out ThreadAbortException ex))
+                            Invoke((MethodInvoker)delegate ()
+                            {
+                                MetroMessageBox.Show(this, e1.Message, "Execution Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                            });
+                    }
+                });
+                pythonScript.Start();
+            }
         }
 
         #endregion Python
