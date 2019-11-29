@@ -113,6 +113,7 @@ namespace cashew
         {
             pythonRun.Text = pythonScript != null && runningStates.Contains(pythonScript.ThreadState) ? "Stop" : "Run";
             cseditrun.Text = csScript != null && runningStates.Contains(csScript.ThreadState) ? "Stop" : "Run";
+            htmlOptionsTile.Enabled = htmlText.ActiveTextAreaControl.TextArea.SelectionManager.HasSomethingSelected;
         }
 
         #endregion General
@@ -295,8 +296,9 @@ namespace cashew
 
         #region HTML
 
-        private int sels = 0;
-        private int sele = 0;
+        private Point sels = Point.Empty;
+        private Point sele = Point.Empty;
+        private bool htmlHasSelection = false;
         private bool UpdateHTML = true;
 
         private void htmldisplay_DocumentCompleted(object sender, WebBrowserDocumentCompletedEventArgs e)
@@ -328,22 +330,26 @@ namespace cashew
 
         private void htmlOptionsTile_MouseEnter(object sender, EventArgs e)
         {
-            if (htmlText.ActiveTextAreaControl.TextArea.SelectionManager.HasSomethingSelected)
+            htmlHasSelection = htmlText.ActiveTextAreaControl.TextArea.SelectionManager.HasSomethingSelected;
+            if (htmlHasSelection)
             {
                 ISelection sel = htmlText.ActiveTextAreaControl.SelectionManager.SelectionCollection[0];
-                List<string> tmp = htmlText.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
-                //Not working: sele not working
-                tmp.RemoveRange(sel.EndPosition.Line - 1, tmp.Count - sel.EndPosition.Line); //Determines line
-                sels = string.Join("\r\n", tmp.ToArray()).ToCharArray().Length + sel.StartPosition.Column; //Line + Column
-                sele = sels + sel.Length;
+                sels.Y = sel.StartPosition.Line;
+                sels.X = sel.StartPosition.Column;
+                sele.Y = sel.EndPosition.Line;
+                sele.X = sel.EndPosition.Column;
             }
-            else { sels = 0; sele = htmlText.Text.Length; }
         }
 
         private void addToHTMLBox(string inFront, string atEnd)
         {
-            htmlText.Text = htmlText.Text.Insert(sele, atEnd);
-            htmlText.Text = htmlText.Text.Insert(sels, inFront);
+            if (htmlHasSelection)
+            {
+                List<string> temp = htmlText.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None).ToList();
+                temp[sele.Y] = temp[sele.Y].Insert(sele.X, atEnd);
+                temp[sels.Y] = temp[sels.Y].Insert(sels.X, inFront);
+                htmlText.Text = string.Join("\r\n", temp.ToArray());
+            }
         }
 
         private void htmlSave_Click(object sender, EventArgs e)
