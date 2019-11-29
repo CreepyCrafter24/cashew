@@ -1,13 +1,16 @@
 ﻿using System;
 using System.Windows.Forms;
 
-namespace cashew {
-    static class Program {
+namespace cashew
+{
+    internal static class Program
+    {
         [STAThread]
-        static void Main() {
+        private static void Main()
+        {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new MAIN());
+            Application.Run(new MainForm());
         }
     }
 }
