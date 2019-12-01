@@ -68,7 +68,7 @@ namespace cashew
             {
                 ar.ExtractToDirectory(Path.Combine(Path.GetTempPath(), "Cashew\\Python"));
             }
-            infoPanel.Text = "This Program uses:" + string.Join("", XDocument.Parse(Resources.packages).Element("packages").Elements("package").Select(s => "\r\n- " + s.Attribute("id").Value + " " + s.Attribute("version").Value));
+            infoPanel.Text = "This Program uses:" + string.Join("", XDocument.Parse(Resources.packages).Element("packages").Elements("package").Select(s => "\r\n- " + s.Attribute("id").Value + " " + s.Attribute("version").Value).OrderBy(s => s));
         }
 
         private void MAIN_Load(object sender, EventArgs e) => BringToFront();
