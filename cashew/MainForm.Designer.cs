@@ -157,7 +157,7 @@
             this.languageTabControl.Controls.Add(this.infotab);
             this.languageTabControl.Location = new System.Drawing.Point(23, 63);
             this.languageTabControl.Name = "languageTabControl";
-            this.languageTabControl.SelectedIndex = 2;
+            this.languageTabControl.SelectedIndex = 3;
             this.languageTabControl.Size = new System.Drawing.Size(797, 433);
             this.languageTabControl.TabIndex = 0;
             this.languageTabControl.UseSelectable = true;
@@ -543,9 +543,9 @@
             this.infoPanel.AutoSize = true;
             this.infoPanel.Location = new System.Drawing.Point(3, 0);
             this.infoPanel.Name = "infoPanel";
-            this.infoPanel.Size = new System.Drawing.Size(532, 95);
+            this.infoPanel.Size = new System.Drawing.Size(119, 38);
             this.infoPanel.TabIndex = 2;
-            this.infoPanel.Text = resources.GetString("infoPanel.Text");
+            this.infoPanel.Text = "This Program uses:\r\n[PACKAGELIST]";
             // 
             // nightmodeToggle
             // 
@@ -1144,6 +1144,7 @@
             this.MinimumSize = new System.Drawing.Size(843, 518);
             this.Name = "MainForm";
             this.Text = "The Cashew Project";
+            this.FormClosed += new System.Windows.Forms.FormClosedEventHandler(this.MainForm_FormClosed);
             this.Load += new System.EventHandler(this.MAIN_Load);
             this.languageTabControl.ResumeLayout(false);
             this.cstab.ResumeLayout(false);

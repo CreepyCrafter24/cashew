@@ -133,13 +133,6 @@ namespace Project
 }
 </value>
   </data>
-  <data name="infoPanel.Text" xml:space="preserve">
-    <value>This Program uses MetroModernUI by Dennis Magno and Costura.Fody by Simon Cropp.
-Functionality:
-- Select a category (Top bar) and use the provided functions to write programs.
-
-IF YOU WANT A PROFESSIONAL PROGRAM, DON'T USE THIS!</value>
-  </data>
   <metadata name="csSaveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

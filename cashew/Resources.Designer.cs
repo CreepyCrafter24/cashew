@@ -59,5 +59,31 @@ namespace cashew {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Byte[].
+        /// </summary>
+        internal static byte[] IronPythonBCL {
+            get {
+                object obj = ResourceManager.GetObject("IronPythonBCL", resourceCulture);
+                return ((byte[])(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized string similar to &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+        ///&lt;packages&gt;
+        ///  &lt;package id=&quot;CC-Functions.Misc&quot; version=&quot;1.0.2&quot; targetFramework=&quot;net461&quot; /&gt;
+        ///  &lt;package id=&quot;DynamicLanguageRuntime&quot; version=&quot;1.2.2&quot; targetFramework=&quot;net461&quot; /&gt;
+        ///  &lt;package id=&quot;Humanizer.Core&quot; version=&quot;2.7.9&quot; targetFramework=&quot;net472&quot; /&gt;
+        ///  &lt;package id=&quot;ICSharpCode.Decompiler&quot; version=&quot;5.0.2.5153&quot; targetFramework=&quot;net472&quot; /&gt;
+        ///  &lt;package id=&quot;ICSharpCode.NRefactory&quot; version=&quot;5.5.1&quot; targetFramework=&quot;net472&quot; /&gt;
+        ///  &lt;package id=&quot;ICSharpCode.TextEditor.Extended&quot;  [rest of string was truncated]&quot;;.
+        /// </summary>
+        internal static string packages {
+            get {
+                return ResourceManager.GetString("packages", resourceCulture);
+            }
+        }
     }
 }

@@ -1,6 +1,7 @@
 ﻿using CC_Functions.Misc;
 using ICSharpCode.Decompiler;
 using ICSharpCode.Decompiler.CSharp;
+using ICSharpCode.TextEditor;
 using ICSharpCode.TextEditor.Document;
 using IronPython.Hosting;
 using MetroFramework;
@@ -11,16 +12,15 @@ using Microsoft.Scripting.Hosting;
 using System;
 using System.CodeDom.Compiler;
 using System.Collections.Generic;
-using System.Diagnostics;
 using System.Drawing;
 using System.IO;
 using System.IO.Compression;
 using System.Linq;
 using System.Reflection;
 using System.Runtime.Serialization.Formatters.Binary;
-using System.Text;
 using System.Threading;
 using System.Windows.Forms;
+using System.Xml.Linq;
 using ThreadState = System.Threading.ThreadState;
 
 #pragma warning disable IDE1006
@@ -61,6 +61,14 @@ namespace cashew
             cseditCode.SetHighlighting("C#");
             pythonCode.SetHighlighting("Python");
             htmlText.SetHighlighting("HTML");
+            if (Directory.Exists(Path.Combine(Path.GetTempPath(), "Cashew")))
+                Directory.Delete(Path.Combine(Path.GetTempPath(), "Cashew"), true);
+            using (MemoryStream ms = new MemoryStream(Resources.IronPythonBCL))
+            using (ZipArchive ar = new ZipArchive(ms))
+            {
+                ar.ExtractToDirectory(Path.Combine(Path.GetTempPath(), "Cashew\\Python"));
+            }
+            infoPanel.Text = "This Program uses:" + string.Join("", XDocument.Parse(Resources.packages).Element("packages").Elements("package").Select(s => "\r\n- " + s.Attribute("id").Value + " " + s.Attribute("version").Value));
         }
 
         private void MAIN_Load(object sender, EventArgs e) => BringToFront();
@@ -194,7 +202,6 @@ namespace cashew
                     csediterrors.Text = e1.Message;
                 }
             }
-            cseditrun.Text = csScript.ThreadState == System.Threading.ThreadState.Running ? "Stop" : "Run";
         }
 
         private CompilerResults compileCS(bool memory = true)
@@ -219,7 +226,17 @@ namespace cashew
             {
                 results = provider.CompileAssemblyFromSource(parameters, string.Join("\r\n", cseditcodel));
                 if (results.Errors.HasErrors)
-                    throw new InvalidOperationException(string.Join("\r\n\r\n", results.Errors.OfType<CompilerError>().Select(s => "Error in line " + s.Line.ToString() + ": " + s.ErrorNumber + " - " + s.ErrorText).ToArray()));
+                {
+                    IEnumerable<CompilerError> err = results.Errors.OfType<CompilerError>();
+                    /*err.ToList().ForEach(s =>
+                    {
+                        TextMarker marker = new TextMarker(0, 5, TextMarkerType.WaveLine, Color.Red);
+                        cseditCode.Document.MarkerStrategy.AddMarker(marker);
+                    });
+                    cseditCode.Update();*/
+                    throw new InvalidOperationException(string.Join("\r\n\r\n",
+                        err.Select(s => "Error in line " + s.Line.ToString() + ": " + s.ErrorNumber + " - " + s.ErrorText).ToArray()));
+                }
             }
             return results;
         }
@@ -535,6 +552,7 @@ namespace cashew
                 pythonScript = new Thread(() =>
                 {
                     ScriptEngine engine = Python.CreateEngine();
+                    engine.SetSearchPaths(new string[] { Path.Combine(Path.GetTempPath(), "Cashew\\Python") });
                     try
                     {
                         engine.Execute(pythonCode.Text);
@@ -553,5 +571,11 @@ namespace cashew
         }
 
         #endregion Python
+
+        private void MainForm_FormClosed(object sender, FormClosedEventArgs e)
+        {
+            if (Directory.Exists(Path.Combine(Path.GetTempPath(), "Cashew")))
+                Directory.Delete(Path.Combine(Path.GetTempPath(), "Cashew"), true);
+        }
     }
 }
