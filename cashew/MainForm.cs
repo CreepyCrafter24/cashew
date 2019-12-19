@@ -34,8 +34,8 @@ namespace cashew
         private readonly IMetroControl[] metroControls;
         private readonly Control[] normalControls;
         private readonly ToolStripMenuItem[] menuItems;
-        private string[] cseditcodel;
-        private string[] cseditrefl;
+        private string[] cseditcodel = new string[0];
+        private string[] cseditrefl = new string[0];
 
         public MainForm()
         {
@@ -52,7 +52,6 @@ namespace cashew
                 heading2h2ToolStripMenuItem, heading3h3ToolStripMenuItem, heading4h4ToolStripMenuItem, heading5h5ToolStripMenuItem, heading6h6ToolStripMenuItem, textToolStripMenuItem2, backgroundToolStripMenuItem, backgroundRepeatToolStripMenuItem, backgroundPositionToolStripMenuItem, backgroundImageToolStripMenuItem, backgroundColorToolStripMenuItem, backgroundAttachmentToolStripMenuItem,
                 fontToolStripMenuItem, sizeToolStripMenuItem, weightToolStripMenuItem, colorToolStripMenuItem, directionToolStripMenuItem, lineHeightToolStripMenuItem, alignToolStripMenuItem, letterSpacingToolStripMenuItem, decorationToolStripMenuItem, indentToolStripMenuItem, shadowToolStripMenuItem, transformToolStripMenuItem, wordspacingToolStripMenuItem, centercenterToolStripMenuItem,
                 paragraphpToolStripMenuItem};
-                cseditrefl = new string[1] { "System.Windows.Forms.dll" };
                 htmldisplay.DocumentText = htmlText.Text;
                 metroToggle1_CheckedChanged(this, new EventArgs());
                 languageTabControl.SelectedTab = infotab;
@@ -68,7 +67,7 @@ namespace cashew
             {
                 ar.ExtractToDirectory(Path.Combine(Path.GetTempPath(), "Cashew\\Python"));
             }
-            infoPanel.Text = "This Program uses:" + string.Join("", XDocument.Parse(Resources.packages).Element("packages").Elements("package").Select(s => "\r\n- " + s.Attribute("id").Value + " " + s.Attribute("version").Value).OrderBy(s => s));
+            infoPanel.Text = infoPanel.Text.Replace("[PACKAGELIST]", string.Join("\r\n", XDocument.Parse(Resources.packages).Element("packages").Elements("package").Select(s => "- " + s.Attribute("id").Value + " " + s.Attribute("version").Value).OrderBy(s => s)));
         }
 
         private void MAIN_Load(object sender, EventArgs e) => BringToFront();

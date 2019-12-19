@@ -117,21 +117,11 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <data name="cseditCode.Text" xml:space="preserve">
-    <value>using System;
-using System.Windows.Forms;
-
-namespace Project
-{
-    public class Program
-    {
-        public static void Main()
-        {
-            MessageBox.Show("Hello, world!");
-        }
-    }
-}
-</value>
+  <data name="infoPanel.Text" xml:space="preserve">
+    <value>NOTE: DO NOT CLOSE THE CONSOLE! DOING SO WILL CRASH CASHEW
+NOTE: The output of programs written in Cashew will be printed to the native console, no new window will open up.
+This Program uses:
+[PACKAGELIST]</value>
   </data>
   <metadata name="csSaveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

@@ -275,7 +275,9 @@
             this.cseditCode.Size = new System.Drawing.Size(780, 291);
             this.cseditCode.TabIndex = 9;
             this.cseditCode.TabStop = false;
-            this.cseditCode.Text = resources.GetString("cseditCode.Text");
+            this.cseditCode.Text = "using System;\r\n\r\nnamespace Project\r\n{\r\n    public class Program\r\n    {\r\n        p" +
+    "ublic static void Main()\r\n        {\r\n            Console.WriteLine(\"Hello, world" +
+    "!\");\r\n        }\r\n    }\r\n}\r\n";
             // 
             // htmltab
             // 
@@ -543,9 +545,9 @@
             this.infoPanel.AutoSize = true;
             this.infoPanel.Location = new System.Drawing.Point(3, 0);
             this.infoPanel.Name = "infoPanel";
-            this.infoPanel.Size = new System.Drawing.Size(119, 38);
+            this.infoPanel.Size = new System.Drawing.Size(682, 76);
             this.infoPanel.TabIndex = 2;
-            this.infoPanel.Text = "This Program uses:\r\n[PACKAGELIST]";
+            this.infoPanel.Text = resources.GetString("infoPanel.Text");
             // 
             // nightmodeToggle
             // 
