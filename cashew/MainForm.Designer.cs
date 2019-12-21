@@ -275,9 +275,7 @@
             this.cseditCode.Size = new System.Drawing.Size(780, 291);
             this.cseditCode.TabIndex = 9;
             this.cseditCode.TabStop = false;
-            this.cseditCode.Text = "using System;\r\n\r\nnamespace Project\r\n{\r\n    public class Program\r\n    {\r\n        p" +
-    "ublic static void Main()\r\n        {\r\n            Console.WriteLine(\"Hello, world" +
-    "!\");\r\n        }\r\n    }\r\n}\r\n";
+            this.cseditCode.Text = resources.GetString("cseditCode.Text");
             // 
             // htmltab
             // 
@@ -578,12 +576,12 @@
             // 
             this.csSaveFileDialog.DefaultExt = "dat";
             this.csSaveFileDialog.FileName = "Project.dat";
-            this.csSaveFileDialog.Filter = "Data File|*.dat|Binary|*.exe";
+            this.csSaveFileDialog.Filter = "Data File|*.dat|Library|*.dll|Binary|*.exe";
             // 
             // csOpenFileDialog
             // 
             this.csOpenFileDialog.DefaultExt = "dat";
-            this.csOpenFileDialog.Filter = "Data File|*.dat|Binary|*.exe";
+            this.csOpenFileDialog.Filter = "Data File|*.dat|Library|*.dll|Binary|*.exe";
             // 
             // htmlOptionsMenu
             // 

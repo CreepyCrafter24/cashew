@@ -123,6 +123,24 @@ NOTE: The output of programs written in Cashew will be printed to the native con
 This Program uses:
 [PACKAGELIST]</value>
   </data>
+  <data name="cseditCode.Text" xml:space="preserve">
+    <value>using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+
+namespace Program
+{
+    class Program
+    {
+        static void Main(string[] args)
+        {
+            Console.WriteLine("Hello, world");
+        }
+    }
+}</value>
+  </data>
   <metadata name="csSaveFileDialog.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>

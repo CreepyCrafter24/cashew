@@ -35,7 +35,7 @@ namespace cashew
         private readonly Control[] normalControls;
         private readonly ToolStripMenuItem[] menuItems;
         private string[] cseditcodel = new string[0];
-        private string[] cseditrefl = new string[0];
+        private string[] cseditrefl = new string[] { "Microsoft.CSharp.dll", "System.dll", "System.Core.dll", "System.Data.dll", "System.Data.DataSetExtensions.dll", "System.Net.Http.dll", "System.Xml.dll", "System.Xml.Linq.dll" };
 
         public MainForm()
         {
@@ -156,7 +156,8 @@ namespace cashew
                     }
                     else
                     {
-                        File.Copy(compileCS(false).PathToAssembly, csSaveFileDialog.FileName);
+                        compileCS(false, csSaveFileDialog.FilterIndex == 2, csSaveFileDialog.FileName);
+                        //File.Copy(compileCS(false, csSaveFileDialog.FilterIndex == 2).PathToAssembly, csSaveFileDialog.FileName, true);
                     }
                 }
                 catch (Exception e1)
@@ -184,13 +185,20 @@ namespace cashew
                             {
                                 _ = results.CompiledAssembly.EntryPoint.Invoke(null, null);
                             }
-                            catch (Exception e1)
+                            catch
                             {
-                                if (!e1.tryCast(out ThreadAbortException ex))
-                                    Invoke((MethodInvoker)delegate ()
-                                    {
-                                        MetroMessageBox.Show(this, e1.Message, "Execution Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                                    });
+                                try
+                                {
+                                    _ = results.CompiledAssembly.EntryPoint.Invoke(null, new object[] { new string[0] });
+                                }
+                                catch (Exception e1)
+                                {
+                                    if (!e1.tryCast(out ThreadAbortException ex))
+                                        Invoke((MethodInvoker)delegate ()
+                                        {
+                                            MetroMessageBox.Show(this, e1.Message, "Execution Failed", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                                        });
+                                }
                             }
                         });
                     csScript.Start();
@@ -203,7 +211,7 @@ namespace cashew
             }
         }
 
-        private CompilerResults compileCS(bool memory = true)
+        private CompilerResults compileCS(bool memory = true, bool library = false, string OF = "")
         {
             csediterrors.Text = "";
             if (cseditref.Text == "Code")
@@ -217,8 +225,9 @@ namespace cashew
             CompilerParameters parameters = new CompilerParameters
             {
                 GenerateInMemory = memory,
-                GenerateExecutable = true,
+                GenerateExecutable = !library
             };
+            parameters.OutputAssembly = memory ? parameters.OutputAssembly : OF;
             parameters.ReferencedAssemblies.AddRange(cseditrefl);
             CompilerResults results;
             using (CSharpCodeProvider provider = new CSharpCodeProvider())
@@ -262,8 +271,7 @@ namespace cashew
                     {
                         CSharpDecompiler decompiler = new CSharpDecompiler(csOpenFileDialog.FileName, new DecompilerSettings());
                         cseditcodel = decompiler.DecompileWholeModuleAsString().Split(new string[] { "\r\n" }, StringSplitOptions.None);
-                        cseditrefl = Assembly.LoadFrom(csOpenFileDialog.FileName)
-                            .GetReferencedAssemblies().Where(s => !new string[] { "mscorlib" }.Contains(s.Name))
+                        cseditrefl = Assembly.LoadFrom(csOpenFileDialog.FileName).GetReferencedAssemblies().Where(s => !new string[] { "mscorlib" }.Contains(s.Name))
                             .Select(s => string.IsNullOrWhiteSpace(s.CodeBase) ? (s.Name + ".dll") : s.CodeBase).ToArray();
                         if (cseditref.Text == "References")
                             cseditCode.Text = string.Join("\r\n", cseditcodel);
@@ -273,6 +281,7 @@ namespace cashew
                 }
                 catch (Exception e1)
                 {
+                    Console.WriteLine(e1.ToString());
                     MetroMessageBox.Show(this, e1.ToString(), "Failed to Load", MessageBoxButtons.OK, MessageBoxIcon.Error);
                 }
             }
