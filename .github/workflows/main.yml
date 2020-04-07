@@ -20,8 +20,8 @@ jobs:
         rm Remove.bat
         dotnet restore
         & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" -noLogo -verbosity:m -p:Configuration=Release
-        cp *\bin\Release\netcoreapp3.1\package.zip .
-        $file = Get-Item $(Resolve-Path *\bin\Release\netcoreapp3.1\*.exe).Path
+        cp *\bin\Release\net461\package.zip .
+        $file = Get-Item $(Resolve-Path *\bin\Release\net461\*.exe).Path
         $asm = $([Reflection.Assembly]::LoadFile($file.DirectoryName + "\" + $file.BaseName + ".dll"))
         $asmver = $asm.GetName().Version.ToString()
         echo "::set-output name=vers::$asmver"
@@ -47,7 +47,7 @@ jobs:
         asset_content_type: application/zip
     - name: Generate XML
       run: |
-        $file = Get-Item $(Resolve-Path *\bin\Release\netcoreapp3.1\*.exe).Path
+        $file = Get-Item $(Resolve-Path *\bin\Release\net461\*.exe).Path
         $asm = [Reflection.Assembly]::LoadFile($file.DirectoryName + "\" + $file.BaseName + ".dll")
         [System.XML.XMLDocument]$xml=New-Object System.XML.XMLDocument
         [System.XML.XMLElement]$app=$xml.CreateElement("app")
