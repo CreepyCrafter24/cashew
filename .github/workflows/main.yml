@@ -21,8 +21,7 @@ jobs:
         dotnet restore
         & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" -noLogo -verbosity:m -p:Configuration=Release
         cp *\bin\Release\net461\package.zip .
-        $file = Get-Item $(Resolve-Path *\bin\Release\net461\*.exe).Path
-        $asm = $([Reflection.Assembly]::LoadFile($file.DirectoryName + "\" + $file.BaseName + ".dll"))
+        $asm = $([Reflection.Assembly]::LoadFile($(Get-Item $(Resolve-Path *\bin\Release\net461\*.exe).Path).FullName))
         $asmver = $asm.GetName().Version.ToString()
         echo "::set-output name=vers::$asmver"
     - name: Create Release
@@ -47,8 +46,7 @@ jobs:
         asset_content_type: application/zip
     - name: Generate XML
       run: |
-        $file = Get-Item $(Resolve-Path *\bin\Release\net461\*.exe).Path
-        $asm = [Reflection.Assembly]::LoadFile($file.DirectoryName + "\" + $file.BaseName + ".dll")
+        $asm = $([Reflection.Assembly]::LoadFile($(Get-Item $(Resolve-Path *\bin\Release\net461\*.exe).Path).FullName))
         [System.XML.XMLDocument]$xml=New-Object System.XML.XMLDocument
         [System.XML.XMLElement]$app=$xml.CreateElement("app")
         $xml.appendChild($app)
