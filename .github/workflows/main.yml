@@ -21,8 +21,9 @@ jobs:
         dotnet restore
         & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" -noLogo -verbosity:m -p:Configuration=Release
         cp *\bin\Release\net461\package.zip .
-        $asm = $([Reflection.Assembly]::LoadFile($(Get-Item $(Resolve-Path *\bin\Release\net461\*.exe).Path).FullName))
-        $asmver = $asm.GetName().Version.ToString()
+        [timespan]$span = [System.DateTime]::Now - [datetime]'01/01/2000'
+        [version]$ver = [version]("1.0." + $span.Days.ToString() + "." + ($span.Seconds / 2).ToString())
+        $asmver = $ver.ToString()
         echo "::set-output name=vers::$asmver"
     - name: Create Release
       id: create_release
