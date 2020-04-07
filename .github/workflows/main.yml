@@ -23,7 +23,7 @@ jobs:
         rm Remove.bat
         echo "restore"
         dotnet restore
-        echo "build
+        echo "build"
         & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" -noLogo -verbosity:m -p:Configuration=Release
         echo "copy"
         cp *\bin\Release\net461\package.zip .
