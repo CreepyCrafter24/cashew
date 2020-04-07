@@ -10,7 +10,8 @@ namespace cashew
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Console.Title = "The Cashew Project - Native Shell";
+            Console.Title = "The Cashew Project - Native Shell (do not close)";
+            Console.WriteLine("Welcome to Cashew. Your programs output will be redirected here");
             Application.Run(new MainForm());
         }
     }
