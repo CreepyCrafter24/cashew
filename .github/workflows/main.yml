@@ -29,10 +29,8 @@ jobs:
         cp *\bin\Release\net461\package.zip .
         echo "get timespan"
         [timespan]$span = [System.DateTime]::Now - [datetime]'01/01/2000'
-        echo "get version"
-        [version]$ver = [version]("1.0." + $span.Days.ToString() + "." + ($span.Seconds / 2).ToString())
         echo "get version string"
-        $asmver = $ver.ToString()
+        $asmver = "1.0." + $span.Days.ToString() + "." + [math]::Round($span.Seconds / 2).ToString()
         echo "set output"
         echo "::set-output name=vers::$asmver"
     - name: Create Release
