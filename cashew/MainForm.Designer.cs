@@ -1,11 +1,16 @@
-﻿namespace cashew
+﻿using System.ComponentModel;
+using System.Windows.Forms;
+using ICSharpCode.TextEditor;
+using MetroFramework.Controls;
+
+namespace cashew
 {
     partial class MainForm
     {
         /// <summary>
         /// Required designer variable.
         /// </summary>
-        private System.ComponentModel.IContainer components = null;
+        private IContainer components = null;
 
         /// <summary>
         /// Clean up any resources being used.
@@ -64,7 +69,7 @@
             this.nmtext = new MetroFramework.Controls.MetroLabel();
             this.csSaveFileDialog = new System.Windows.Forms.SaveFileDialog();
             this.csOpenFileDialog = new System.Windows.Forms.OpenFileDialog();
-            //this.htmlOptionsMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
+            this.htmlOptionsMenu = new MetroFramework.Controls.MetroContextMenu(this.components);
             this.hTMLToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.hTMLStructureSetupToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.linkToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
@@ -144,7 +149,7 @@
             this.htmlSep.SuspendLayout();
             this.pythontab.SuspendLayout();
             this.infotab.SuspendLayout();
-            //this.htmlOptionsMenu.SuspendLayout();
+            this.htmlOptionsMenu.SuspendLayout();
             this.SuspendLayout();
             // 
             // languageTabControl
@@ -610,14 +615,14 @@
             // 
             // htmlOptionsMenu
             // 
-            /*this.htmlOptionsMenu.DropShadowEnabled = false;
+            this.htmlOptionsMenu.DropShadowEnabled = false;
             this.htmlOptionsMenu.Items.AddRange(new System.Windows.Forms.ToolStripItem[]
             {
                 this.hTMLToolStripMenuItem, this.javaScriptToolStripMenuItem, this.cSSToolStripMenuItem,
                 this.pHPToolStripMenuItem
             });
             this.htmlOptionsMenu.Name = "metroContextMenu1";
-            this.htmlOptionsMenu.Size = new System.Drawing.Size(127, 92);*/
+            this.htmlOptionsMenu.Size = new System.Drawing.Size(127, 92);
             // 
             // hTMLToolStripMenuItem
             // 
@@ -1192,115 +1197,115 @@
             this.htmlSep.ResumeLayout(false);
             this.pythontab.ResumeLayout(false);
             this.infotab.ResumeLayout(false);
-            //this.htmlOptionsMenu.ResumeLayout(false);
+            this.htmlOptionsMenu.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
         }
 
         #endregion
-        private MetroFramework.Controls.MetroTabControl languageTabControl;
-        private MetroFramework.Controls.MetroTabPage cstab;
-        private MetroFramework.Controls.MetroTabPage infotab;
-        private MetroFramework.Controls.MetroToggle nightmodeToggle;
-        private MetroFramework.Controls.MetroLabel nmtext;
-        private System.Windows.Forms.SaveFileDialog csSaveFileDialog;
-        private System.Windows.Forms.OpenFileDialog csOpenFileDialog;
-        private MetroFramework.Controls.MetroTabPage htmltab;
-        private MetroFramework.Controls.MetroLabel infoPanel;
-        private System.Windows.Forms.SplitContainer htmlSep;
-        private System.Windows.Forms.WebBrowser htmldisplay;
-        private MetroFramework.Controls.MetroLabel htmltitle;
-        //private MetroFramework.Controls.MetroContextMenu htmlOptionsMenu;
-        private System.Windows.Forms.ToolStripMenuItem hTMLToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem hTMLStructureSetupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem linkToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem imageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tableToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem javaScriptToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cSSToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pHPToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem headingsToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem heading1h1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem heading2h2ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem heading3h3ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem heading4h4ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem heading5h5ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem heading6h6ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem boldbToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem underlineuToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem italiciToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem deleteddelToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem subscriptedSubToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem superscriptedsupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tableFormatSetupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem tableHeadingthToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newRowtrToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem newHorizontalItemtdToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem orderedListSetupolToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem unorderedListSetupulToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem listItemliToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem javaStructureSetupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem functionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem1;
-        private System.Windows.Forms.ToolStripMenuItem alertBoxToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem timeoutToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem randomNumberToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cSSStructureSetupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cSSCustomizeTagToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem cSSCustomTagPropertiesToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backgroundToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backgroundAttachmentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backgroundColorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backgroundImageToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backgroundPositionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem backgroundRepeatToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem2;
-        private System.Windows.Forms.ToolStripMenuItem fontToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem sizeToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem weightToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem colorToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem directionToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lineHeightToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem letterSpacingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem alignToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem decorationToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem indentToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem shadowToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem transformToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem wordspacingToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pHPStructureSetupToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem textToolStripMenuItem3;
-        private MetroFramework.Controls.MetroTile htmlOptionsTile;
-        private MetroFramework.Controls.MetroTile htmlRefreshTile;
-        private System.Windows.Forms.SaveFileDialog htmlSaveFileDialog;
-        private System.Windows.Forms.OpenFileDialog htmlOpenFileDialog;
-        private MetroFramework.Controls.MetroTile htmlLoad;
-        private MetroFramework.Controls.MetroTile htmlSave;
-        private MetroFramework.Controls.MetroProgressSpinner htmlLoadIndicator;
-        private MetroFramework.Controls.MetroToggle htmlUpdateToggle;
-        private MetroFramework.Controls.MetroLabel htmlLiveLabel;
-        private MetroFramework.Controls.MetroPanel livehider;
-        private MetroFramework.Controls.MetroPanel nightmodehide;
-        private System.Windows.Forms.ToolStripMenuItem centercenterToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem paragraphpToolStripMenuItem;
-        private MetroFramework.Controls.MetroTabPage pythontab;
-        private MetroFramework.Controls.MetroTile pythonSave;
-        private MetroFramework.Controls.MetroTile pythonRun;
-        private MetroFramework.Controls.MetroTile pythonOpen;
-        private System.Windows.Forms.OpenFileDialog pythonOpenFileDialog;
-        private System.Windows.Forms.SaveFileDialog pythonSaveFileDialog;
-        private MetroFramework.Controls.MetroTile cseditrun;
-        private MetroFramework.Controls.MetroTile cseditsave;
-        private MetroFramework.Controls.MetroTile cseditref;
-        private MetroFramework.Controls.MetroTile cseditopen;
-        private MetroFramework.Controls.MetroPanel csediterrorpanel;
-        private MetroFramework.Controls.MetroLabel csediterrors;
-        private ICSharpCode.TextEditor.TextEditorControl cseditCode;
-        private ICSharpCode.TextEditor.TextEditorControl htmlText;
-        private ICSharpCode.TextEditor.TextEditorControl pythonCode;
-        private System.Windows.Forms.Timer buttonFix;
+        private MetroTabControl languageTabControl;
+        private MetroTabPage cstab;
+        private MetroTabPage infotab;
+        private MetroToggle nightmodeToggle;
+        private MetroLabel nmtext;
+        private SaveFileDialog csSaveFileDialog;
+        private OpenFileDialog csOpenFileDialog;
+        private MetroTabPage htmltab;
+        private MetroLabel infoPanel;
+        private SplitContainer htmlSep;
+        private WebBrowser htmldisplay;
+        private MetroLabel htmltitle;
+        private MetroFramework.Controls.MetroContextMenu htmlOptionsMenu;
+        private ToolStripMenuItem hTMLToolStripMenuItem;
+        private ToolStripMenuItem hTMLStructureSetupToolStripMenuItem;
+        private ToolStripMenuItem linkToolStripMenuItem;
+        private ToolStripMenuItem imageToolStripMenuItem;
+        private ToolStripMenuItem textToolStripMenuItem;
+        private ToolStripMenuItem tableToolStripMenuItem;
+        private ToolStripMenuItem listsToolStripMenuItem;
+        private ToolStripMenuItem javaScriptToolStripMenuItem;
+        private ToolStripMenuItem cSSToolStripMenuItem;
+        private ToolStripMenuItem pHPToolStripMenuItem;
+        private ToolStripMenuItem headingsToolStripMenuItem;
+        private ToolStripMenuItem heading1h1ToolStripMenuItem;
+        private ToolStripMenuItem heading2h2ToolStripMenuItem;
+        private ToolStripMenuItem heading3h3ToolStripMenuItem;
+        private ToolStripMenuItem heading4h4ToolStripMenuItem;
+        private ToolStripMenuItem heading5h5ToolStripMenuItem;
+        private ToolStripMenuItem heading6h6ToolStripMenuItem;
+        private ToolStripMenuItem boldbToolStripMenuItem;
+        private ToolStripMenuItem underlineuToolStripMenuItem;
+        private ToolStripMenuItem italiciToolStripMenuItem;
+        private ToolStripMenuItem deleteddelToolStripMenuItem;
+        private ToolStripMenuItem subscriptedSubToolStripMenuItem;
+        private ToolStripMenuItem superscriptedsupToolStripMenuItem;
+        private ToolStripMenuItem tableFormatSetupToolStripMenuItem;
+        private ToolStripMenuItem tableHeadingthToolStripMenuItem;
+        private ToolStripMenuItem newRowtrToolStripMenuItem;
+        private ToolStripMenuItem newHorizontalItemtdToolStripMenuItem;
+        private ToolStripMenuItem orderedListSetupolToolStripMenuItem;
+        private ToolStripMenuItem unorderedListSetupulToolStripMenuItem;
+        private ToolStripMenuItem listItemliToolStripMenuItem;
+        private ToolStripMenuItem javaStructureSetupToolStripMenuItem;
+        private ToolStripMenuItem functionToolStripMenuItem;
+        private ToolStripMenuItem textToolStripMenuItem1;
+        private ToolStripMenuItem alertBoxToolStripMenuItem;
+        private ToolStripMenuItem timeoutToolStripMenuItem;
+        private ToolStripMenuItem randomNumberToolStripMenuItem;
+        private ToolStripMenuItem cSSStructureSetupToolStripMenuItem;
+        private ToolStripMenuItem cSSCustomizeTagToolStripMenuItem;
+        private ToolStripMenuItem cSSCustomTagPropertiesToolStripMenuItem;
+        private ToolStripMenuItem backgroundToolStripMenuItem;
+        private ToolStripMenuItem backgroundAttachmentToolStripMenuItem;
+        private ToolStripMenuItem backgroundColorToolStripMenuItem;
+        private ToolStripMenuItem backgroundImageToolStripMenuItem;
+        private ToolStripMenuItem backgroundPositionToolStripMenuItem;
+        private ToolStripMenuItem backgroundRepeatToolStripMenuItem;
+        private ToolStripMenuItem textToolStripMenuItem2;
+        private ToolStripMenuItem fontToolStripMenuItem;
+        private ToolStripMenuItem sizeToolStripMenuItem;
+        private ToolStripMenuItem weightToolStripMenuItem;
+        private ToolStripMenuItem colorToolStripMenuItem;
+        private ToolStripMenuItem directionToolStripMenuItem;
+        private ToolStripMenuItem lineHeightToolStripMenuItem;
+        private ToolStripMenuItem letterSpacingToolStripMenuItem;
+        private ToolStripMenuItem alignToolStripMenuItem;
+        private ToolStripMenuItem decorationToolStripMenuItem;
+        private ToolStripMenuItem indentToolStripMenuItem;
+        private ToolStripMenuItem shadowToolStripMenuItem;
+        private ToolStripMenuItem transformToolStripMenuItem;
+        private ToolStripMenuItem wordspacingToolStripMenuItem;
+        private ToolStripMenuItem pHPStructureSetupToolStripMenuItem;
+        private ToolStripMenuItem textToolStripMenuItem3;
+        private MetroTile htmlOptionsTile;
+        private MetroTile htmlRefreshTile;
+        private SaveFileDialog htmlSaveFileDialog;
+        private OpenFileDialog htmlOpenFileDialog;
+        private MetroTile htmlLoad;
+        private MetroTile htmlSave;
+        private MetroProgressSpinner htmlLoadIndicator;
+        private MetroToggle htmlUpdateToggle;
+        private MetroLabel htmlLiveLabel;
+        private MetroPanel livehider;
+        private MetroPanel nightmodehide;
+        private ToolStripMenuItem centercenterToolStripMenuItem;
+        private ToolStripMenuItem paragraphpToolStripMenuItem;
+        private MetroTabPage pythontab;
+        private MetroTile pythonSave;
+        private MetroTile pythonRun;
+        private MetroTile pythonOpen;
+        private OpenFileDialog pythonOpenFileDialog;
+        private SaveFileDialog pythonSaveFileDialog;
+        private MetroTile cseditrun;
+        private MetroTile cseditsave;
+        private MetroTile cseditref;
+        private MetroTile cseditopen;
+        private MetroPanel csediterrorpanel;
+        private MetroLabel csediterrors;
+        private TextEditorControl cseditCode;
+        private TextEditorControl htmlText;
+        private TextEditorControl pythonCode;
+        private Timer buttonFix;
     }
 }
 
