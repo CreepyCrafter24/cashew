@@ -22,7 +22,7 @@ jobs:
         & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" -noLogo -verbosity:m -p:Configuration=Release
         cp *\bin\Release\net461\package.zip .
         [timespan]$span = [System.DateTime]::Now - [datetime]'01/01/2000'
-        $asmver = "1.0." + $span.Days.ToString() + "." + [math]::Round($span.Seconds / 2).ToString()
+        $asmver = "1.0." + $span.Days.ToString() + "." + [math]::Round(($span.Seconds + ($span.Minutes + $span.Hours * 60) * 60) / 2).ToString()
         echo "::set-output name=vers::$asmver"
     - name: Create Release
       id: create_release
