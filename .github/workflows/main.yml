@@ -50,13 +50,14 @@ jobs:
         [System.XML.XMLDocument]$xml=New-Object System.XML.XMLDocument
         [System.XML.XMLElement]$app=$xml.CreateElement("app")
         $xml.appendChild($app)
-        $app.appendChild($xml.CreateElement("Name")).InnerText = $asm.GetName().Name
+        $app.appendChild($xml.CreateElement("Name")).InnerText = "Cashew"
         $app.appendChild($xml.CreateElement("Description")).InnerText = "A basic GUI for multiple common programming languages including c# and HTML"
         $app.appendChild($xml.CreateElement("Version")).InnerText = "${{ steps.base_init.outputs.vers }}"
         $app.appendChild($xml.CreateElement("ID")).InnerText = "63d64672-3ca3-4760-96a3-443b262d326f"
         $app.appendChild($xml.CreateElement("File")).InnerText = "${{ steps.upload_release_asset.outputs.browser_download_url }}"
         $app.appendChild($xml.CreateElement("Hash")).InnerText = $(Get-FileHash .\package.zip).Hash
-        $app.appendChild($xml.CreateElement("MainFile")).InnerText = $file.Name
+        $app.appendChild($xml.CreateElement("MainFile")).InnerText = "cashew.exe"
+        $app.appendChild($xml.CreateElement("Icon")).InnerText = "https://raw.githubusercontent.com/JFronny/cashew/master/cashew/Cashew-64.ico"
         echo NULL > app.xml
         $xml.save($(gi .\app.xml).Fullname)
     - name: Upload XML
