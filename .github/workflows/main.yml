@@ -19,11 +19,17 @@ jobs:
         rm Install.bat
         rm Remove.bat
         dotnet restore
+        echo "BUILD
         & "C:\Program Files (x86)\Microsoft Visual Studio\2019\Enterprise\MSBuild\Current\Bin\MSBuild.exe" -noLogo -verbosity:m -p:Configuration=Release
+        echo "COPY"
         cp *\bin\Release\net461\package.zip .
+        echo "GET_TIMESPAN"
         [timespan]$span = [System.DateTime]::Now - [datetime]'01/01/2000'
+        echo "GET_VERSION"
         [version]$ver = [version]("1.0." + $span.Days.ToString() + "." + ($span.Seconds / 2).ToString())
+        echo "GET_STR"
         $asmver = $ver.ToString()
+        echo "SET_STR"
         echo "::set-output name=vers::$asmver"
     - name: Create Release
       id: create_release
