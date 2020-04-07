@@ -22,6 +22,7 @@ using System.Threading;
 using System.Windows.Forms;
 using System.Xml.Linq;
 using ThreadState = System.Threading.ThreadState;
+using MetroMessageBox = cashew.MessageBox.MetroMessageBox;
 
 #pragma warning disable IDE1006
 
@@ -30,12 +31,12 @@ namespace cashew
     public partial class MainForm : MetroForm
     {
         #region General
-        private readonly ThreadState[] runningStates = new ThreadState[] { ThreadState.Background, ThreadState.Running, ThreadState.StopRequested, ThreadState.WaitSleepJoin };
-        private readonly IMetroControl[] metroControls;
-        private readonly Control[] normalControls;
-        private readonly ToolStripMenuItem[] menuItems;
-        private string[] cseditcodel = new string[0];
-        private string[] cseditrefl = new string[] { "Microsoft.CSharp.dll", "System.dll", "System.Core.dll", "System.Data.dll", "System.Data.DataSetExtensions.dll", "System.Net.Http.dll", "System.Xml.dll", "System.Xml.Linq.dll" };
+        private readonly ThreadState[] _runningStates = { ThreadState.Background, ThreadState.Running, ThreadState.StopRequested, ThreadState.WaitSleepJoin };
+        private readonly IMetroControl[] _metroControls;
+        private readonly Control[] _normalControls;
+        private readonly ToolStripMenuItem[] _menuItems;
+        private string[] _cseditcodel = new string[0];
+        private string[] _cseditrefl = { "Microsoft.CSharp.dll", "System.dll", "System.Core.dll", "System.Data.dll", "System.Data.DataSetExtensions.dll", "System.Net.Http.dll", "System.Xml.dll", "System.Xml.Linq.dll" };
 
         public MainForm()
         {
@@ -43,10 +44,10 @@ namespace cashew
             {
                 splash.Show();
                 InitializeComponent();
-                metroControls = new IMetroControl[] { nmtext, languageTabControl, cstab, infotab, nightmodeToggle, cseditopen, cseditrun, cseditsave, csediterrorpanel, csediterrors, cseditref, infoPanel, htmltab, htmltitle, htmlOptionsTile, htmlOptionsMenu, htmlRefreshTile, htmlLoad, htmlSave, htmlLoadIndicator, htmlUpdateToggle, htmlLiveLabel, livehider, nightmodehide, pythontab,
+                _metroControls = new IMetroControl[] { nmtext, languageTabControl, cstab, infotab, nightmodeToggle, cseditopen, cseditrun, cseditsave, csediterrorpanel, csediterrors, cseditref, infoPanel, htmltab, htmltitle, htmlOptionsTile, /*htmlOptionsMenu, */htmlRefreshTile, htmlLoad, htmlSave, htmlLoadIndicator, htmlUpdateToggle, htmlLiveLabel, livehider, nightmodehide, pythontab,
                 pythonSave, pythonRun, pythonOpen};
-                normalControls = new Control[] { htmlSep, htmldisplay, cseditCode, pythonCode, htmlText };
-                menuItems = new ToolStripMenuItem[] { hTMLToolStripMenuItem, javaScriptToolStripMenuItem, cSSToolStripMenuItem, pHPToolStripMenuItem, hTMLStructureSetupToolStripMenuItem, javaStructureSetupToolStripMenuItem, cSSStructureSetupToolStripMenuItem, pHPStructureSetupToolStripMenuItem, linkToolStripMenuItem, imageToolStripMenuItem, textToolStripMenuItem, tableToolStripMenuItem,
+                _normalControls = new Control[] { htmlSep, htmldisplay, cseditCode, pythonCode, htmlText };
+                _menuItems = new[] { hTMLToolStripMenuItem, javaScriptToolStripMenuItem, cSSToolStripMenuItem, pHPToolStripMenuItem, hTMLStructureSetupToolStripMenuItem, javaStructureSetupToolStripMenuItem, cSSStructureSetupToolStripMenuItem, pHPStructureSetupToolStripMenuItem, linkToolStripMenuItem, imageToolStripMenuItem, textToolStripMenuItem, tableToolStripMenuItem,
                 listsToolStripMenuItem, functionToolStripMenuItem, textToolStripMenuItem1, alertBoxToolStripMenuItem, timeoutToolStripMenuItem, randomNumberToolStripMenuItem, cSSCustomizeTagToolStripMenuItem, cSSCustomTagPropertiesToolStripMenuItem, textToolStripMenuItem3, headingsToolStripMenuItem, boldbToolStripMenuItem, underlineuToolStripMenuItem, italiciToolStripMenuItem,
                 deleteddelToolStripMenuItem, subscriptedSubToolStripMenuItem, superscriptedsupToolStripMenuItem, tableFormatSetupToolStripMenuItem, tableHeadingthToolStripMenuItem, newHorizontalItemtdToolStripMenuItem, newRowtrToolStripMenuItem, orderedListSetupolToolStripMenuItem, unorderedListSetupulToolStripMenuItem, listItemliToolStripMenuItem, heading1h1ToolStripMenuItem,
                 heading2h2ToolStripMenuItem, heading3h3ToolStripMenuItem, heading4h4ToolStripMenuItem, heading5h5ToolStripMenuItem, heading6h6ToolStripMenuItem, textToolStripMenuItem2, backgroundToolStripMenuItem, backgroundRepeatToolStripMenuItem, backgroundPositionToolStripMenuItem, backgroundImageToolStripMenuItem, backgroundColorToolStripMenuItem, backgroundAttachmentToolStripMenuItem,
@@ -64,10 +65,10 @@ namespace cashew
                 Directory.Delete(Path.Combine(Path.GetTempPath(), "Cashew"), true);
             using (MemoryStream ms = new MemoryStream(Resources.IronPythonBCL))
             using (ZipArchive ar = new ZipArchive(ms))
-            {
                 ar.ExtractToDirectory(Path.Combine(Path.GetTempPath(), "Cashew\\Python"));
-            }
-            infoPanel.Text = infoPanel.Text.Replace("[PACKAGELIST]", string.Join("\r\n", XDocument.Parse(Resources.packages).Element("packages").Elements("package").Select(s => "- " + s.Attribute("id").Value + " " + s.Attribute("version").Value).OrderBy(s => s)));
+            
+            infoPanel.Text = infoPanel.Text.Replace("[PACKAGELIST]", string.Join("\r\n", XDocument.Parse(Resources.packages).Element("Project").Elements("ItemGroup").SelectMany(s => s.Elements("PackageReference"))
+                .Select(s => $"- {s.Attribute("Include").Value} {s.Attribute("Version").Value}").OrderBy(s => s)));
         }
 
         private void MAIN_Load(object sender, EventArgs e) => BringToFront();
@@ -84,12 +85,12 @@ namespace cashew
                 Theme = MetroThemeStyle.Light;
                 Style = MetroColorStyle.Blue;
             }
-            foreach (IMetroControl c in metroControls)
+            foreach (IMetroControl c in _metroControls)
             {
                 c.Style = Style;
                 c.Theme = Theme;
             }
-            foreach (Control c in normalControls)
+            foreach (Control c in _normalControls)
             {
                 if (Theme == MetroThemeStyle.Dark)
                 {
@@ -102,7 +103,7 @@ namespace cashew
                     c.ForeColor = Color.White;
                 }
             }
-            foreach (ToolStripMenuItem t in menuItems)
+            foreach (ToolStripMenuItem t in _menuItems)
             {
                 if (Theme == MetroThemeStyle.Dark)
                 {
@@ -120,8 +121,8 @@ namespace cashew
 
         private void buttonFix_Tick(object sender, EventArgs e)
         {
-            pythonRun.Text = pythonScript != null && runningStates.Contains(pythonScript.ThreadState) ? "Stop" : "Run";
-            cseditrun.Text = csScript != null && runningStates.Contains(csScript.ThreadState) ? "Stop" : "Run";
+            pythonRun.Text = pythonScript != null && _runningStates.Contains(pythonScript.ThreadState) ? "Stop" : "Run";
+            cseditrun.Text = csScript != null && _runningStates.Contains(csScript.ThreadState) ? "Stop" : "Run";
             htmlOptionsTile.Enabled = htmlText.ActiveTextAreaControl.TextArea.SelectionManager.HasSomethingSelected;
         }
 
@@ -130,7 +131,11 @@ namespace cashew
         #region CS
 
         Thread csScript;
-        private void metroLabel2_Click(object sender, EventArgs e) => MetroMessageBox.Show(this, csediterrors.Text, "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        private void metroLabel2_Click(object sender, EventArgs e)
+        {
+            MetroMessageBox.Show(this, csediterrors.Text, "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            
+        }
 
         private void metroPanel1_Click(object sender, EventArgs e) => MetroMessageBox.Show(this, csediterrors.Text, "Errors", MessageBoxButtons.OK, MessageBoxIcon.Error);
 
@@ -144,14 +149,14 @@ namespace cashew
                     {
                         if (cseditref.Text == "Code")
                         {
-                            cseditrefl = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                            _cseditrefl = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
                         }
                         else
                         {
-                            cseditcodel = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                            _cseditcodel = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
                         }
                         Stream s = File.OpenWrite(csSaveFileDialog.FileName);
-                        new BinaryFormatter().Serialize(s, new string[][] { cseditcodel, cseditrefl });
+                        new BinaryFormatter().Serialize(s, new string[][] { _cseditcodel, _cseditrefl });
                         s.Dispose();
                     }
                     else
@@ -169,7 +174,7 @@ namespace cashew
 
         private void cseditrun_Click(object sender, EventArgs e)
         {
-            if ((csScript != null) && runningStates.Contains(csScript.ThreadState))
+            if ((csScript != null) && _runningStates.Contains(csScript.ThreadState))
             {
                 csScript.Abort();
             }
@@ -216,11 +221,11 @@ namespace cashew
             csediterrors.Text = "";
             if (cseditref.Text == "Code")
             {
-                cseditrefl = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                _cseditrefl = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             }
             else
             {
-                cseditcodel = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                _cseditcodel = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
             }
             CompilerParameters parameters = new CompilerParameters
             {
@@ -228,11 +233,11 @@ namespace cashew
                 GenerateExecutable = !library
             };
             parameters.OutputAssembly = memory ? parameters.OutputAssembly : OF;
-            parameters.ReferencedAssemblies.AddRange(cseditrefl);
+            parameters.ReferencedAssemblies.AddRange(_cseditrefl);
             CompilerResults results;
             using (CSharpCodeProvider provider = new CSharpCodeProvider())
             {
-                results = provider.CompileAssemblyFromSource(parameters, string.Join("\r\n", cseditcodel));
+                results = provider.CompileAssemblyFromSource(parameters, string.Join("\r\n", _cseditcodel));
                 if (results.Errors.HasErrors)
                 {
                     IEnumerable<CompilerError> err = results.Errors.OfType<CompilerError>();
@@ -260,23 +265,23 @@ namespace cashew
                         Stream s = File.OpenRead(csOpenFileDialog.FileName);
                         string[][] tmp = (string[][])new BinaryFormatter().Deserialize(s);
                         s.Dispose();
-                        cseditcodel = tmp[0];
-                        cseditrefl = tmp[1];
+                        _cseditcodel = tmp[0];
+                        _cseditrefl = tmp[1];
                         if (cseditref.Text == "References")
-                            cseditCode.Text = string.Join("\r\n", cseditcodel);
+                            cseditCode.Text = string.Join("\r\n", _cseditcodel);
                         else
-                            cseditCode.Text = string.Join("\r\n", cseditrefl);
+                            cseditCode.Text = string.Join("\r\n", _cseditrefl);
                     }
                     else
                     {
                         CSharpDecompiler decompiler = new CSharpDecompiler(csOpenFileDialog.FileName, new DecompilerSettings());
-                        cseditcodel = decompiler.DecompileWholeModuleAsString().Split(new string[] { "\r\n" }, StringSplitOptions.None);
-                        cseditrefl = Assembly.LoadFrom(csOpenFileDialog.FileName).GetReferencedAssemblies().Where(s => !new string[] { "mscorlib" }.Contains(s.Name))
+                        _cseditcodel = decompiler.DecompileWholeModuleAsString().Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                        _cseditrefl = Assembly.LoadFrom(csOpenFileDialog.FileName).GetReferencedAssemblies().Where(s => !new string[] { "mscorlib" }.Contains(s.Name))
                             .Select(s => string.IsNullOrWhiteSpace(s.CodeBase) ? (s.Name + ".dll") : s.CodeBase).ToArray();
                         if (cseditref.Text == "References")
-                            cseditCode.Text = string.Join("\r\n", cseditcodel);
+                            cseditCode.Text = string.Join("\r\n", _cseditcodel);
                         else
-                            cseditCode.Text = string.Join("\r\n", cseditrefl);
+                            cseditCode.Text = string.Join("\r\n", _cseditrefl);
                     }
                 }
                 catch (Exception e1)
@@ -291,15 +296,15 @@ namespace cashew
         {
             if (cseditref.Text == "References")
             {
-                cseditcodel = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-                cseditCode.Text = string.Join("\r\n", cseditrefl);
+                _cseditcodel = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                cseditCode.Text = string.Join("\r\n", _cseditrefl);
                 cseditCode.Refresh();
                 cseditref.Text = "Code";
             }
             else
             {
-                cseditrefl = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
-                cseditCode.Text = string.Join("\r\n", cseditcodel);
+                _cseditrefl = cseditCode.Text.Split(new string[] { "\r\n" }, StringSplitOptions.None);
+                cseditCode.Text = string.Join("\r\n", _cseditcodel);
                 cseditCode.Refresh();
                 cseditref.Text = "References";
             }
@@ -339,7 +344,10 @@ namespace cashew
             htmltitle.Text = htmldisplay.DocumentTitle;
         }
 
-        private void htmlOptionsTile_Click(object sender, EventArgs e) => htmlOptionsMenu.Show(htmlOptionsTile.Location);
+        private void htmlOptionsTile_Click(object sender, EventArgs e)
+        {
+            //htmlOptionsMenu.Show(htmlOptionsTile.Location);
+        }
 
         private void htmlOptionsTile_MouseEnter(object sender, EventArgs e)
         {
@@ -551,7 +559,7 @@ namespace cashew
 
         private void pythonRun_Click(object sender, EventArgs e)
         {
-            if ((pythonScript != null) && runningStates.Contains(pythonScript.ThreadState))
+            if ((pythonScript != null) && _runningStates.Contains(pythonScript.ThreadState))
             {
                 pythonScript.Abort();
             }
