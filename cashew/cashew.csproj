@@ -22,7 +22,7 @@
     <PackageReference Include="CC-Functions.Misc" Version="1.1.7399.26972" />
     <PackageReference Include="ICSharpCode.Decompiler" Version="5.0.2.5153" />
     <PackageReference Include="ICSharpCode.TextEditor.Extended" Version="4.2.4" />
-    <PackageReference Include="IronPython" Version="2.7.9" />
+    <PackageReference Include="IronPython" Version="2.7.10" />
     <PackageReference Include="ModernUI" Version="2.0.0" />
   </ItemGroup>
   <PropertyGroup>
