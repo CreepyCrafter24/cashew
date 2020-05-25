@@ -237,7 +237,7 @@ namespace cashew
                             }
                             catch (Exception e1)
                             {
-                                if (!e1.tryCast(out ThreadAbortException ex))
+                                if (!e1.TryCast(out ThreadAbortException ex))
                                     Invoke((MethodInvoker) delegate
                                     {
                                         MetroMessageBox.Show(this, e1.Message, "Execution Failed",
@@ -619,7 +619,7 @@ namespace cashew
                     }
                     catch (Exception e1)
                     {
-                        if (!e1.tryCast(out ThreadAbortException _))
+                        if (!e1.TryCast(out ThreadAbortException _))
                             Invoke((MethodInvoker) delegate
                             {
                                 MetroMessageBox.Show(this, e1.Message, "Execution Failed", MessageBoxButtons.OK,
